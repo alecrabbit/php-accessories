@@ -1,0 +1,7 @@
+.idea
+vendor
+docker*
+.docker*
+tmp
+*.lock
+phpunit.xml
