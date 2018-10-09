@@ -4,6 +4,7 @@
  * Date: 09.10.18
  * Time: 22:45
  */
+declare(strict_types=1);
 
 namespace AlecRabbit;
 
@@ -26,8 +27,13 @@ class DataFormatter
 
     public static function format(int $bytes, $unit = null, $decimals = null): string
     {
+        $negative = false;
+        if ($bytes < 0) {
+            $bytes = abs($bytes);
+            $negative = true;
+        }
         $value = 0;
-        $unit = strtoupper($unit);
+        $unit = strtoupper($unit ?? '');
         if ($bytes > 0) {
             // Generate automatic prefix by bytes
             // If wrong prefix given
@@ -35,9 +41,10 @@ class DataFormatter
                 $pow = floor(log($bytes) / log(1024));
                 $unit = array_search($pow, static::UNITS);
             }
-
             // Calculate byte value by prefix
             $value = ($bytes / pow(1024, floor(static::UNITS[$unit])));
+        } else {
+            $unit = 'B';
         }
 
         // If decimals is not numeric or decimals is less than 0
@@ -50,7 +57,7 @@ class DataFormatter
 
         // Format output
         return
-            sprintf('%.' . $decimals . 'f' . $unit, $value);
+            sprintf('%s%.' . $decimals . 'f' . $unit, $negative ? '-' : '', $value);
     }
 
 }
