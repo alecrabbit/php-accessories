@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AlecRabbit;
 
 
-class DataFormatter
+class BytesFormatter
 {
     const
         UNITS =
@@ -27,10 +27,9 @@ class DataFormatter
 
     public static function format(int $bytes, $unit = null, $decimals = null): string
     {
-        $negative = false;
-        if ($bytes < 0) {
+        $negative = is_negative($bytes);
+        if ($negative) {
             $bytes = abs($bytes);
-            $negative = true;
         }
         $value = 0;
         $unit = strtoupper($unit ?? '');
@@ -46,6 +45,9 @@ class DataFormatter
         } else {
             $unit = 'B';
         }
+
+        if ($unit == 'B')
+            $decimals = 0;
 
         // If decimals is not numeric or decimals is less than 0
         if (!is_numeric($decimals) || $decimals < 0) {
