@@ -3,12 +3,12 @@
     "description": "PHP accessories Classes etc.",
     "type": "library",
     "require": {
-        "php": ">=7.2"
+        "php": ">=7.2",
+        "alecrabbit/php-helpers": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^7.3",
-        "nunomaduro/collision": "^2.0",
-        "alecrabbit/php-helpers": "dev-master"
+        "nunomaduro/collision": "^2.0"
     },
     "license": "MIT",
     "autoload": {
