@@ -5,5 +5,4 @@
 
 /docker-compose.yml
 /.dockerignore
-/composer.lock
 /phpunit.xml
