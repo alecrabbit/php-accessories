@@ -25,7 +25,7 @@ class BytesFormatter
             'YB' => 8
         ];
 
-    public static function format(int $bytes, $unit = null, $decimals = null): string
+    public static function format(int $bytes, ?string $unit = null, int $decimals = null): string
     {
         $negative = is_negative($bytes);
         if ($negative) {

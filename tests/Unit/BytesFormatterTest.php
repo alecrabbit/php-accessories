@@ -11,6 +11,17 @@ use PHPUnit\Framework\TestCase;
 class BytesFormatterTest extends TestCase
 {
     /** @test */
+    public function ProcessParametersCorrectly(): void
+    {
+        $this->assertEquals('1.00KB', BytesFormatter::format(1024, null, 2));
+        $this->assertEquals('1.000KB', BytesFormatter::format(1024, null, 3));
+        $this->assertEquals('1.000KB', BytesFormatter::format(1024, 1, 3));
+        $this->expectException('TypeError');
+        $this->assertEquals('1.000KB', BytesFormatter::format(1024, null, 'sdsd'));
+        $this->assertEquals('1.000KB', BytesFormatter::format(1024, [], 'sdsd'));
+    }
+
+    /** @test */
     public function ProcessFormattingCorrectly(): void
     {
         $this->assertEquals('1.00KB', BytesFormatter::format(1024 ** 1));
