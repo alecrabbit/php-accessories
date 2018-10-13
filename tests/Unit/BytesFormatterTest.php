@@ -5,6 +5,9 @@
  * Time: 23:33
  */
 
+namespace Tests;
+
+
 use AlecRabbit\BytesFormatter;
 use PHPUnit\Framework\TestCase;
 

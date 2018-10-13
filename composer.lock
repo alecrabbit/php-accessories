@@ -4,21 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3f313a66898c0f2e6395da1651dbb3d1",
+    "content-hash": "65d66d994ed1e94917b0094ffafe7919",
     "packages": [
         {
             "name": "alecrabbit/php-helpers",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/alecrabbit/php-helpers.git",
-                "reference": "540d773152ff426131dd7b83b138838a6a8b0796"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/540d773152ff426131dd7b83b138838a6a8b0796",
-                "reference": "540d773152ff426131dd7b83b138838a6a8b0796",
-                "shasum": ""
+                "url": "/var/packages/helpers",
+                "reference": "edcac26f57c73495845a7f824defc3c9ee642c01"
             },
             "require": {
                 "krowinski/bcmath-extended": "^4.1",
@@ -40,12 +34,50 @@
                     "src/string/string.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
             "description": "PHP helpers functions",
-            "time": "2018-10-12T13:47:04+00:00"
+            "time": "2018-10-13T23:42:15+00:00"
+        },
+        {
+            "name": "alecrabbit/simple-profiler",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "/var/packages/simple-profiler",
+                "reference": "81e787fbbe173675c24660dcc7379b55f47cfb11"
+            },
+            "require": {
+                "nesbot/carbon": "^2.3",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "nunomaduro/collision": "^2.0",
+                "phpunit/phpunit": "^7.3",
+                "symfony/var-dumper": "^4.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AlecRabbit\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP simple profiler",
+            "time": "2018-10-13T23:07:51+00:00"
         },
         {
             "name": "krowinski/bcmath-extended",
@@ -2025,7 +2057,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "alecrabbit/php-helpers": 20
+        "alecrabbit/php-helpers": 20,
+        "alecrabbit/simple-profiler": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
