@@ -4,5 +4,3 @@
 /tmp/*
 
 /docker-compose.yml
-/.dockerignore
-/phpunit.xml
