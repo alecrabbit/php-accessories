@@ -51,7 +51,7 @@
             "source": {
                 "type": "git",
                 "url": "/var/packages/simple-profiler",
-                "reference": "e00705fbea7b22c031171dbdddcf53d1c6febb38"
+                "reference": "4b68cde5fb124cf9399bd64e863bab972d81c6f7"
             },
             "require": {
                 "alecrabbit/php-helpers": "dev-master",
@@ -79,7 +79,7 @@
                 "MIT"
             ],
             "description": "PHP simple profiler",
-            "time": "2018-10-15T01:30:09+00:00"
+            "time": "2018-10-15T14:46:00+00:00"
         },
         {
             "name": "krowinski/bcmath-extended",
