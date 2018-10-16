@@ -4,15 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "65d66d994ed1e94917b0094ffafe7919",
+    "content-hash": "86690f228aaf7f0b958c6a23a326ef45",
     "packages": [
         {
             "name": "alecrabbit/php-helpers",
-            "version": "dev-master",
+            "version": "0.0.4.1",
             "source": {
                 "type": "git",
-                "url": "/var/packages/helpers",
-                "reference": "edcac26f57c73495845a7f824defc3c9ee642c01"
+                "url": "https://github.com/alecrabbit/php-helpers.git",
+                "reference": "5ab5f37de91720fefa83f9140ef7c434dc980f0f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/5ab5f37de91720fefa83f9140ef7c434dc980f0f",
+                "reference": "5ab5f37de91720fefa83f9140ef7c434dc980f0f",
+                "shasum": ""
             },
             "require": {
                 "krowinski/bcmath-extended": "^4.1",
@@ -34,27 +40,29 @@
                     "src/string/string.php"
                 ]
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Tests\\": "tests/"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "PHP helpers functions",
-            "time": "2018-10-13T23:42:15+00:00"
+            "time": "2018-10-16T09:10:46+00:00"
         },
         {
-            "name": "alecrabbit/simple-profiler",
-            "version": "dev-master",
+            "name": "alecrabbit/php-simple-profiler",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
-                "url": "/var/packages/simple-profiler",
-                "reference": "4b68cde5fb124cf9399bd64e863bab972d81c6f7"
+                "url": "https://github.com/alecrabbit/php-simple-profiler.git",
+                "reference": "a13f647e18ae7f090c9b970df4104a8bf6e18758"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alecrabbit/php-simple-profiler/zipball/a13f647e18ae7f090c9b970df4104a8bf6e18758",
+                "reference": "a13f647e18ae7f090c9b970df4104a8bf6e18758",
+                "shasum": ""
             },
             "require": {
-                "alecrabbit/php-helpers": "dev-master",
+                "alecrabbit/php-helpers": "^0.0.4",
                 "krowinski/bcmath-extended": "^4.1",
                 "nesbot/carbon": "^2.3",
                 "php": ">=7.2"
@@ -70,16 +78,12 @@
                     "AlecRabbit\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Tests\\": "tests/"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "PHP simple profiler",
-            "time": "2018-10-15T14:46:00+00:00"
+            "time": "2018-10-16T09:48:35+00:00"
         },
         {
             "name": "krowinski/bcmath-extended",
@@ -953,16 +957,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "6.0.8",
+            "version": "6.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "848f78b3309780fef7ec8c4666b7ab4e6b09b22f"
+                "reference": "0685fb6a43aed1b2e09804d1aaf17144c82861f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/848f78b3309780fef7ec8c4666b7ab4e6b09b22f",
-                "reference": "848f78b3309780fef7ec8c4666b7ab4e6b09b22f",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/0685fb6a43aed1b2e09804d1aaf17144c82861f8",
+                "reference": "0685fb6a43aed1b2e09804d1aaf17144c82861f8",
                 "shasum": ""
             },
             "require": {
@@ -986,7 +990,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.0-dev"
+                    "dev-master": "6.1-dev"
                 }
             },
             "autoload": {
@@ -1012,7 +1016,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-10-04T03:41:23+00:00"
+            "time": "2018-10-16T05:37:37+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -2058,10 +2062,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "alecrabbit/php-helpers": 20,
-        "alecrabbit/simple-profiler": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
