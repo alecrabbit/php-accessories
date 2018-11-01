@@ -1,17 +1,19 @@
 {
     "name": "alecrabbit/accessories",
-    "description": "PHP accessories Classes etc.",
     "type": "library",
+    "description": "PHP accessories Classes etc.",
+    "license": "MIT",
     "require": {
         "php": ">=7.2",
-        "alecrabbit/php-simple-profiler": "^0",
-        "alecrabbit/php-helpers": "^0"
+        "alecrabbit/php-helpers": "^0",
+        "alecrabbit/php-simple-profiler": "^0"
     },
     "require-dev": {
+        "nunomaduro/collision": "^2.0",
+        "phpstan/phpstan": "^0.10.5",
         "phpunit/phpunit": "^7.3",
-        "nunomaduro/collision": "^2.0"
+        "symfony/var-dumper": "^4.1"
     },
-    "license": "MIT",
     "autoload": {
         "psr-4": {
             "AlecRabbit\\": "src"
@@ -19,8 +21,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests"
         }
     },
-    "prefer-stable":true
+    "prefer-stable": true
 }
