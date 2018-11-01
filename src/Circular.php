@@ -24,6 +24,11 @@ class Circular
         reset($this->data);
     }
 
+    public function __invoke()
+    {
+        return $this->getElement();
+    }
+
     /**
      * @return mixed
      */

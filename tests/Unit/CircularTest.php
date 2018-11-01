@@ -24,4 +24,16 @@ class CircularTest extends TestCase
         }
         $this->assertEquals($expected, $actual);
     }
+
+    /** @test */
+    public function invokes(): void
+    {
+        $c = new Circular([1, 2, 3, 4]);
+        $expected = [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2];
+        $actual = [];
+        for ($i = 0; $i < 18; $i++) {
+            $actual[] = $c();
+        }
+        $this->assertEquals($expected, $actual);
+    }
 }
