@@ -5,6 +5,8 @@
  * Time: 17:45
  */
 
+declare(strict_types=1);
+
 namespace AlecRabbit;
 
 

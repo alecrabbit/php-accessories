@@ -19,13 +19,7 @@ class MemoryUsageTest extends TestCase
     public function ItBehaves(): void
     {
         $this->assertEquals(format_bytes(memory_get_usage(), 'GB'), MemoryUsage::get(false, 'GB'));
-        $this->assertEquals(format_bytes(memory_get_peak_usage()), MemoryUsage::getPeak());
-    }
-    
-    /** @test */
-    public function ItBehavesWithFunction(): void
-    {
-        $this->assertEquals(format_bytes(memory_get_usage()), MemoryUsage::get());
+        $this->assertEquals(format_bytes(memory_get_usage(true)), MemoryUsage::get(true));
         $this->assertEquals(format_bytes(memory_get_peak_usage()), MemoryUsage::getPeak());
     }
 }

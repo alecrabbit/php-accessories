@@ -49,16 +49,16 @@
         },
         {
             "name": "alecrabbit/php-simple-profiler",
-            "version": "0.0.7",
+            "version": "0.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-simple-profiler.git",
-                "reference": "4b4bf36ffc85c4e9221ef4744a5a5df3f331200a"
+                "reference": "a4fd1ee6539de1cf49d3a47ee8932a4aa01545f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-simple-profiler/zipball/4b4bf36ffc85c4e9221ef4744a5a5df3f331200a",
-                "reference": "4b4bf36ffc85c4e9221ef4744a5a5df3f331200a",
+                "url": "https://api.github.com/repos/alecrabbit/php-simple-profiler/zipball/a4fd1ee6539de1cf49d3a47ee8932a4aa01545f3",
+                "reference": "a4fd1ee6539de1cf49d3a47ee8932a4aa01545f3",
                 "shasum": ""
             },
             "require": {
@@ -83,7 +83,7 @@
                 "MIT"
             ],
             "description": "PHP simple profiler",
-            "time": "2018-11-08T14:58:00+00:00"
+            "time": "2018-11-08T19:01:48+00:00"
         },
         {
             "name": "krowinski/bcmath-extended",
