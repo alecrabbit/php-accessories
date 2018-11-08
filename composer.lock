@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4efd277e50a1da8da20b09c219f0604b",
+    "content-hash": "ea22b5df6b31d1ad217b8ac2f69eba25",
     "packages": [
         {
             "name": "alecrabbit/php-helpers",
@@ -49,16 +49,16 @@
         },
         {
             "name": "alecrabbit/php-simple-profiler",
-            "version": "0.0.6",
+            "version": "0.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-simple-profiler.git",
-                "reference": "83ee3e7df4ac89a155780dfd609c7b3e337408e0"
+                "reference": "4b4bf36ffc85c4e9221ef4744a5a5df3f331200a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-simple-profiler/zipball/83ee3e7df4ac89a155780dfd609c7b3e337408e0",
-                "reference": "83ee3e7df4ac89a155780dfd609c7b3e337408e0",
+                "url": "https://api.github.com/repos/alecrabbit/php-simple-profiler/zipball/4b4bf36ffc85c4e9221ef4744a5a5df3f331200a",
+                "reference": "4b4bf36ffc85c4e9221ef4744a5a5df3f331200a",
                 "shasum": ""
             },
             "require": {
@@ -83,7 +83,7 @@
                 "MIT"
             ],
             "description": "PHP simple profiler",
-            "time": "2018-11-08T13:16:41+00:00"
+            "time": "2018-11-08T14:58:00+00:00"
         },
         {
             "name": "krowinski/bcmath-extended",
@@ -143,16 +143,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.5.0",
+            "version": "2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "790f2bc8c560541cc5a12e506195e3df4ee2c862"
+                "reference": "1e0feb9741e6449feb18f5fb3a5542421fb4a865"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/790f2bc8c560541cc5a12e506195e3df4ee2c862",
-                "reference": "790f2bc8c560541cc5a12e506195e3df4ee2c862",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/1e0feb9741e6449feb18f5fb3a5542421fb4a865",
+                "reference": "1e0feb9741e6449feb18f5fb3a5542421fb4a865",
                 "shasum": ""
             },
             "require": {
@@ -161,8 +161,11 @@
                 "symfony/translation": "^4.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.11",
                 "phpunit/phpunit": "^7.1.5"
+            },
+            "suggest": {
+                "friendsofphp/php-cs-fixer": "Needed for the `composer phpcs` command. Allow to automatically fix code style.",
+                "phpstan/phpstan": "Needed for the `composer phpstan` command. Allow to detect potential errors."
             },
             "type": "library",
             "extra": {
@@ -195,7 +198,59 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-10-26T20:15:03+00:00"
+            "time": "2018-11-08T13:33:56+00:00"
+        },
+        {
+            "name": "spatie/typed",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/typed.git",
+                "reference": "40e4ac886a95db5e2efe489be4c699ff307c4b2b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/typed/zipball/40e4ac886a95db5e2efe489be4c699ff307c4b2b",
+                "reference": "40e4ac886a95db5e2efe489be4c699ff307c4b2b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "larapack/dd": "^1.1",
+                "phpunit/phpunit": "^7.1",
+                "symfony/stopwatch": "^4.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Typed\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brent Roose",
+                    "email": "brent@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Improvements to PHP's type system in userland: generics, typed lists, tuples and structs",
+            "homepage": "https://github.com/spatie/typed",
+            "keywords": [
+                "generics",
+                "spatie",
+                "structs",
+                "tuple",
+                "typed",
+                "typed list"
+            ],
+            "time": "2018-07-23T13:34:33+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
