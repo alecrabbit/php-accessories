@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "alecrabbit/php-helpers",
-            "version": "0.0.5",
+            "version": "0.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-helpers.git",
-                "reference": "7681d6c63e7416f177c56f7476b0c001dc99c28b"
+                "reference": "9ed88f33ce5d252739a992854399a4ccc5c5352c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/7681d6c63e7416f177c56f7476b0c001dc99c28b",
-                "reference": "7681d6c63e7416f177c56f7476b0c001dc99c28b",
+                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/9ed88f33ce5d252739a992854399a4ccc5c5352c",
+                "reference": "9ed88f33ce5d252739a992854399a4ccc5c5352c",
                 "shasum": ""
             },
             "require": {
@@ -45,20 +45,20 @@
                 "MIT"
             ],
             "description": "PHP helpers functions",
-            "time": "2018-10-31T11:34:00+00:00"
+            "time": "2018-11-07T21:56:06+00:00"
         },
         {
             "name": "alecrabbit/php-simple-profiler",
-            "version": "0.0.3",
+            "version": "0.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-simple-profiler.git",
-                "reference": "a569a02017f7b5e1105583182dc4bb161bff0919"
+                "reference": "83ee3e7df4ac89a155780dfd609c7b3e337408e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-simple-profiler/zipball/a569a02017f7b5e1105583182dc4bb161bff0919",
-                "reference": "a569a02017f7b5e1105583182dc4bb161bff0919",
+                "url": "https://api.github.com/repos/alecrabbit/php-simple-profiler/zipball/83ee3e7df4ac89a155780dfd609c7b3e337408e0",
+                "reference": "83ee3e7df4ac89a155780dfd609c7b3e337408e0",
                 "shasum": ""
             },
             "require": {
@@ -83,7 +83,7 @@
                 "MIT"
             ],
             "description": "PHP simple profiler",
-            "time": "2018-11-01T14:26:05+00:00"
+            "time": "2018-11-08T13:16:41+00:00"
         },
         {
             "name": "krowinski/bcmath-extended",
@@ -258,16 +258,16 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v4.1.6",
+            "version": "v4.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "9f0b61e339160a466ebcde167a6c5521c810e304"
+                "reference": "aa04dc1c75b7d3da7bd7003104cd0cfc5dff635c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/9f0b61e339160a466ebcde167a6c5521c810e304",
-                "reference": "9f0b61e339160a466ebcde167a6c5521c810e304",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/aa04dc1c75b7d3da7bd7003104cd0cfc5dff635c",
+                "reference": "aa04dc1c75b7d3da7bd7003104cd0cfc5dff635c",
                 "shasum": ""
             },
             "require": {
@@ -323,7 +323,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-02T16:36:10+00:00"
+            "time": "2018-10-28T18:38:52+00:00"
         }
     ],
     "packages-dev": [
@@ -2691,16 +2691,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v4.1.6",
+            "version": "v4.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "dc7122fe5f6113cfaba3b3de575d31112c9aa60b"
+                "reference": "432122af37d8cd52fba1b294b11976e0d20df595"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/dc7122fe5f6113cfaba3b3de575d31112c9aa60b",
-                "reference": "dc7122fe5f6113cfaba3b3de575d31112c9aa60b",
+                "url": "https://api.github.com/repos/symfony/console/zipball/432122af37d8cd52fba1b294b11976e0d20df595",
+                "reference": "432122af37d8cd52fba1b294b11976e0d20df595",
                 "shasum": ""
             },
             "require": {
@@ -2755,11 +2755,11 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-03T08:15:46+00:00"
+            "time": "2018-10-31T09:30:44+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v4.1.6",
+            "version": "v4.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -2863,7 +2863,7 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v4.1.6",
+            "version": "v4.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
