@@ -4,6 +4,7 @@
  * Date: 01.11.18
  * Time: 16:10
  */
+
 declare(strict_types=1);
 
 namespace AlecRabbit;
