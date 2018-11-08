@@ -36,4 +36,28 @@ class CircularTest extends TestCase
         }
         $this->assertEquals($expected, $actual);
     }
+
+    /** @test */
+    public function circularIterator(): void
+    {
+        $expected = [1, 2, 3, 4];
+        $c = new Circular($expected);
+        $actual = [];
+        foreach ($c as $key => $value) {
+            $actual[$key] = $value;
+        }
+        $this->assertEquals($expected, $actual);
+    }
+
+    /** @test */
+    public function circularIteratorTwo(): void
+    {
+        $expected = ['1'=> 1,'two' => 2, '3' => 3, 'four' => 4];
+        $c = new Circular($expected);
+        $actual = [];
+        foreach ($c as $key => $value) {
+            $actual[$key] = $value;
+        }
+        $this->assertEquals($expected, $actual);
+    }
 }

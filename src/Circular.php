@@ -12,7 +12,7 @@ namespace AlecRabbit;
 /**
  * Class Circular
  */
-class Circular
+class Circular implements \Iterator
 {
     /** @var array */
     protected $data;
@@ -45,5 +45,44 @@ class Circular
         return $result;
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function current()
+    {
+        return current($this->data);
+    }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function next(): void
+    {
+        next($this->data);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function key()
+    {
+        return key($this->data);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function valid(): bool
+    {
+        return
+            false !== current($this->data);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rewind(): void
+    {
+        reset($this->data);
+    }
 }
