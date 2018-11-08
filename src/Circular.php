@@ -9,6 +9,9 @@ declare(strict_types=1);
 namespace AlecRabbit;
 
 
+/**
+ * Class Circular
+ */
 class Circular
 {
     /** @var array */
