@@ -8,14 +8,13 @@
 namespace Tests;
 
 
-use AlecRabbit\BytesFormatter;
 use AlecRabbit\MemoryUsage;
 use PHPUnit\Framework\TestCase;
 
 class MemoryUsageTest extends TestCase
 {
     // todo make a mocker for tests :P
-    // these tests for a lulz
+    // these tests just for lulz
     /** @test */
     public function ItBehaves(): void
     {
