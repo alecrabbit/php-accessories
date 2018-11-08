@@ -6,7 +6,8 @@
     "require": {
         "php": ">=7.2",
         "alecrabbit/php-helpers": "^0",
-        "alecrabbit/php-simple-profiler": "^0"
+        "alecrabbit/php-simple-profiler": "^0",
+        "spatie/typed": "^0.1.1"
     },
     "require-dev": {
         "nunomaduro/collision": "^2.0",
