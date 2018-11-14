@@ -1,7 +1,11 @@
 /.idea/*
-/.eval/*
 /vendor/*
 /docker/*
+/.eval/*
+/data/*
 /tmp/*
+/tests/coverage/*
+/.dockerignore
 
-/docker-compose.yml
+/docker-compose*
+/dev-commands.md
