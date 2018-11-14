@@ -15,12 +15,12 @@ class MemoryUsage
     public static function get(bool $real = false, ?string $unit = null, int $decimals = null): string
     {
         return
-            BytesFormatter::format(memory_get_usage($real), $unit, $decimals);
+            SimpleFormatter::bytes(memory_get_usage($real), $unit, $decimals);
     }
 
     public static function getPeak(bool $real = false, ?string $unit = null, int $decimals = null): string
     {
         return
-            BytesFormatter::format(memory_get_peak_usage($real), $unit, $decimals);
+            SimpleFormatter::bytes(memory_get_peak_usage($real), $unit, $decimals);
     }
 }
