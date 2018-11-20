@@ -27,16 +27,17 @@ class Rewindable implements \Iterator
     /**
      * Rewindable constructor.
      * @param callable $generatorFunction
+     * @param array $args
      */
-    public function __construct(callable $generatorFunction)
+    public function __construct(callable $generatorFunction, ...$args)
     {
         $this->generatorFunction = $generatorFunction;
-        $this->createGenerator();
+        $this->createGenerator(...$args);
     }
 
-    private function createGenerator(): void
+    private function createGenerator(...$args): void
     {
-        $this->generator = \call_user_func($this->generatorFunction);
+        $this->generator = \call_user_func_array($this->generatorFunction, $args);
 
         if (!($this->generator instanceof \Generator)) {
             throw new \InvalidArgumentException('Return type of your generator function MUST be a \Generator.');

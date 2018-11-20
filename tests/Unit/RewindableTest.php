@@ -28,9 +28,7 @@ class RewindableTest extends TestCase
     {
         $iterator = new Rewindable(
             function ($a = []) {
-                foreach ($a as $item) {
-                    yield $item;
-                }
+                yield from $a;
             }
         );
 

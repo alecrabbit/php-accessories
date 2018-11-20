@@ -28,6 +28,9 @@ class Circular implements \Iterator
         reset($this->data);
     }
 
+    /**
+     * @return mixed
+     */
     public function __invoke()
     {
         return $this->getElement();
@@ -38,7 +41,7 @@ class Circular implements \Iterator
      */
     public function getElement()
     {
-        if (($result = current($this->data)) === false) {
+        if (false === $result = current($this->data)) {
             $result = reset($this->data);
         }
         next($this->data);

@@ -8,10 +8,10 @@
 namespace Tests;
 
 
-use AlecRabbit\BytesFormatter;
+use AlecRabbit\SimpleFormatter;
 use PHPUnit\Framework\TestCase;
 
-class BytesFormatterTest extends TestCase
+class SimpleFormatterTest extends TestCase
 {
     /**
      * @test
@@ -23,7 +23,7 @@ class BytesFormatterTest extends TestCase
      */
     public function formatterClass($expected, $bytes, $unit, $decimals): void
     {
-        $this->assertEquals($expected, BytesFormatter::format($bytes, $unit, $decimals));
+        $this->assertEquals($expected, SimpleFormatter::bytes($bytes, $unit, $decimals));
     }
 
     public function dataProvider(): array
