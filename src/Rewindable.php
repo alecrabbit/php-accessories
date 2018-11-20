@@ -27,11 +27,12 @@ class Rewindable implements \Iterator
     /**
      * Rewindable constructor.
      * @param callable $generatorFunction
+     * @param array $args
      */
-    public function __construct(callable $generatorFunction)
+    public function __construct(callable $generatorFunction, ...$args)
     {
         $this->generatorFunction = $generatorFunction;
-        $this->createGenerator();
+        $this->createGenerator($args);
     }
 
     private function createGenerator(...$args): void
