@@ -24,6 +24,9 @@ class Rewindable implements \Iterator
     /** @var null|callable */
     private $onRewind;
 
+    /** @var array */
+    private $args;
+
     /**
      * Rewindable constructor.
      * @param callable $generatorFunction
@@ -32,6 +35,7 @@ class Rewindable implements \Iterator
     public function __construct(callable $generatorFunction, ...$args)
     {
         $this->generatorFunction = $generatorFunction;
+        $this->args = $args;
         $this->createGenerator(...$args);
     }
 
@@ -96,7 +100,7 @@ class Rewindable implements \Iterator
      */
     public function rewind(): void
     {
-        $this->createGenerator();
+        $this->createGenerator(...$this->args);
         if ($this->onRewind) {
             \call_user_func($this->onRewind);
         }
