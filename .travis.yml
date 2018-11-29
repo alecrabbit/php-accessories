@@ -13,6 +13,8 @@ cache:
   bundler: true
 
 install:
-  travis_retry composer install --no-interaction --prefer-source
+  - travis_retry ./bin/travis/travis-init.sh
+  - travis_retry composer install --no-interaction --prefer-source
 
-script: vendor/bin/phpunit
+script:
+  vendor/bin/phpunit --coverage-text

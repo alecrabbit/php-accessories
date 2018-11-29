@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace AlecRabbit;
 
-
 class SimpleFormatter
 {
     public const DEFAULT_DECIMALS = 2;
@@ -24,5 +23,4 @@ class SimpleFormatter
         return
             format_bytes($number, $unit, $decimals ?? static::DEFAULT_DECIMALS);
     }
-
 }
