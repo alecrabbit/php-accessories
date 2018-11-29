@@ -5,8 +5,7 @@
     "license": "MIT",
     "require": {
         "php": ">=7.2",
-        "alecrabbit/php-helpers": "^0",
-        "alecrabbit/php-simple-profiler": "^0"
+        "alecrabbit/php-helpers": "^0"
     },
     "require-dev": {
         "nunomaduro/collision": "^2.0",
