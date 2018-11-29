@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace AlecRabbit;
 
-
 /**
  * Class Rewindable
  */
@@ -30,7 +29,7 @@ class Rewindable implements \Iterator
     /**
      * Rewindable constructor.
      * @param callable $generatorFunction
-     * @param array $args
+     * @param mixed ...$args
      */
     public function __construct(callable $generatorFunction, ...$args)
     {
@@ -39,9 +38,12 @@ class Rewindable implements \Iterator
         $this->createGenerator(...$args);
     }
 
+    /**
+     * @param mixed ...$args
+     */
     private function createGenerator(...$args): void
     {
-        $this->generator = \call_user_func($this->generatorFunction,  ...$args);
+        $this->generator = \call_user_func($this->generatorFunction, ...$args);
 
         if (!($this->generator instanceof \Generator)) {
             throw new \InvalidArgumentException('Return type of your generator function MUST be a \Generator.');
