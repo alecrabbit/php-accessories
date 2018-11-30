@@ -23,4 +23,16 @@ class SimpleFormatter
         return
             format_bytes($number, $unit, $decimals ?? static::DEFAULT_DECIMALS);
     }
+
+    /**
+     * @param float $value
+     * @param int|null $units
+     * @param int $precision
+     * @return string
+     */
+    public static function time(float $value, ?int $units = null, int $precision = DEFAULT_PRECISION): string
+    {
+        return
+            format_time($value, $units, $precision ?? static::DEFAULT_DECIMALS);
+    }
 }
