@@ -10,16 +10,7 @@ namespace AlecRabbit\Traits;
 
 trait Nameable
 {
-    /** @var string */
-    protected $name;
-
-    /**
-     * @return string
-     */
-    public function getName(): string
-    {
-        return $this->name;
-    }
+    use GettableName;
 
     /**
      * @param string $name
