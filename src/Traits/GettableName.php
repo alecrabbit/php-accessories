@@ -22,11 +22,12 @@ trait GettableName
     }
 
     /**
+     * @param string|null $name
      * @return string
      */
-    public function defaultName(): string
+    public function default(?string $name = null): string
     {
-        return 'default_name';
+        return $name ?? 'default_name';
     }
 
 }
