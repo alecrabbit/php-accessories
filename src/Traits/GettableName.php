@@ -7,7 +7,6 @@
 
 namespace AlecRabbit\Traits;
 
-
 trait GettableName
 {
     use DefaultableName;

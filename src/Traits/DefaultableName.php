@@ -7,6 +7,7 @@
 
 namespace AlecRabbit\Traits;
 
+use AlecRabbit\Constants;
 
 trait DefaultableName
 {
@@ -16,6 +17,6 @@ trait DefaultableName
      */
     public function default(?string $name = null): string
     {
-        return $name ?? 'default_name';
+        return $name ?? Constants::DEFAULT_NAME;
     }
 }
