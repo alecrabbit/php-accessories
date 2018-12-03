@@ -5,7 +5,7 @@
     "license": "MIT",
     "require": {
         "php": ">=7.2",
-        "alecrabbit/php-helpers": "^0"
+        "alecrabbit/php-helpers": "^0.1"
     },
     "require-dev": {
         "nunomaduro/collision": "^2.0",
@@ -16,7 +16,10 @@
     "autoload": {
         "psr-4": {
             "AlecRabbit\\": "src"
-        }
+        },
+        "files": [
+            "src/Constants/constants.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

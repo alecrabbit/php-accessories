@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace AlecRabbit;
 
+use const AlecRabbit\Constants\DEFAULT_PRECISION;
+
 class SimpleFormatter
 {
     public const DEFAULT_DECIMALS = 2;

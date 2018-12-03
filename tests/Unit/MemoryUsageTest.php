@@ -8,6 +8,7 @@
 namespace Tests;
 
 
+use function AlecRabbit\format_bytes;
 use AlecRabbit\MemoryUsage;
 use PHPUnit\Framework\TestCase;
 
