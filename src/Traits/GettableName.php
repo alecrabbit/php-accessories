@@ -21,12 +21,4 @@ trait GettableName
     {
         return $this->name;
     }
-
-    /**
-     * @return string
-     */
-    public function defaultName(): string
-    {
-        return 'default_name';
-    }
 }
