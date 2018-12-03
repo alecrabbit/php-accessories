@@ -7,9 +7,10 @@
 
 namespace AlecRabbit\Traits;
 
-
 trait GettableName
 {
+    use DefaultableName;
+
     /** @var string */
     protected $name;
 
@@ -20,13 +21,4 @@ trait GettableName
     {
         return $this->name;
     }
-
-    /**
-     * @return string
-     */
-    public function defaultName(): string
-    {
-        return 'default_name';
-    }
-
 }
