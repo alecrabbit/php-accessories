@@ -16,15 +16,13 @@
     "autoload": {
         "psr-4": {
             "AlecRabbit\\": "src"
-        },
-        "files": [
-            "src/Constants/constants.php"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests"
         }
     },
+    "minimum-stability": "beta",
     "prefer-stable": true
 }
