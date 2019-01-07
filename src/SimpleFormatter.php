@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace AlecRabbit;
 
-use const AlecRabbit\Constants\DEFAULT_PRECISION;
+use const AlecRabbit\Helpers\Constants\DEFAULT_PRECISION;
 
 class SimpleFormatter
 {

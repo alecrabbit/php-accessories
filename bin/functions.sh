@@ -32,7 +32,8 @@ if [[ ${HELP} == 1 ]]
 then
     echo "Options:"
     echo "  --help          - show this message"
-    [[ $OPTION_NO_RESTART ]] && echo "  --no-restart    - do not restart container(may cause 'No coverage driver')"
+    [[ $OPTION_NO_RESTART ]] && echo "  --no-restart    - do not restart container(may cause 'No coverage driver' and/or 'It seems like *app* is not installed.')"
+    [[ $OPTION_PHPUNIT ]] && echo "  --unit           - enable phpunit"
     [[ $OPTION_ANALYZE ]] && echo "  --analyze       - enable analysis"
     [[ $OPTION_COVERAGE ]] && echo "  --coverage      - enable code coverage"
     [[ $OPTION_ALL ]] && echo "  --all           - enable analysis and code coverage"
@@ -49,6 +50,13 @@ fi
 options_enabled () {
     printf "Analysis"
     if [[ ${ANALYZE} == 1 ]]
+    then
+        enabled
+    else
+        disabled
+    fi
+    printf "PHPUnit"
+    if [[ ${PHPUNIT} == 1 ]]
     then
         enabled
     else

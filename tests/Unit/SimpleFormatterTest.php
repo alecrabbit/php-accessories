@@ -8,7 +8,7 @@
 namespace Tests;
 
 
-use const AlecRabbit\Constants\UNIT_MICROSECONDS;
+use const AlecRabbit\Helpers\Constants\UNIT_MICROSECONDS;
 use AlecRabbit\SimpleFormatter;
 use PHPUnit\Framework\TestCase;
 

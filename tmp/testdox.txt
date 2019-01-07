@@ -1,0 +1,63 @@
+Unit\Circular
+ [x] Iterates
+ [x] Invokes
+ [x] Circular iterator
+ [x] Circular iterator two
+
+Unit\G
+ [x] Range with data set #0
+ [x] Range with data set #1
+ [x] Range with data set #2
+ [x] Range with data set #3
+ [x] Range with data set #4
+ [x] Range with data set #5
+ [x] Range with data set #6
+ [x] Range with data set #7
+ [x] Range with data set #8
+ [x] Range with data set #9
+ [x] Range rewindable with data set #0
+ [x] Range rewindable with data set #1
+ [x] Range rewindable with data set #2
+ [x] Range rewindable with data set #3
+ [x] Range rewindable with data set #4
+ [x] Range rewindable with data set #5
+ [x] Range rewindable with data set #6
+ [x] Range rewindable with data set #7
+ [x] Range rewindable with data set #8
+ [x] Range rewindable with data set #9
+ [x] Range with exception with data set #0
+ [x] Range with exception with data set #1
+ [x] Range rewindable with exception with data set #0
+ [x] Range rewindable with exception with data set #1
+
+MemoryUsage
+ [x] It behaves
+
+Unit\RewindableArgs
+ [x] Processes not empty generator
+
+Unit\Rewindable
+ [x] Processes empty generator
+ [x] Processes not empty generator
+ [x] Can rewind
+ [x] Can iterate twice
+ [x] GivenNonGeneratorFunction constructorThrowsException
+ [x] WhenCallingItTwice onRewindThrowsException
+ [x] WhenCallingRewind onRewindCallbackGetsCalled
+ [x] IteratingMultipleTimes onRewindCallbackGetsCalled
+
+SimpleFormatter
+ [x] Formatter bytes with data set #0
+ [x] Formatter bytes with data set #1
+ [x] Formatter bytes with data set #2
+ [x] Formatter bytes with data set #3
+ [x] Formatter bytes with data set #4
+ [x] Formatter bytes with data set #5
+ [x] Formatter time with data set #0
+ [x] Formatter time with data set #1
+ [x] Formatter time with data set #2
+ [x] Formatter time with data set #3
+ [x] Formatter time with data set #4
+ [x] Formatter time with data set #5
+ [x] Formatter time with data set #6
+
