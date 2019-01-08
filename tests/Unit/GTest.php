@@ -1,11 +1,6 @@
 <?php
-/**
- * User: alec
- * Date: 29.11.18
- * Time: 10:02
- */
 
-namespace Unit;
+namespace AlecRabbit\Tests\Accessories;
 
 
 use AlecRabbit\G;

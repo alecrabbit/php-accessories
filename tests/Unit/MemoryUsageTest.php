@@ -1,11 +1,6 @@
 <?php
-/**
- * User: alec
- * Date: 09.10.18
- * Time: 23:33
- */
 
-namespace Tests;
+namespace AlecRabbit\Tests\Accessories;
 
 
 use function AlecRabbit\format_bytes;

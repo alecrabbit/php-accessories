@@ -1,10 +1,10 @@
-Unit\Circular
+AlecRabbit\Tests\Accessories\Circular
  [x] Iterates
  [x] Invokes
  [x] Circular iterator
  [x] Circular iterator two
 
-Unit\G
+AlecRabbit\Tests\Accessories\G
  [x] Range with data set #0
  [x] Range with data set #1
  [x] Range with data set #2
@@ -30,13 +30,13 @@ Unit\G
  [x] Range rewindable with exception with data set #0
  [x] Range rewindable with exception with data set #1
 
-MemoryUsage
+AlecRabbit\Tests\Accessories\MemoryUsage
  [x] It behaves
 
-Unit\RewindableArgs
+AlecRabbit\Tests\Accessories\RewindableArgs
  [x] Processes not empty generator
 
-Unit\Rewindable
+AlecRabbit\Tests\Accessories\Rewindable
  [x] Processes empty generator
  [x] Processes not empty generator
  [x] Can rewind
@@ -46,7 +46,7 @@ Unit\Rewindable
  [x] WhenCallingRewind onRewindCallbackGetsCalled
  [x] IteratingMultipleTimes onRewindCallbackGetsCalled
 
-SimpleFormatter
+AlecRabbit\Tests\Accessories\SimpleFormatter
  [x] Formatter bytes with data set #0
  [x] Formatter bytes with data set #1
  [x] Formatter bytes with data set #2

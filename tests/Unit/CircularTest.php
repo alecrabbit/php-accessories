@@ -1,11 +1,6 @@
 <?php
-/**
- * User: alec
- * Date: 01.11.18
- * Time: 16:14
- */
 
-namespace Unit;
+namespace AlecRabbit\Tests\Accessories;
 
 
 use AlecRabbit\Circular;
