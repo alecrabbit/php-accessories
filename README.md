@@ -10,5 +10,10 @@
 [![Latest Unstable Version](https://poser.pugx.org/alecrabbit/accessories/v/unstable)](https://packagist.org/packages/alecrabbit/accessories)
 [![License](https://poser.pugx.org/alecrabbit/accessories/license)](https://packagist.org/packages/alecrabbit/accessories)
 
+### Installation
+```bash
+composer require alecrabbit/accessories
+```
 
+### Usage
 see [examples](https://github.com/alecrabbit/accessories/tree/master/examples)

@@ -1,8 +1,8 @@
 <?php
 
-use AlecRabbit\G;
-
 require_once __DIR__ . '/../vendor/autoload.php';
+
+use AlecRabbit\G;
 
 $range = G::range(1, 3);
 var_dump($range); // class Generator#3 (0) {}
