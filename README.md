@@ -11,3 +11,4 @@
 [![License](https://poser.pugx.org/alecrabbit/accessories/license)](https://packagist.org/packages/alecrabbit/accessories)
 
 
+see [examples](https://github.com/alecrabbit/accessories/tree/master/examples)

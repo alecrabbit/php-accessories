@@ -1,9 +1,5 @@
 <?php
-/**
- * User: alec
- * Date: 09.10.18
- * Time: 22:45
- */
+
 declare(strict_types=1);
 
 namespace AlecRabbit;

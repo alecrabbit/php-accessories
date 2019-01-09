@@ -1,9 +1,4 @@
 <?php
-/**
- * User: alec
- * Date: 12.10.18
- * Time: 17:45
- */
 
 declare(strict_types=1);
 

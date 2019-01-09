@@ -1,14 +1,16 @@
 <?php
-/**
- * User: alec
- * Date: 29.11.18
- * Time: 9:58
- */
 
 namespace AlecRabbit;
 
 class G
 {
+    /**
+     * G constructor.
+     */
+    private function __construct()
+    {
+    }
+
     /**
      * @param int $start
      * @param int $stop
@@ -52,4 +54,6 @@ class G
         return
             new Rewindable([__CLASS__, 'range'], $start, $stop, $step);
     }
+
+
 }
