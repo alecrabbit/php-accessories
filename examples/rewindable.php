@@ -17,7 +17,7 @@ foreach ($r as $item) {
 foreach ($r as $item) {
     var_dump($item); // int(1..3)
 }
-// reassign variable
+// new Rewindable with same generator function
 $r = new \AlecRabbit\Rewindable($generatorFunction, 3, 1);
 foreach ($r as $item) {
     var_dump($item); // int(3..1)
