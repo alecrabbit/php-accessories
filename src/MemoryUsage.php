@@ -20,7 +20,7 @@ class MemoryUsage
     public static function get(bool $real = false, ?string $unit = null, ?int $decimals = null): string
     {
         return
-            SimpleFormatter::bytes(memory_get_usage($real), $unit, $decimals);
+            Pretty::bytes(memory_get_usage($real), $unit, $decimals);
     }
 
     /**
@@ -32,6 +32,6 @@ class MemoryUsage
     public static function getPeak(bool $real = false, ?string $unit = null, ?int $decimals = null): string
     {
         return
-            SimpleFormatter::bytes(memory_get_peak_usage($real), $unit, $decimals);
+            Pretty::bytes(memory_get_peak_usage($real), $unit, $decimals);
     }
 }

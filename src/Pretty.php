@@ -10,7 +10,7 @@ namespace AlecRabbit;
 
 use const AlecRabbit\Helpers\Constants\DEFAULT_PRECISION;
 
-class SimpleFormatter
+class Pretty
 {
     public const DEFAULT_DECIMALS = 2;
 
@@ -29,12 +29,15 @@ class SimpleFormatter
     /**
      * @param float $value
      * @param int|null $units
-     * @param int $precision
+     * @param int|null $precision
      * @return string
      */
-    public static function time(float $value, ?int $units = null, int $precision = DEFAULT_PRECISION): string
+    public static function time(float $value, ?int $units = null, ?int $precision = null): string
     {
+        if (null === $units && null === $precision) {
+            return format_time_auto($value);
+        }
         return
-            format_time($value, $units, $precision ?? static::DEFAULT_DECIMALS);
+            format_time($value, $units, $precision ?? DEFAULT_PRECISION);
     }
 }
