@@ -1,7 +1,17 @@
 {
     "name": "alecrabbit/accessories",
     "type": "library",
-    "description": "PHP accessories Classes etc.",
+    "description": "PHP Accessories: Classes etc.",
+    "keywords": [
+        "circular",
+        "array",
+        "generator",
+        "rewindable",
+        "pretty",
+        "time",
+        "bytes",
+        "range"
+    ],
     "license": "MIT",
     "require": {
         "php": ">=7.2",
