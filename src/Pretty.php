@@ -11,6 +11,15 @@ class Pretty
     public const DEFAULT_DECIMALS = 2;
 
     /**
+     * Static class. Private Constructor.
+     */
+    // @codeCoverageIgnoreStart
+    private function __construct()
+    {
+    }
+    // @codeCoverageIgnoreEnd
+
+    /**
      * @param int $number
      * @param null|string $unit
      * @param int|null $decimals

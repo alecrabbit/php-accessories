@@ -6,6 +6,16 @@ namespace AlecRabbit;
 
 class MemoryUsage
 {
+
+    /**
+     * Static class. Private Constructor.
+     */
+    // @codeCoverageIgnoreStart
+    private function __construct()
+    {
+    }
+    // @codeCoverageIgnoreEnd
+
     /**
      * @param bool $real
      * @param null|string $unit

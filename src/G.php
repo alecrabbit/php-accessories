@@ -5,11 +5,13 @@ namespace AlecRabbit;
 class G
 {
     /**
-     * G constructor.
+     * Static class. Private Constructor.
      */
+    // @codeCoverageIgnoreStart
     private function __construct()
     {
     }
+    // @codeCoverageIgnoreEnd
 
     /**
      * @param int $start
@@ -54,6 +56,4 @@ class G
         return
             new Rewindable([__CLASS__, 'range'], $start, $stop, $step);
     }
-
-
 }
