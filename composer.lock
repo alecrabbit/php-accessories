@@ -4,26 +4,27 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b41205fa7eb5db7637d3f525fb9aa57",
+    "content-hash": "234a515fc5bfac400ea92022985600b1",
     "packages": [
         {
             "name": "alecrabbit/php-helpers",
-            "version": "0.2.1",
+            "version": "0.2.2-RC1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-helpers.git",
-                "reference": "001713ccc4428c829a678c427ac23dd86adbe37c"
+                "reference": "525cd9c3c7d37fae5b4cb2afc2e096ab6851a36e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/001713ccc4428c829a678c427ac23dd86adbe37c",
-                "reference": "001713ccc4428c829a678c427ac23dd86adbe37c",
+                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/525cd9c3c7d37fae5b4cb2afc2e096ab6851a36e",
+                "reference": "525cd9c3c7d37fae5b4cb2afc2e096ab6851a36e",
                 "shasum": ""
             },
             "require": {
                 "krowinski/bcmath-extended": "^4.2",
                 "nesbot/carbon": "^2.10",
-                "php": ">=7.2"
+                "php": ">=7.2",
+                "symfony/polyfill-php73": "^1.10"
             },
             "require-dev": {
                 "nunomaduro/collision": "^2.1",
@@ -47,7 +48,7 @@
                 "MIT"
             ],
             "description": "PHP helpers functions",
-            "time": "2019-01-08T14:38:16+00:00"
+            "time": "2019-01-09T22:47:41+00:00"
         },
         {
             "name": "krowinski/bcmath-extended",
@@ -291,6 +292,61 @@
                 "shim"
             ],
             "time": "2018-09-21T13:07:52+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php73",
+            "version": "v1.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php73.git",
+                "reference": "47ad352296d61aae366f075b8609f4dcc28853ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php73/zipball/47ad352296d61aae366f075b8609f4dcc28853ef",
+                "reference": "47ad352296d61aae366f075b8609f4dcc28853ef",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php73\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 7.3+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2018-09-25T06:33:47+00:00"
         },
         {
             "name": "symfony/translation",
@@ -2297,7 +2353,9 @@
     ],
     "aliases": [],
     "minimum-stability": "beta",
-    "stability-flags": [],
+    "stability-flags": {
+        "alecrabbit/php-helpers": 10
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
