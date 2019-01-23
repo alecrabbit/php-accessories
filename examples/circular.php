@@ -15,3 +15,11 @@ var_dump($c->getElement()); // int(1)
 var_dump($c()); // int(2)
 var_dump($c()); // int(3)
 var_dump($c()); // int(1)
+
+foreach ($c as $item) {
+    var_dump($item); // int(1..3)
+}
+
+foreach ($c as $item) {
+    var_dump($item); // int(1..3)
+}
