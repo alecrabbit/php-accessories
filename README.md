@@ -30,6 +30,7 @@ $c(); // 2
 - Pretty - string formatter, e.g. bytes and time
 ```php
 Pretty::time(0.214); // string(5) "214ms"
+Pretty::bytes(10584760, 'mb'); // string(7) "10.09MB"
 ```
 - MemoryUsage - memory usage :)
 
