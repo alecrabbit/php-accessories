@@ -39,4 +39,16 @@ class MemoryUsage
         return
             Pretty::bytes(memory_get_peak_usage($real), $unit, $decimals);
     }
+
+    public static function report(?string $unit = null, ?int $decimals = null): MemoryUsageReport
+    {
+        return new MemoryUsageReport(
+            memory_get_usage(),
+            memory_get_peak_usage(),
+            memory_get_usage(true),
+            memory_get_peak_usage(true),
+            $unit,
+            $decimals
+        );
+    }
 }
