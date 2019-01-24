@@ -12,6 +12,7 @@ $r = range(1, 1000000);
 var_dump(MemoryUsage::get(true)); // string(7) "34.00MB"
 unset($r);
 
+// when using a generator range much less memory is needed
 $r = G::range(1, 1000000);
 
 var_dump(MemoryUsage::get(true)); // string(6) "2.00MB"
@@ -23,10 +24,10 @@ echo MemoryUsage::report('kb') . PHP_EOL;
 
 $report = MemoryUsage::report('mb');
 
-var_dump($report->getUsage()); // int(721496)
-var_dump($report->getPeakUsage()); // int(34262904)
-var_dump($report->getUsageReal()); // int(2097152)
-var_dump($report->getPeakUsageReal()); // int(35655680)
+var_dump($report->getUsage()); // ~int(721496)
+var_dump($report->getPeakUsage()); // ~int(34262904)
+var_dump($report->getUsageReal()); // ~int(2097152)
+var_dump($report->getPeakUsageReal()); // ~int(35655680)
 
 var_dump($report->getUsageString()); // string(6) "0.69MB"
 var_dump($report->getPeakUsageString()); // string(7) "32.67MB"

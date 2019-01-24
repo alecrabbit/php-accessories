@@ -18,21 +18,29 @@ composer require alecrabbit/accessories
 ### Features
 - G - class containing generator functions
 ```php
-G::range(1, 3); 
+$r1 = G::range(1, 3); 
+$r2 = G::rewindableRange(1, 3); 
 ```
-- Circular - helper class to get values in circle
+- Circular - helper class to get values in a circle
 ```php
 $c = new Circular([1, 2, 3]);
-$c(); // 1
-$c(); // 2
+$c(); // invoke 
+$c->getElement(); // method 
 ```
 - Rewindable - rewindable generator helper class
+
+If you want to reuse one generator multiple times
+
 - Pretty - string formatter, e.g. bytes and time
 ```php
-Pretty::time(0.214); // string(5) "214ms"
 Pretty::bytes(10584760, 'mb'); // string(7) "10.09MB"
+Pretty::time(0.214); // string(5) "214ms"
 ```
 - MemoryUsage - memory usage :)
+```php
+$report = MemoryUsage::report('mb');
+echo $report . PHP_EOL;
+```
 
 ### Usage
 see [examples](https://github.com/alecrabbit/accessories/tree/master/examples)
