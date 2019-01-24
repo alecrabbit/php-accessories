@@ -3,4 +3,5 @@ vendor/
 docker/
 .eval/
 tests/tmp/
+tests/report.html
 /.dockerignore

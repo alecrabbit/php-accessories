@@ -1,14 +1,18 @@
 <?php
-/**
- * User: alec
- * Date: 29.11.18
- * Time: 9:58
- */
 
 namespace AlecRabbit;
 
 class G
 {
+    /**
+     * Static class. Private Constructor.
+     */
+    // @codeCoverageIgnoreStart
+    private function __construct()
+    {
+    }
+    // @codeCoverageIgnoreEnd
+
     /**
      * @param int $start
      * @param int $stop

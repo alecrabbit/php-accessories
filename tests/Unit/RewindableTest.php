@@ -1,11 +1,6 @@
 <?php
-/**
- * User: alec
- * Date: 08.11.18
- * Time: 15:58
- */
 
-namespace Unit;
+namespace AlecRabbit\Tests\Accessories;
 
 use AlecRabbit\Rewindable;
 use PHPUnit\Framework\TestCase;

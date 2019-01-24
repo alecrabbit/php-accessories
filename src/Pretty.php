@@ -1,18 +1,23 @@
 <?php
-/**
- * User: alec
- * Date: 09.10.18
- * Time: 22:45
- */
+
 declare(strict_types=1);
 
 namespace AlecRabbit;
 
-use const AlecRabbit\Constants\DEFAULT_PRECISION;
+use const AlecRabbit\Helpers\Constants\DEFAULT_PRECISION;
 
-class SimpleFormatter
+class Pretty
 {
     public const DEFAULT_DECIMALS = 2;
+
+    /**
+     * Static class. Private Constructor.
+     */
+    // @codeCoverageIgnoreStart
+    private function __construct()
+    {
+    }
+    // @codeCoverageIgnoreEnd
 
     /**
      * @param int $number
@@ -29,12 +34,15 @@ class SimpleFormatter
     /**
      * @param float $value
      * @param int|null $units
-     * @param int $precision
+     * @param int|null $precision
      * @return string
      */
-    public static function time(float $value, ?int $units = null, int $precision = DEFAULT_PRECISION): string
+    public static function time(float $value, ?int $units = null, ?int $precision = null): string
     {
+        if (null === $units && null === $precision) {
+            return format_time_auto($value);
+        }
         return
-            format_time($value, $units, $precision ?? static::DEFAULT_DECIMALS);
+            format_time($value, $units, $precision ?? DEFAULT_PRECISION);
     }
 }
