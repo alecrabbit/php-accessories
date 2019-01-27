@@ -4,11 +4,15 @@ declare(strict_types=1);
 
 namespace AlecRabbit;
 
+use function AlecRabbit\Helpers\bounds;
 use const AlecRabbit\Helpers\Constants\DEFAULT_PRECISION;
 
 class Pretty
 {
     public const DEFAULT_DECIMALS = 2;
+    public const PERCENT_MAX_DECIMALS = 4;
+    public const DEC_POINT = '.';
+    public const THOUSANDS_SEPARATOR = ',';
 
     /**
      * Static class. Private Constructor.
@@ -45,4 +49,33 @@ class Pretty
         return
             format_time($value, $units, $precision ?? DEFAULT_PRECISION);
     }
+
+    /**
+     * @param float $relative
+     * @param null|int $decimals
+     * @param null|string $prefix
+     * @param null|string $suffix
+     * @return string
+     */
+    public static function percent(
+        float $relative,
+        ?int $decimals = null,
+        ?string $prefix = null,
+        string $suffix = '%'
+    ): string {
+        $prefix = $prefix ?? '';
+        $suffix = $suffix ?? '';
+        $decimals =
+            (int)bounds($decimals ??  static::DEFAULT_DECIMALS, 0, static::PERCENT_MAX_DECIMALS);
+        return
+            $prefix .
+            number_format(
+                $relative * 100, $decimals,
+                static::DEC_POINT,
+                static::THOUSANDS_SEPARATOR
+            ) .
+            $suffix;
+    }
+
+
 }
