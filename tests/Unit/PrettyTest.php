@@ -68,4 +68,25 @@ class PrettyTest extends TestCase
             ['8983.984h', [32342342]],
         ];
     }
+
+    /**
+     * @test
+     * @dataProvider  dataProviderPercent
+     * @param $expected
+     * @param $args
+     */
+    public function prettyPercent($expected, $args): void
+    {
+        $this->assertEquals($expected, Pretty::percent(...$args));
+    }
+
+    public function dataProviderPercent(): array
+    {
+        return [
+            ['100.00%', [1]],
+            ['0.00%', [0]],
+            ['1,243,212.34%', [12432.1234]],
+        ];
+    }
+
 }
