@@ -16,11 +16,11 @@ class Pretty
     public const DEFAULT_PRECISION = DEFAULT_PRECISION;
 
     /** @var null|string */
-    private static $decimalPoint;
+    protected static $decimalPoint;
     /** @var null|string */
-    private static $thousandsSeparator;
+    protected static $thousandsSeparator;
     /** @var null|int */
-    private static $percentMaxDecimals;
+    protected static $percentMaxDecimals;
 
     /**
      * Static class. Private Constructor.
@@ -72,7 +72,7 @@ class Pretty
         string $suffix = '%'
     ): string {
         $decimals =
-            (int)bounds(
+            (int) bounds(
                 $decimals ?? static::DEFAULT_DECIMALS,
                 0,
                 static::$percentMaxDecimals ?? static::PERCENT_MAX_DECIMALS
