@@ -15,6 +15,11 @@
 composer require alecrabbit/accessories
 ```
 
+
+### Usage
+see [examples](https://github.com/alecrabbit/accessories/tree/master/examples)
+
+
 ### Features
 - G - class containing generator functions
 ```php
@@ -24,23 +29,23 @@ $r2 = G::rewindableRange(1, 3);
 - Circular - helper class to get values in a circle
 ```php
 $c = new Circular([1, 2, 3]);
-$c(); // invoke 
-$c->getElement(); // method 
+$value = $c(); // invoke 
+$value = $c->getElement(); // method 
 ```
 - Rewindable - rewindable generator helper class
-
-If you want to reuse one generator multiple times
-
+```php
+$r = new Rewindable($generatorFunction);
+iterator_to_array($r);
+$r->rewind();
+```
 - Pretty - string formatter, e.g. bytes and time
 ```php
 Pretty::bytes(10584760, 'mb'); // string(7) "10.09MB"
 Pretty::time(0.214); // string(5) "214ms"
+Pretty::precent(0.214); // string(5) "214ms"
 ```
 - MemoryUsage - memory usage :)
 ```php
 $report = MemoryUsage::report('mb');
 echo $report . PHP_EOL;
 ```
-
-### Usage
-see [examples](https://github.com/alecrabbit/accessories/tree/master/examples)

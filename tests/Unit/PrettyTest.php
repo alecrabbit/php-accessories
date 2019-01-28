@@ -29,6 +29,7 @@ class PrettyTest extends TestCase
             ['1.0107KB', [1035, 'KB', 4]],
             ['1.01074KB', [1035, 'KB', 5]],
             ['1.01KB', [1035, 'KB']],
+            ['100814681.87KB', [103234234235, 'KB']],
         ];
     }
 
@@ -71,12 +72,40 @@ class PrettyTest extends TestCase
 
     /**
      * @test
+     * @dataProvider  dataProviderPercentDefault
+     * @param $expected
+     * @param $args
+     */
+    public function prettyPercentDefault($expected, $args): void
+    {
+        $this->assertEquals($expected, Pretty::percent(...$args));
+    }
+
+    public function dataProviderPercentDefault(): array
+    {
+        return [
+            ['100.00%', [1]],
+            ['0.00%', [0]],
+            ['1243212.34%', [12432.1234]],
+            [' 1243212.3 %', [12432.1234, 1, ' ', ' %']],
+            ['12.3 %', [0.1234, 1, null, ' %']],
+            ['12.3', [0.1234, 1, '', '']],
+            ['12.3%', [0.1234, 1]],
+        ];
+    }
+
+    /**
+     * @test
      * @dataProvider  dataProviderPercent
      * @param $expected
      * @param $args
      */
-    public function prettyPercent($expected, $args): void
+    public function prettyPercentWithComma($expected, $args): void
     {
+        Pretty::resetDecimalPoint();
+        Pretty::resetThousandsSeparator();
+        Pretty::setDecimalPoint('.');
+        Pretty::setThousandsSeparator(',');
         $this->assertEquals($expected, Pretty::percent(...$args));
     }
 
@@ -86,6 +115,66 @@ class PrettyTest extends TestCase
             ['100.00%', [1]],
             ['0.00%', [0]],
             ['1,243,212.34%', [12432.1234]],
+            [' 1,243,212.3 %', [12432.1234, 1, ' ', ' %']],
+            ['12.3 %', [0.1234, 1, null, ' %']],
+            ['12.3', [0.1234, 1, '', '']],
+            ['12.3%', [0.1234, 1]],
+        ];
+    }
+
+    /**
+     * @test
+     * @dataProvider  dataProviderPercentDecimalPointAndThousandsSeparator
+     * @param $expected
+     * @param $args
+     */
+    public function prettyPercentDecimalPointAndThousandsSeparator($expected, $args): void
+    {
+        Pretty::resetDecimalPoint();
+        Pretty::resetThousandsSeparator();
+        Pretty::setDecimalPoint(',');
+        Pretty::setThousandsSeparator(' ');
+        $this->assertEquals($expected, Pretty::percent(...$args));
+    }
+
+    public function dataProviderPercentDecimalPointAndThousandsSeparator(): array
+    {
+        return [
+            ['100,00%', [1]],
+            ['0,00%', [0]],
+            ['1 243 212,34%', [12432.1234]],
+            [' 1 243 212,3 %', [12432.1234, 1, ' ', ' %']],
+            ['12,3 %', [0.1234, 1, null, ' %']],
+            ['12,3', [0.1234, 1, '', '']],
+            ['12,3%', [0.1234, 1]],
+        ];
+    }
+
+    /**
+     * @test
+     * @dataProvider  dataProviderPercentMaxDecimals
+     * @param $expected
+     * @param $args
+     */
+    public function prettyPercentMaxDecimals($expected, $args): void
+    {
+        Pretty::resetDecimalPoint();
+        Pretty::resetThousandsSeparator();
+        Pretty::resetPercentMaxDecimals();
+        Pretty::setPercentMaxDecimals(3);
+        $this->assertEquals($expected, Pretty::percent(...$args));
+    }
+
+    public function dataProviderPercentMaxDecimals(): array
+    {
+        return [
+            ['100.00%', [1]],
+            ['0.00%', [0]],
+            ['12.34%', [0.12344334]],
+            [' 12.347 %', [0.123466664, 7, ' ', ' %']],
+            ['12.342 %', [0.123423223, 5, null, ' %']],
+            ['12.340', [0.1234, 6, '', '']],
+            ['12.350%', [0.1234999, 5]],
         ];
     }
 

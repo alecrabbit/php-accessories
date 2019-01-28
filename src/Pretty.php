@@ -11,8 +11,16 @@ class Pretty
 {
     public const DEFAULT_DECIMALS = 2;
     public const PERCENT_MAX_DECIMALS = 4;
-    public const DEC_POINT = '.';
-    public const THOUSANDS_SEPARATOR = ',';
+    public const DECIMAL_POINT = '.';
+    public const THOUSANDS_SEPARATOR = '';
+    public const DEFAULT_PRECISION = DEFAULT_PRECISION;
+
+    /** @var null|string */
+    private static $decimalPoint;
+    /** @var null|string */
+    private static $thousandsSeparator;
+    /** @var null|int */
+    private static $percentMaxDecimals;
 
     /**
      * Static class. Private Constructor.
@@ -47,35 +55,75 @@ class Pretty
             return format_time_auto($value);
         }
         return
-            format_time($value, $units, $precision ?? DEFAULT_PRECISION);
+            format_time($value, $units, $precision ?? static::DEFAULT_PRECISION);
     }
 
     /**
-     * @param float $relative
+     * @param float $fraction
      * @param null|int $decimals
      * @param null|string $prefix
-     * @param null|string $suffix
+     * @param string $suffix
      * @return string
      */
     public static function percent(
-        float $relative,
+        float $fraction,
         ?int $decimals = null,
         ?string $prefix = null,
         string $suffix = '%'
     ): string {
-        $prefix = $prefix ?? '';
-        $suffix = $suffix ?? '';
         $decimals =
-            (int)bounds($decimals ??  static::DEFAULT_DECIMALS, 0, static::PERCENT_MAX_DECIMALS);
+            (int)bounds(
+                $decimals ?? static::DEFAULT_DECIMALS,
+                0,
+                static::$percentMaxDecimals ?? static::PERCENT_MAX_DECIMALS
+            );
         return
-            $prefix .
+            ($prefix ?? '') .
             number_format(
-                $relative * 100, $decimals,
-                static::DEC_POINT,
-                static::THOUSANDS_SEPARATOR
+                $fraction * 100,
+                $decimals,
+                static::$decimalPoint ?? static::DECIMAL_POINT,
+                static::$thousandsSeparator ?? static::THOUSANDS_SEPARATOR
             ) .
             $suffix;
     }
 
+    /**
+     * @param string $decimalPoint
+     */
+    public static function setDecimalPoint(string $decimalPoint): void
+    {
+        self::$decimalPoint = $decimalPoint;
+    }
 
+    /**
+     * @param string $thousandsSeparator
+     */
+    public static function setThousandsSeparator(string $thousandsSeparator): void
+    {
+        self::$thousandsSeparator = $thousandsSeparator;
+    }
+
+    /**
+     * @param int $percentMaxDecimals
+     */
+    public static function setPercentMaxDecimals(int $percentMaxDecimals): void
+    {
+        self::$percentMaxDecimals = abs($percentMaxDecimals);
+    }
+
+    public static function resetDecimalPoint(): void
+    {
+        self::$decimalPoint = null;
+    }
+
+    public static function resetThousandsSeparator(): void
+    {
+        self::$thousandsSeparator = null;
+    }
+
+    public static function resetPercentMaxDecimals(): void
+    {
+        self::$percentMaxDecimals = null;
+    }
 }
