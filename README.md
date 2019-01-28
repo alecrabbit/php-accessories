@@ -42,7 +42,7 @@ $r->rewind();
 ```php
 Pretty::bytes(10584760, 'mb'); // string(7) "10.09MB"
 Pretty::time(0.214); // string(5) "214ms"
-Pretty::precent(0.214); // string(5) "214ms"
+Pretty::precent(0.214); // // string(6) "21.40%"
 ```
 - MemoryUsage - memory usage :)
 ```php
