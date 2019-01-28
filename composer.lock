@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ac51e2b9c25b384a7e8c8a8324c84be",
+    "content-hash": "0a99d91efa737c921f82eb7409f73289",
     "packages": [
         {
             "name": "alecrabbit/php-helpers",
-            "version": "0.2.3",
+            "version": "0.2.4-RC1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-helpers.git",
-                "reference": "5e065db77d50647e1e1b87d4f65e3ff7968c9f49"
+                "reference": "b5334ce1e135c3014dbac68bc7c503a68becf10b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/5e065db77d50647e1e1b87d4f65e3ff7968c9f49",
-                "reference": "5e065db77d50647e1e1b87d4f65e3ff7968c9f49",
+                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/b5334ce1e135c3014dbac68bc7c503a68becf10b",
+                "reference": "b5334ce1e135c3014dbac68bc7c503a68becf10b",
                 "shasum": ""
             },
             "require": {
@@ -48,7 +48,7 @@
                 "MIT"
             ],
             "description": "PHP helpers functions",
-            "time": "2019-01-09T23:54:30+00:00"
+            "time": "2019-01-28T15:23:06+00:00"
         },
         {
             "name": "krowinski/bcmath-extended",
@@ -1605,16 +1605,16 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "4.0.1",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "febd209a219cea7b56ad799b30ebbea34b71eb8f"
+                "reference": "4a43e9af57b4afa663077b9bc85255dbc6e8a2bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/febd209a219cea7b56ad799b30ebbea34b71eb8f",
-                "reference": "febd209a219cea7b56ad799b30ebbea34b71eb8f",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/4a43e9af57b4afa663077b9bc85255dbc6e8a2bd",
+                "reference": "4a43e9af57b4afa663077b9bc85255dbc6e8a2bd",
                 "shasum": ""
             },
             "require": {
@@ -1651,7 +1651,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2018-11-25T09:31:21+00:00"
+            "time": "2019-01-28T15:26:03+00:00"
         },
         {
             "name": "sebastian/exporter",
@@ -2354,7 +2354,7 @@
     "aliases": [],
     "minimum-stability": "beta",
     "stability-flags": [],
-    "prefer-stable": true,
+    "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": ">=7.2"

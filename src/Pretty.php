@@ -10,7 +10,7 @@ use const AlecRabbit\Helpers\Constants\DEFAULT_PRECISION;
 class Pretty
 {
     public const DEFAULT_DECIMALS = 2;
-    public const PERCENT_MAX_DECIMALS = 4;
+    public const MAX_DECIMALS = 6;
     public const DECIMAL_POINT = '.';
     public const THOUSANDS_SEPARATOR = '';
     public const DEFAULT_PRECISION = DEFAULT_PRECISION;
@@ -20,7 +20,7 @@ class Pretty
     /** @var null|string */
     protected static $thousandsSeparator;
     /** @var null|int */
-    protected static $percentMaxDecimals;
+    protected static $maxDecimals;
 
     /**
      * Static class. Private Constructor.
@@ -40,22 +40,43 @@ class Pretty
     public static function bytes(int $number, ?string $unit = null, ?int $decimals = null): string
     {
         return
-            format_bytes($number, $unit, $decimals ?? static::DEFAULT_DECIMALS);
+            format_bytes($number, $unit, static::refineDecimals($decimals));
+    }
+
+    /**
+     * @param null|int $decimals
+     * @return int
+     */
+    public static function refineDecimals(?int $decimals): int
+    {
+
+        return
+            (int)bounds(
+                $decimals ?? static::DEFAULT_DECIMALS,
+                0,
+                static::$maxDecimals ?? static::MAX_DECIMALS
+            );
     }
 
     /**
      * @param float $value
      * @param int|null $units
-     * @param int|null $precision
+     * @param int|null $decimals
      * @return string
      */
-    public static function time(float $value, ?int $units = null, ?int $precision = null): string
+    public static function time(float $value, ?int $units = null, ?int $decimals = null): string
     {
-        if (null === $units && null === $precision) {
+        if (null === $units && null === $decimals) {
             return format_time_auto($value);
         }
         return
-            format_time($value, $units, $precision ?? static::DEFAULT_PRECISION);
+            format_time(
+                $value,
+                $units,
+                static::refineDecimals($decimals),
+                static::$decimalPoint ?? static::DECIMAL_POINT,
+                static::$thousandsSeparator ?? static::THOUSANDS_SEPARATOR
+            );
     }
 
     /**
@@ -71,17 +92,11 @@ class Pretty
         ?string $prefix = null,
         string $suffix = '%'
     ): string {
-        $decimals =
-            (int) bounds(
-                $decimals ?? static::DEFAULT_DECIMALS,
-                0,
-                static::$percentMaxDecimals ?? static::PERCENT_MAX_DECIMALS
-            );
         return
             ($prefix ?? '') .
             number_format(
                 $fraction * 100,
-                $decimals,
+                static::refineDecimals($decimals),
                 static::$decimalPoint ?? static::DECIMAL_POINT,
                 static::$thousandsSeparator ?? static::THOUSANDS_SEPARATOR
             ) .
@@ -105,11 +120,11 @@ class Pretty
     }
 
     /**
-     * @param int $percentMaxDecimals
+     * @param int $maxDecimals
      */
-    public static function setPercentMaxDecimals(int $percentMaxDecimals): void
+    public static function setMaxDecimals(int $maxDecimals): void
     {
-        self::$percentMaxDecimals = abs($percentMaxDecimals);
+        self::$maxDecimals = abs($maxDecimals);
     }
 
     public static function resetDecimalPoint(): void
@@ -122,8 +137,8 @@ class Pretty
         self::$thousandsSeparator = null;
     }
 
-    public static function resetPercentMaxDecimals(): void
+    public static function resetMaxDecimals(): void
     {
-        self::$percentMaxDecimals = null;
+        self::$maxDecimals = null;
     }
 }

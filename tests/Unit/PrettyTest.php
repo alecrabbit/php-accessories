@@ -47,22 +47,23 @@ class PrettyTest extends TestCase
     public function dataProviderTime(): array
     {
         return [
-            ['10350μs', [0.01035, UNIT_MICROSECONDS, 1]],
+            ['10350.00μs', [0.01035, UNIT_MICROSECONDS,]],
+            ['10350.0μs', [0.01035, UNIT_MICROSECONDS,1]],
             ['10.4ms', [0.01035, null, 1]],
             ['10.3ms', [0.010349, null, 1]],
             ['10.35ms', [0.01035, null, 2]],
             ['10.351ms', [0.01035123, null, 3]],
             ['10.3532ms', [0.01035321, null, 4]],
             ['10.35123ms', [0.01035123, null, 5]],
-            ['0ns', [0.00000000001]],
+            ['0.0ns', [0.00000000001]],
             ['0.1ns', [0.0000000001]],
             ['1.1ns', [0.0000000011]],
-            ['342ns', [0.000000342]],
+            ['342.0ns', [0.000000342]],
             ['1.1μs', [0.000001123]],
             ['112.3μs', [0.0001123]],
             ['1.1ms', [0.001123]],
             ['10.4ms', [0.01035123]],
-            ['1s', [1.01035123]],
+            ['1.0s', [1.01035123]],
             ['10.1s', [10.1035123]],
             ['26.02m', [1561]],
             ['53.33m', [3200]],
@@ -160,8 +161,8 @@ class PrettyTest extends TestCase
     {
         Pretty::resetDecimalPoint();
         Pretty::resetThousandsSeparator();
-        Pretty::resetPercentMaxDecimals();
-        Pretty::setPercentMaxDecimals(3);
+        Pretty::resetMaxDecimals();
+        Pretty::setMaxDecimals(3);
         $this->assertEquals($expected, Pretty::percent(...$args));
     }
 
