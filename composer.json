@@ -15,7 +15,7 @@
     "license": "MIT",
     "require": {
         "php": ">=7.2",
-        "alecrabbit/php-helpers": "^0.2.4"
+        "alecrabbit/php-helpers": "^0.2"
     },
     "require-dev": {
         "nunomaduro/collision": "^2.1",

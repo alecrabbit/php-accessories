@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "alecrabbit/php-helpers",
-            "version": "0.2.4-RC1",
+            "version": "0.2.5-RC1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-helpers.git",
-                "reference": "b5334ce1e135c3014dbac68bc7c503a68becf10b"
+                "reference": "68e347cbb6abf98f64b4763bb48a2cd0a9e4e85c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/b5334ce1e135c3014dbac68bc7c503a68becf10b",
-                "reference": "b5334ce1e135c3014dbac68bc7c503a68becf10b",
+                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/68e347cbb6abf98f64b4763bb48a2cd0a9e4e85c",
+                "reference": "68e347cbb6abf98f64b4763bb48a2cd0a9e4e85c",
                 "shasum": ""
             },
             "require": {
@@ -48,7 +48,7 @@
                 "MIT"
             ],
             "description": "PHP helpers functions",
-            "time": "2019-01-28T15:23:06+00:00"
+            "time": "2019-01-30T16:55:12+00:00"
         },
         {
             "name": "krowinski/bcmath-extended",
@@ -109,22 +109,22 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.10.1",
+            "version": "2.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "39a8ebfffc2a75de9d2ade3f0e12c7e11669f7ce"
+                "reference": "48d211435ecb3671a2237614dc19fc2be185acb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/39a8ebfffc2a75de9d2ade3f0e12c7e11669f7ce",
-                "reference": "39a8ebfffc2a75de9d2ade3f0e12c7e11669f7ce",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/48d211435ecb3671a2237614dc19fc2be185acb6",
+                "reference": "48d211435ecb3671a2237614dc19fc2be185acb6",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "php": "^7.1.8",
-                "symfony/translation": "^4.0"
+                "symfony/translation": "^3.4 || ^4.0"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2.14 || ^3.0",
@@ -164,7 +164,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-01-14T09:25:45+00:00"
+            "time": "2019-01-29T16:35:35+00:00"
         },
         {
             "name": "symfony/contracts",

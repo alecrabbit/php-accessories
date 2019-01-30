@@ -59,19 +59,19 @@ class Pretty
     }
 
     /**
-     * @param float $value
+     * @param float $seconds
      * @param int|null $units
      * @param int|null $decimals
      * @return string
      */
-    public static function time(float $value, ?int $units = null, ?int $decimals = null): string
+    public static function time(float $seconds, ?int $units = null, ?int $decimals = null): string
     {
         if (null === $units && null === $decimals) {
-            return format_time_auto($value);
+            return format_time_auto($seconds);
         }
         return
             format_time(
-                $value,
+                $seconds,
                 $units,
                 static::refineDecimals($decimals),
                 static::$decimalPoint ?? static::DECIMAL_POINT,
