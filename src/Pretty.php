@@ -60,6 +60,18 @@ class Pretty
 
     /**
      * @param float $seconds
+     * @param null|int $units
+     * @param null|int $decimals
+     * @return string
+     */
+    public static function seconds(float $seconds, ?int $units = null, ?int $decimals = null): string
+    {
+        return
+            static::time($seconds, $units, $decimals);
+    }
+
+    /**
+     * @param float $seconds
      * @param int|null $units
      * @param int|null $decimals
      * @return string
@@ -77,6 +89,30 @@ class Pretty
                 static::$decimalPoint ?? static::DECIMAL_POINT,
                 static::$thousandsSeparator ?? static::THOUSANDS_SEPARATOR
             );
+    }
+
+    /**
+     * @param float $useconds
+     * @param null|int $units
+     * @param null|int $decimals
+     * @return string
+     */
+    public static function useconds(float $useconds, ?int $units = null, ?int $decimals = null): string
+    {
+        return
+            static::time($useconds / 1000000, $units, $decimals);
+    }
+
+    /**
+     * @param float $nanoseconds
+     * @param null|int $units
+     * @param null|int $decimals
+     * @return string
+     */
+    public static function nanoseconds(float $nanoseconds, ?int $units = null, ?int $decimals = null): string
+    {
+        return
+            static::time($nanoseconds / 1000000000, $units, $decimals);
     }
 
     /**
