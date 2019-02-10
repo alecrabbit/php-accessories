@@ -3,7 +3,7 @@
 namespace AlecRabbit\Tests\Accessories;
 
 
-use AlecRabbit\Circular;
+use AlecRabbit\Accessories\Circular;
 use PHPUnit\Framework\TestCase;
 
 class CircularTest extends TestCase

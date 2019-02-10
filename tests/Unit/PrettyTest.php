@@ -3,11 +3,10 @@
 namespace AlecRabbit\Tests\Accessories;
 
 
-use const AlecRabbit\Helpers\Constants\PHP_ARCH;
-use const AlecRabbit\Helpers\Constants\UNIT_NANOSECONDS;
-use AlecRabbit\Pretty;
+use AlecRabbit\Accessories\Pretty;
 use PHPUnit\Framework\TestCase;
 use const AlecRabbit\Helpers\Constants\UNIT_MICROSECONDS;
+use const AlecRabbit\Helpers\Constants\UNIT_NANOSECONDS;
 
 class PrettyTest extends TestCase
 {
@@ -50,7 +49,7 @@ class PrettyTest extends TestCase
     {
         return [
             ['10350.00μs', [0.01035, UNIT_MICROSECONDS,]],
-            ['10350.0μs', [0.01035, UNIT_MICROSECONDS,1]],
+            ['10350.0μs', [0.01035, UNIT_MICROSECONDS, 1]],
             ['10.4ms', [0.01035, null, 1]],
             ['10.3ms', [0.010349, null, 1]],
             ['10.35ms', [0.01035, null, 2]],
@@ -88,7 +87,7 @@ class PrettyTest extends TestCase
     {
         return [
             ['10350.00μs', [0.01035, UNIT_MICROSECONDS,]],
-            ['10350.0μs', [0.01035, UNIT_MICROSECONDS,1]],
+            ['10350.0μs', [0.01035, UNIT_MICROSECONDS, 1]],
             ['10.4ms', [0.01035, null, 1]],
             ['10.3ms', [0.010349, null, 1]],
             ['10.35ms', [0.01035, null, 2]],
@@ -125,7 +124,7 @@ class PrettyTest extends TestCase
     public function dataProviderTimeUSeconds(): array
     {
         return [
-            ['1035.0μs', [1035, UNIT_MICROSECONDS,1]],
+            ['1035.0μs', [1035, UNIT_MICROSECONDS, 1]],
             ['0.0ms', [0.01035, null, 1]],
             ['0.00ms', [0.01035, null, 2]],
             ['10.35123ms', [10351.23, null, 5]],
@@ -163,7 +162,7 @@ class PrettyTest extends TestCase
     public function dataProviderTimeNanoSeconds(): array
     {
         return [
-            ['1.0μs', [1035, UNIT_MICROSECONDS,1]],
+            ['1.0μs', [1035, UNIT_MICROSECONDS, 1]],
             ['0.0ms', [0.01035, null, 1]],
             ['0.0μs', [0.01035, UNIT_MICROSECONDS, 1]],
             ['0.0ns', [0.01035, UNIT_NANOSECONDS, 1]],

@@ -3,8 +3,8 @@
 namespace AlecRabbit\Tests\Accessories;
 
 
-use AlecRabbit\MemoryUsage;
-use AlecRabbit\MemoryUsageReport;
+use AlecRabbit\Accessories\MemoryUsage;
+use AlecRabbit\Accessories\MemoryUsageReport;
 use PHPUnit\Framework\TestCase;
 use function AlecRabbit\format_bytes;
 

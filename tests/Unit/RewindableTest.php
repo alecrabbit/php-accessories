@@ -2,7 +2,7 @@
 
 namespace AlecRabbit\Tests\Accessories;
 
-use AlecRabbit\Rewindable;
+use AlecRabbit\Accessories\Rewindable;
 use PHPUnit\Framework\TestCase;
 
 class RewindableTest extends TestCase

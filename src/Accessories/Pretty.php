@@ -2,8 +2,11 @@
 
 declare(strict_types=1);
 
-namespace AlecRabbit;
+namespace AlecRabbit\Accessories;
 
+use function AlecRabbit\format_bytes;
+use function AlecRabbit\format_time;
+use function AlecRabbit\format_time_auto;
 use function AlecRabbit\Helpers\bounds;
 use const AlecRabbit\Helpers\Constants\DEFAULT_PRECISION;
 

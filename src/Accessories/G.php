@@ -1,6 +1,6 @@
 <?php
 
-namespace AlecRabbit;
+namespace AlecRabbit\Accessories;
 
 class G
 {

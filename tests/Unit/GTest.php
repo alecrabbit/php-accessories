@@ -3,7 +3,7 @@
 namespace AlecRabbit\Tests\Accessories;
 
 
-use AlecRabbit\G;
+use AlecRabbit\Accessories\G;
 use PHPUnit\Framework\TestCase;
 
 class GTest extends TestCase

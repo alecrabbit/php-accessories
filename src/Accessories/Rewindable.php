@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace AlecRabbit;
+namespace AlecRabbit\Accessories;
 
 /**
  * Class Rewindable
