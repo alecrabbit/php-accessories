@@ -102,4 +102,16 @@ class Rewindable implements \Iterator
             \call_user_func($this->onRewind);
         }
     }
+
+    /**
+     * @param int $start
+     * @param int $stop
+     * @param int|float $step
+     * @return Rewindable
+     */
+    public static function range(int $start, int $stop, $step = 1): Rewindable
+    {
+        return
+            new Rewindable([G::class, 'range'], $start, $stop, $step);
+    }
 }

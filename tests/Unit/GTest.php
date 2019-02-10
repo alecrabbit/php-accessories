@@ -28,21 +28,6 @@ class GTest extends TestCase
 
     /**
      * @test
-     * @dataProvider rangeDataProvider
-     * @param $expected
-     * @param $start
-     * @param $stop
-     * @param $step
-     */
-    public function rangeRewindable($expected, $start, $stop, $step): void
-    {
-        $range = G::rewindableRange($start, $stop, $step);
-        $this->assertEquals($expected, iterator_to_array($range));
-        $this->assertEquals($expected, iterator_to_array($range));
-    }
-
-    /**
-     * @test
      * @dataProvider rangeDataProviderWithException
      * @param $start
      * @param $stop
@@ -52,19 +37,6 @@ class GTest extends TestCase
     {
         $this->expectException(\LogicException::class);
         iterator_to_array(G::range($start, $stop, $step));
-    }
-
-    /**
-     * @test
-     * @dataProvider rangeDataProviderWithException
-     * @param $start
-     * @param $stop
-     * @param $step
-     */
-    public function rangeRewindableWithException($start, $stop, $step): void
-    {
-        $this->expectException(\LogicException::class);
-        iterator_to_array(G::rewindableRange($start, $stop, $step));
     }
 
     public function rangeDataProvider(): array
