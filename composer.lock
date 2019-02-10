@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ac51e2b9c25b384a7e8c8a8324c84be",
+    "content-hash": "611adf2b3b0957e7e627d7d80caa4746",
     "packages": [
         {
             "name": "alecrabbit/php-helpers",
-            "version": "0.2.3",
+            "version": "0.2.5-RC2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-helpers.git",
-                "reference": "5e065db77d50647e1e1b87d4f65e3ff7968c9f49"
+                "reference": "c4dd0e6e4867df5deebec6a2b957736f2d1e45d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/5e065db77d50647e1e1b87d4f65e3ff7968c9f49",
-                "reference": "5e065db77d50647e1e1b87d4f65e3ff7968c9f49",
+                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/c4dd0e6e4867df5deebec6a2b957736f2d1e45d7",
+                "reference": "c4dd0e6e4867df5deebec6a2b957736f2d1e45d7",
                 "shasum": ""
             },
             "require": {
@@ -48,7 +48,7 @@
                 "MIT"
             ],
             "description": "PHP helpers functions",
-            "time": "2019-01-09T23:54:30+00:00"
+            "time": "2019-01-30T17:17:38+00:00"
         },
         {
             "name": "krowinski/bcmath-extended",
@@ -109,22 +109,22 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.10.1",
+            "version": "2.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "39a8ebfffc2a75de9d2ade3f0e12c7e11669f7ce"
+                "reference": "48d211435ecb3671a2237614dc19fc2be185acb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/39a8ebfffc2a75de9d2ade3f0e12c7e11669f7ce",
-                "reference": "39a8ebfffc2a75de9d2ade3f0e12c7e11669f7ce",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/48d211435ecb3671a2237614dc19fc2be185acb6",
+                "reference": "48d211435ecb3671a2237614dc19fc2be185acb6",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "php": "^7.1.8",
-                "symfony/translation": "^4.0"
+                "symfony/translation": "^3.4 || ^4.0"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2.14 || ^3.0",
@@ -164,7 +164,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-01-14T09:25:45+00:00"
+            "time": "2019-01-29T16:35:35+00:00"
         },
         {
             "name": "symfony/contracts",
@@ -1605,16 +1605,16 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "4.0.1",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "febd209a219cea7b56ad799b30ebbea34b71eb8f"
+                "reference": "4a43e9af57b4afa663077b9bc85255dbc6e8a2bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/febd209a219cea7b56ad799b30ebbea34b71eb8f",
-                "reference": "febd209a219cea7b56ad799b30ebbea34b71eb8f",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/4a43e9af57b4afa663077b9bc85255dbc6e8a2bd",
+                "reference": "4a43e9af57b4afa663077b9bc85255dbc6e8a2bd",
                 "shasum": ""
             },
             "require": {
@@ -1651,7 +1651,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2018-11-25T09:31:21+00:00"
+            "time": "2019-01-28T15:26:03+00:00"
         },
         {
             "name": "sebastian/exporter",
@@ -2354,7 +2354,7 @@
     "aliases": [],
     "minimum-stability": "beta",
     "stability-flags": [],
-    "prefer-stable": true,
+    "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": ">=7.2"

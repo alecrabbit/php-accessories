@@ -1,5 +1,5 @@
 {
-    "name": "alecrabbit/accessories",
+    "name": "alecrabbit/php-accessories",
     "type": "library",
     "description": "PHP Accessories: Classes etc.",
     "keywords": [
@@ -15,7 +15,7 @@
     "license": "MIT",
     "require": {
         "php": ">=7.2",
-        "alecrabbit/php-helpers": "^0.2.3"
+        "alecrabbit/php-helpers": "^0.2"
     },
     "require-dev": {
         "nunomaduro/collision": "^2.1",
@@ -32,6 +32,5 @@
             "AlecRabbit\\Tests\\Accessories\\": "tests"
         }
     },
-    "minimum-stability": "beta",
-    "prefer-stable": true
+    "minimum-stability": "beta"
 }
