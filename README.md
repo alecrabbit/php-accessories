@@ -38,14 +38,25 @@ $r = new Rewindable($generatorFunction);
 iterator_to_array($r);
 $r->rewind();
 ```
+Has additional functions 
+```php
+$r = Rewindable::range(1, 3); 
+```
+
 - Pretty - string formatter, e.g. bytes and time
 ```php
 Pretty::bytes(10584760, 'mb'); // string(7) "10.09MB"
 Pretty::time(0.214); // string(5) "214ms"
-Pretty::precent(0.214); // // string(6) "21.40%"
+Pretty::precent(0.214);  // string(6) "21.40%"
+
+Pretty::nanoseconds(10485); // string(7) "10.5μs"
+Pretty::seconds(0.214); // string(5) "214ms"
+Pretty::useconds(3212); // string(5) "3.2ms"
+Pretty::useconds(12); // string(5) "12μs"
 ```
 - MemoryUsage - memory usage :)
 ```php
 $report = MemoryUsage::report('mb');
 echo $report . PHP_EOL;
+// Memory: 0.75MB(32.73MB) Real: 2.00MB(34.00MB)
 ```

@@ -14,9 +14,9 @@ class Circular implements \Iterator
 
     /**
      * Circular constructor.
-     * @param array $data
+     * @param mixed $data
      */
-    public function __construct(array $data)
+    public function __construct($data)
     {
         $this->data = $data;
         reset($this->data);

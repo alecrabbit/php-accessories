@@ -16,5 +16,10 @@ var_dump(Pretty::time(10485760)); // string(9) "2912.711h"
 var_dump(Pretty::time(3212)); // string(6) "53.53m"
 var_dump(Pretty::time(time())); // find out yourself :)
 echo PHP_EOL;
+var_dump(Pretty::nanoseconds(10485)); // string(7) "10.5μs"
+var_dump(Pretty::seconds(0.214)); // string(5) "214ms"
+var_dump(Pretty::useconds(3212)); // string(5) "3.2ms"
+var_dump(Pretty::useconds(12)); // string(5) "12μs"
+echo PHP_EOL;
 var_dump(Pretty::percent(0.214)); // string(6) "21.40%"
 
