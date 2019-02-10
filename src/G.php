@@ -44,16 +44,4 @@ class G
             throw new \LogicException('Step has to be greater than zero');
         }
     }
-
-    /**
-     * @param int $start
-     * @param int $stop
-     * @param int|float $step
-     * @return Rewindable
-     */
-    public static function rewindableRange(int $start, int $stop, $step = 1): Rewindable
-    {
-        return
-            new Rewindable([__CLASS__, 'range'], $start, $stop, $step);
-    }
 }
