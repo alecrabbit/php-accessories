@@ -130,35 +130,6 @@ class RewindableTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     * @dataProvider rangeDataProvider
-     * @param $expected
-     * @param $start
-     * @param $stop
-     * @param $step
-     */
-    public function rangeRewindable($expected, $start, $stop, $step): void
-    {
-        $range = Rewindable::range($start, $stop, $step);
-        $this->assertEquals($expected, iterator_to_array($range));
-        $this->assertEquals($expected, iterator_to_array($range));
-    }
-
-    /**
-     * @test
-     * @dataProvider rangeDataProviderWithException
-     * @param $start
-     * @param $stop
-     * @param $step
-     */
-    public function rangeRewindableWithException($start, $stop, $step): void
-    {
-        $this->expectException(\LogicException::class);
-        iterator_to_array(Rewindable::range($start, $stop, $step));
-    }
-
-
     public function rangeDataProvider(): array
     {
         return [
