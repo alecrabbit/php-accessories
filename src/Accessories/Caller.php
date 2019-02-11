@@ -13,29 +13,17 @@ class Caller
     private function __construct()
     {
     }
+
     // @codeCoverageIgnoreEnd
 
-    public static function method(int $depth = 3): string
+    public static function get(int $depth = 2): string
     {
-        $caller = static::get($depth);
-        $r = '';
+        $caller = debug_backtrace()[$depth];
+        $type = $caller['type'] ?? '';
         $function = $caller['function'] . '()';
-        if (isset($caller['class'])) {
-            $type = $caller['type'] ?? '';
-            $r .= $caller['class'] . $type . $function;
-        } else {
-            $r .= $function;
-        }
-        if (isset($caller['object'])) {
-            $r .= ' (' . \get_class($caller['object']) . ')';
-        }
-        return $r;
-    }
-
-    public static function get(int $depth = 2): array
-    {
-//        dump(debug_backtrace());
         return
-            debug_backtrace()[$depth];
+            isset($caller['class']) ?
+                $caller['class'] . $type . $function :
+                $function;
     }
 }

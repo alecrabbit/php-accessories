@@ -27,7 +27,7 @@ class SomeStupidClass
 
 function someFunction()
 {
-    throw new \RuntimeException(Caller::method() . ' called this function');
+    throw new \RuntimeException(Caller::get() . ' called this function');
 }
 
 function usesSomeFunction(): void
