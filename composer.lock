@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "alecrabbit/php-helpers",
-            "version": "0.2.5",
+            "version": "0.2.6-RC1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-helpers.git",
-                "reference": "9087e5a8e1129717088c07d8a83ebf22b49cf7a6"
+                "reference": "42595d5451347c46e8accd0c13de476b5a05c597"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/9087e5a8e1129717088c07d8a83ebf22b49cf7a6",
-                "reference": "9087e5a8e1129717088c07d8a83ebf22b49cf7a6",
+                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/42595d5451347c46e8accd0c13de476b5a05c597",
+                "reference": "42595d5451347c46e8accd0c13de476b5a05c597",
                 "shasum": ""
             },
             "require": {
@@ -27,6 +27,7 @@
                 "symfony/polyfill-php73": "^1.10"
             },
             "require-dev": {
+                "ext-curl": "*",
                 "nunomaduro/collision": "^2.1",
                 "phpunit/phpunit": "^7.5",
                 "symfony/var-dumper": "^4.2"
@@ -48,7 +49,7 @@
                 "MIT"
             ],
             "description": "PHP helpers functions",
-            "time": "2019-02-07T14:07:41+00:00"
+            "time": "2019-02-11T15:14:19+00:00"
         },
         {
             "name": "krowinski/bcmath-extended",
