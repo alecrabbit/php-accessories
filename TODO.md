@@ -1,4 +1,4 @@
-- [x] Let's not confuse base logic with utility functions, move range() function to R class (0.3.0)
+- [x] move range() function to R class (0.3.0-BETA)
 ```php
 $r = R::range(1,3);
 ```
