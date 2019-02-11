@@ -40,9 +40,11 @@ iterator_to_array($r);
 $r->rewind();
 ```
 
-Has additional functions 
+- R - class containing rewindable generator functions
 ```php
-$r = Rewindable::range(1, 3); 
+$r = R::range(1, 3);
+iterator_to_array($r);
+$r->rewind();
 ```
 
 - Pretty - string formatter, e.g. bytes and time
