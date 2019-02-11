@@ -28,6 +28,8 @@ class RewindableTest extends TestCase
         );
 
         $this->assertEquals([], iterator_to_array($iterator));
+        $iterator->rewind();
+        $this->assertEquals([], iterator_to_array($iterator));
     }
 
     /** @test */
@@ -35,6 +37,11 @@ class RewindableTest extends TestCase
     {
         $iterator = new Rewindable(static::$generator);
 
+        $this->assertEquals(
+            ['1234', '12345', '123456'],
+            iterator_to_array($iterator)
+        );
+        $iterator->rewind();
         $this->assertEquals(
             ['1234', '12345', '123456'],
             iterator_to_array($iterator)
@@ -69,7 +76,7 @@ class RewindableTest extends TestCase
     }
 
     /** @test */
-    public function GivenNonGeneratorFunction_constructorThrowsException(): void
+    public function constructorThrowsExceptionWhenGivenNonGeneratorFunction(): void
     {
         $this->expectException('InvalidArgumentException');
         new Rewindable(function () {
@@ -77,7 +84,7 @@ class RewindableTest extends TestCase
     }
 
     /** @test */
-    public function WhenCallingItTwice_onRewindThrowsException(): void
+    public function setOnRewindThrowsExceptionWhenCallingItTwice(): void
     {
         $iterator = new Rewindable(static::$generator);
         $iterator->setOnRewind(function () {
@@ -88,7 +95,7 @@ class RewindableTest extends TestCase
     }
 
     /** @test */
-    public function WhenCallingRewind_onRewindCallbackGetsCalled(): void
+    public function onRewindCallbackGetsCalledWhenCallingRewind(): void
     {
         $a = [];
         $callback = function () use (&$a) {
@@ -108,7 +115,7 @@ class RewindableTest extends TestCase
     }
 
     /** @test */
-    public function IteratingMultipleTimes_onRewindCallbackGetsCalled(): void
+    public function onRewindCallbackGetsCalledWhenIteratingMultipleTimes(): void
     {
         $a = [];
         $callback = function () use (&$a) {
