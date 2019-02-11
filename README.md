@@ -23,21 +23,23 @@ see [examples](https://github.com/alecrabbit/php-accessories/tree/master/example
 ### Features
 - G - class containing generator functions
 ```php
-$r1 = G::range(1, 3); 
-$r2 = G::rewindableRange(1, 3); 
+$r = G::range(1, 3); 
 ```
+
 - Circular - helper class to get values in a circle
 ```php
 $c = new Circular([1, 2, 3]);
 $value = $c(); // invoke 
 $value = $c->getElement(); // method 
 ```
+
 - Rewindable - rewindable generator helper class
 ```php
 $r = new Rewindable($generatorFunction);
 iterator_to_array($r);
 $r->rewind();
 ```
+
 Has additional functions 
 ```php
 $r = Rewindable::range(1, 3); 
@@ -54,6 +56,7 @@ Pretty::seconds(0.214); // string(5) "214ms"
 Pretty::useconds(3212); // string(5) "3.2ms"
 Pretty::useconds(12); // string(5) "12μs"
 ```
+
 - MemoryUsage - memory usage :)
 ```php
 $report = MemoryUsage::report('mb');
