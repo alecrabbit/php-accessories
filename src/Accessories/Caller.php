@@ -4,9 +4,17 @@ declare(strict_types=1);
 
 namespace AlecRabbit\Accessories;
 
-/** @experimental */
 class Caller
 {
+    /**
+     * Static class. Private Constructor.
+     */
+    // @codeCoverageIgnoreStart
+    private function __construct()
+    {
+    }
+    // @codeCoverageIgnoreEnd
+
     public static function method(int $depth = 3): string
     {
         $caller = static::get($depth);
@@ -26,7 +34,8 @@ class Caller
 
     public static function get(int $depth = 2): array
     {
+//        dump(debug_backtrace());
         return
-            (new \Exception())->getTrace()[$depth];
+            debug_backtrace()[$depth];
     }
 }
