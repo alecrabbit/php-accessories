@@ -21,33 +21,44 @@ see [examples](https://github.com/alecrabbit/php-accessories/tree/master/example
 
 
 ### Features
-- G - class containing generator functions
+
+##### Caller::class 
+Gets a caller Class::method() or function() with corresponding depth, default 2
+```php
+if($wrongArguments) {
+ throw new \RuntimeException(Caller::get() . ' provided wrong arguments'); 
+}
+```
+
+##### G::class 
+Contains generator functions
 ```php
 $r = G::range(1, 3); 
 ```
 
-- Circular - helper class to get values in a circle
+##### Circular::class
+ Helper class to get values in a circle
 ```php
 $c = new Circular([1, 2, 3]);
 $value = $c(); // invoke 
 $value = $c->getElement(); // method 
 ```
 
-- Rewindable - rewindable generator helper class
+##### Rewindable::class - rewindable generator helper class
 ```php
 $r = new Rewindable($generatorFunction);
 iterator_to_array($r);
 $r->rewind();
 ```
 
-- R - class containing rewindable generator functions
+##### R::class - containing rewindable generator functions
 ```php
 $r = R::range(1, 3);
 iterator_to_array($r);
 $r->rewind();
 ```
 
-- Pretty - string formatter, e.g. bytes and time
+##### Pretty::class - string formatter, e.g. bytes and time
 ```php
 Pretty::bytes(10584760, 'mb'); // string(7) "10.09MB"
 Pretty::time(0.214); // string(5) "214ms"
@@ -59,7 +70,7 @@ Pretty::useconds(3212); // string(5) "3.2ms"
 Pretty::useconds(12); // string(5) "12μs"
 ```
 
-- MemoryUsage - memory usage :)
+##### MemoryUsage::class - memory usage :)
 ```php
 $report = MemoryUsage::report('mb');
 echo $report . PHP_EOL;
