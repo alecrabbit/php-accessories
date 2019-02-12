@@ -15,9 +15,8 @@
 composer require alecrabbit/php-accessories
 ```
 
-
 ### Usage
-see [examples](https://github.com/alecrabbit/php-accessories/tree/master/examples)
+for details see [examples](https://github.com/alecrabbit/php-accessories/tree/master/examples)
 
 
 ### Features
@@ -37,40 +36,52 @@ $r = G::range(1, 3);
 ```
 
 ##### Circular::class
- Helper class to get values in a circle
+Helper class to get values in a circle
 ```php
 $c = new Circular([1, 2, 3]);
 $value = $c(); // invoke 
 $value = $c->getElement(); // method 
+// not implemented yet
+// $value = $c->value(); // alias for getElement()
 ```
 
-##### Rewindable::class - rewindable generator helper class
+##### Rewindable::class
+Rewindable generator helper class
 ```php
 $r = new Rewindable($generatorFunction);
 iterator_to_array($r);
 $r->rewind();
 ```
 
-##### R::class - containing rewindable generator functions
+##### R::class 
+Contains rewindable generator functions
 ```php
 $r = R::range(1, 3);
 iterator_to_array($r);
 $r->rewind();
 ```
 
-##### Pretty::class - string formatter, e.g. bytes and time
+##### Pretty::class 
+String formatter, e.g. percent, bytes and time(seconds, microseconds, nanoseconds)
 ```php
 Pretty::bytes(10584760, 'mb'); // string(7) "10.09MB"
 Pretty::time(0.214); // string(5) "214ms"
 Pretty::precent(0.214);  // string(6) "21.40%"
 
-Pretty::nanoseconds(10485); // string(7) "10.5μs"
 Pretty::seconds(0.214); // string(5) "214ms"
 Pretty::useconds(3212); // string(5) "3.2ms"
 Pretty::useconds(12); // string(5) "12μs"
+Pretty::nanoseconds(10485); // string(7) "10.5μs"
+Pretty::nanoseconds(105); // string(7) "105ns"
+
+// not implemented yet 
+// Pretty::milliseconds(214); // string(5) "214ms"
+// alias for useconds
+// Pretty::microseconds(12); // string(5) "12μs"
 ```
 
-##### MemoryUsage::class - memory usage :)
+##### MemoryUsage::class
+Helper class to get memory usage
 ```php
 $report = MemoryUsage::report('mb');
 echo $report . PHP_EOL;
