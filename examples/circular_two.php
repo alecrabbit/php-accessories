@@ -1,10 +1,10 @@
 <?php
 
+use AlecRabbit\Accessories\Circular;
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use AlecRabbit\Circular;
 
-// to clarify Circular gets array as parameter
 $c = new Circular([
     0.1,
     'a',

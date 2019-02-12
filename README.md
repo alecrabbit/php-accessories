@@ -29,12 +29,6 @@ if($wrongArguments) {
 }
 ```
 
-##### G::class 
-Contains generator functions
-```php
-$r = G::range(1, 3); 
-```
-
 ##### Circular::class
 Helper class to get values in a circle
 ```php
@@ -53,6 +47,12 @@ iterator_to_array($r);
 $r->rewind();
 ```
 
+##### G::class 
+Contains generator functions
+```php
+$r = G::range(1, 3); 
+```
+
 ##### R::class 
 Contains rewindable generator functions
 ```php
@@ -69,15 +69,16 @@ Pretty::time(0.214); // string(5) "214ms"
 Pretty::precent(0.214);  // string(6) "21.40%"
 
 Pretty::seconds(0.214); // string(5) "214ms"
+
+Pretty::milliseconds(214); // string(5) "214ms"
+
 Pretty::useconds(3212); // string(5) "3.2ms"
 Pretty::useconds(12); // string(5) "12μs"
+// alias for useconds
+Pretty::microseconds(12); // string(5) "12μs"
+
 Pretty::nanoseconds(10485); // string(7) "10.5μs"
 Pretty::nanoseconds(105); // string(7) "105ns"
-
-// not implemented yet 
-// Pretty::milliseconds(214); // string(5) "214ms"
-// alias for useconds
-// Pretty::microseconds(12); // string(5) "12μs"
 ```
 
 ##### MemoryUsage::class
