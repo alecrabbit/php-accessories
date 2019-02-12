@@ -95,6 +95,30 @@ class Pretty
     }
 
     /**
+     * @param float $milliseconds
+     * @param null|int $units
+     * @param null|int $decimals
+     * @return string
+     */
+    public static function milliseconds(float $milliseconds, ?int $units = null, ?int $decimals = null): string
+    {
+        return
+            static::time($milliseconds / 1000, $units, $decimals);
+    }
+
+    /**
+     * @param float $microseconds
+     * @param null|int $units
+     * @param null|int $decimals
+     * @return string
+     */
+    public static function microseconds(float $microseconds, ?int $units = null, ?int $decimals = null): string
+    {
+        return
+            static::useconds($microseconds, $units, $decimals);
+    }
+
+    /**
      * @param float $useconds
      * @param null|int $units
      * @param null|int $decimals

@@ -121,6 +121,17 @@ class PrettyTest extends TestCase
         $this->assertEquals($expected, Pretty::useconds(...$args));
     }
 
+    /**
+     * @test
+     * @dataProvider  dataProviderTimeUSeconds
+     * @param $expected
+     * @param $args
+     */
+    public function prettyMicroSeconds($expected, $args): void
+    {
+        $this->assertEquals($expected, Pretty::microseconds(...$args));
+    }
+
     public function dataProviderTimeUSeconds(): array
     {
         return [
@@ -150,6 +161,30 @@ class PrettyTest extends TestCase
 
     /**
      * @test
+     * @dataProvider  dataProviderTimeMilliSeconds
+     * @param $expected
+     * @param $args
+     */
+    public function prettyMilliSeconds($expected, $args): void
+    {
+        $this->assertEquals($expected, Pretty::milliseconds(...$args));
+    }
+
+    public function dataProviderTimeMilliSeconds(): array
+    {
+        return [
+            ['100.0ns', [0.0001]],
+            ['1.0ms', [1]],
+            ['1000000ns', [1, UNIT_NANOSECONDS, 0]],
+            ['0.00010ms', [0.0001, null, 5]],
+            ['596.523h', [2147483647]],
+//            // not tested on 32bit php builds
+            [PHP_INT_SIZE === 4 ? '596.523h' : '2562047788015.215h', [PHP_INT_MAX]],
+        ];
+    }
+
+    /**
+     * @test
      * @dataProvider  dataProviderTimeNanoSeconds
      * @param $expected
      * @param $args
@@ -174,10 +209,9 @@ class PrettyTest extends TestCase
             ['342.1ns', [342.063]],
             ['1.1μs', [1123.0]],
             ['11.3ns', [11.3]],
-            ['89839.874h', [323423545435252342]],
             ['2.1s', [2147483647]],
 //            // not tested on 32bit php builds
-            [PHP_INT_SIZE === 4 ? '35.79m' : '2562047.788h', [PHP_INT_MAX]],
+            [PHP_INT_SIZE === 4 ? '2.1s' : '2562047.788h', [PHP_INT_MAX]],
         ];
     }
 
@@ -288,5 +322,6 @@ class PrettyTest extends TestCase
             ['12.350%', [0.1234999, 5]],
         ];
     }
+
 
 }

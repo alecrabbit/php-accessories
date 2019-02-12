@@ -6,6 +6,8 @@ namespace AlecRabbit\Accessories;
 
 class Caller
 {
+    public const UNDEFINED = 'UNDEFINED';
+
     /**
      * Static class. Private Constructor.
      */
@@ -18,7 +20,8 @@ class Caller
 
     public static function get(int $depth = 2): string
     {
-        $caller = debug_backtrace()[$depth];
+        $caller =
+            debug_backtrace()[$depth] ?? ['function' => static::UNDEFINED];
         $type = $caller['type'] ?? '';
         $function = $caller['function'] . '()';
         return

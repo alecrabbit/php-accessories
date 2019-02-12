@@ -15,51 +15,74 @@
 composer require alecrabbit/php-accessories
 ```
 
-
 ### Usage
-see [examples](https://github.com/alecrabbit/php-accessories/tree/master/examples)
+for details see [examples](https://github.com/alecrabbit/php-accessories/tree/master/examples)
 
 
 ### Features
-- G - class containing generator functions
+
+##### Caller::class 
+Gets a caller Class::method() or function() with corresponding depth, default 2
 ```php
-$r = G::range(1, 3); 
+if($wrongArguments) {
+ throw new \RuntimeException(Caller::get() . ' provided wrong arguments'); 
+}
 ```
 
-- Circular - helper class to get values in a circle
+##### Circular::class
+Helper class to get values in a circle
 ```php
 $c = new Circular([1, 2, 3]);
 $value = $c(); // invoke 
 $value = $c->getElement(); // method 
+// not implemented yet
+// $value = $c->value(); // alias for getElement()
 ```
 
-- Rewindable - rewindable generator helper class
+##### Rewindable::class
+Rewindable generator helper class
 ```php
 $r = new Rewindable($generatorFunction);
 iterator_to_array($r);
 $r->rewind();
 ```
 
-- R - class containing rewindable generator functions
+##### G::class 
+Contains generator functions
+```php
+$r = G::range(1, 3); 
+```
+
+##### R::class 
+Contains rewindable generator functions
 ```php
 $r = R::range(1, 3);
 iterator_to_array($r);
 $r->rewind();
 ```
 
-- Pretty - string formatter, e.g. bytes and time
+##### Pretty::class 
+String formatter, e.g. percent, bytes and time(seconds, microseconds, nanoseconds)
 ```php
 Pretty::bytes(10584760, 'mb'); // string(7) "10.09MB"
 Pretty::time(0.214); // string(5) "214ms"
 Pretty::precent(0.214);  // string(6) "21.40%"
 
-Pretty::nanoseconds(10485); // string(7) "10.5μs"
 Pretty::seconds(0.214); // string(5) "214ms"
+
+Pretty::milliseconds(214); // string(5) "214ms"
+
 Pretty::useconds(3212); // string(5) "3.2ms"
 Pretty::useconds(12); // string(5) "12μs"
+// alias for useconds
+Pretty::microseconds(12); // string(5) "12μs"
+
+Pretty::nanoseconds(10485); // string(7) "10.5μs"
+Pretty::nanoseconds(105); // string(7) "105ns"
 ```
 
-- MemoryUsage - memory usage :)
+##### MemoryUsage::class
+Helper class to get memory usage
 ```php
 $report = MemoryUsage::report('mb');
 echo $report . PHP_EOL;
