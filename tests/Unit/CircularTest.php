@@ -15,7 +15,7 @@ class CircularTest extends TestCase
         $expected = [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2];
         $actual = [];
         for ($i = 0; $i < 18; $i++) {
-            $actual[] = $c->getElement();
+            $actual[] = $c->value();
         }
         $this->assertEquals($expected, $actual);
     }
@@ -49,6 +49,20 @@ class CircularTest extends TestCase
     {
         $expected = ['1'=> 1,'two' => 2, '3' => 3, 'four' => 4];
         $c = new Circular($expected);
+        $actual = [];
+        foreach ($c as $key => $value) {
+            $actual[$key] = $value;
+        }
+        $this->assertEquals($expected, $actual);
+    }
+    /** @test */
+    public function acceptsGeneratorFunctionAsParameter(): void
+    {
+        $expected = [1=> 1,'two' => 2, 3 => 3, 'four' => 4];
+        $genFunc = function () use ($expected) {
+            yield from $expected;
+        };
+        $c = new Circular($genFunc);
         $actual = [];
         foreach ($c as $key => $value) {
             $actual[$key] = $value;
