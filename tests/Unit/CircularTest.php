@@ -47,7 +47,7 @@ class CircularTest extends TestCase
     /** @test */
     public function circularIteratorTwo(): void
     {
-        $expected = ['1'=> 1,'two' => 2, '3' => 3, 'four' => 4];
+        $expected = ['1' => 1, 'two' => 2, '3' => 3, 'four' => 4];
         $c = new Circular($expected);
         $actual = [];
         foreach ($c as $key => $value) {
@@ -55,10 +55,11 @@ class CircularTest extends TestCase
         }
         $this->assertEquals($expected, $actual);
     }
+
     /** @test */
     public function acceptsGeneratorFunctionAsParameter(): void
     {
-        $expected = [1=> 1,'two' => 2, 3 => 3, 'four' => 4];
+        $expected = [1 => 1, 'two' => 2, 3 => 3, 'four' => 4];
         $genFunc = function () use ($expected) {
             yield from $expected;
         };
@@ -68,5 +69,29 @@ class CircularTest extends TestCase
             $actual[$key] = $value;
         }
         $this->assertEquals($expected, $actual);
+    }
+
+    /**
+     * @test
+     * @dataProvider wrongArgumentsDataProvider
+     * @param $args
+     */
+    public function throwsOnWrongArguments($args): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        new Circular(...$args);
+    }
+
+    public function wrongArgumentsDataProvider(): array
+    {
+        return [
+            [
+                [
+                    function () {
+                    },
+                ],
+            ],
+            [[curl_init()]],
+        ];
     }
 }

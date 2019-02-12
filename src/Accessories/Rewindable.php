@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace AlecRabbit\Accessories;
 
+use function AlecRabbit\typeOf;
+
 /**
  * Class Rewindable
  */
@@ -41,7 +43,10 @@ class Rewindable implements \Iterator
         $this->generator = \call_user_func($this->generatorFunction, ...$args);
 
         if (!($this->generator instanceof \Generator)) {
-            throw new \InvalidArgumentException('Return type of your generator function MUST be a \Generator.');
+            throw new \InvalidArgumentException(
+                'Return type of your generator function MUST be a \Generator. Returns: ' .
+                typeOf($this->generator)
+            );
         }
     }
 

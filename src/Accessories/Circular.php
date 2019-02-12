@@ -11,18 +11,40 @@ use function AlecRabbit\typeOf;
  */
 class Circular implements \Iterator
 {
-    /** @var mixed */
+    /** @var Rewindable */
     protected $data;
 
     /**
      * Circular constructor.
-     * @param mixed $data
+     * @param array|callable|Rewindable $data
      */
     public function __construct($data)
     {
-        $this->data = $this->assertData($data);
-        dump()
-        reset($this->data);
+        $this->data = $this->convert($data);
+    }
+
+    /**
+     * @param mixed $data
+     * @return Rewindable
+     */
+    private function convert(&$data): Rewindable
+    {
+        if (\is_array($data)) {
+            return
+                new Rewindable(
+                    function () use (&$data): \Generator {
+                        yield from $data;
+                    }
+                );
+        }
+        if (\is_callable($data)) {
+            return
+                new Rewindable($data);
+        }
+        if ($data instanceof Rewindable) {
+            return $data;
+        }
+        throw new \InvalidArgumentException('Unexpected argument type: ' . typeOf($data) . ' for ' . Caller::get());
     }
 
     /**
@@ -31,6 +53,58 @@ class Circular implements \Iterator
     public function __invoke()
     {
         return $this->value();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function value()
+    {
+        if (null === $value = $this->current()) {
+            $this->rewind();
+            $value = $this->current();
+        }
+        $this->next();
+        return $value;
+//        if (!$this->valid()) {
+//            $this->rewind();
+//        } else {
+//            $this->next();
+//        }
+//        return $this->current();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function current()
+    {
+        return $this->data->current();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rewind(): void
+    {
+        $this->data->rewind();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function next(): void
+    {
+        $this->data->next();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function valid(): bool
+    {
+        return
+            $this->data->valid();
     }
 
     /**
@@ -43,74 +117,10 @@ class Circular implements \Iterator
     }
 
     /**
-     * @return mixed
-     */
-    public function value()
-    {
-        if (false === $result = current($this->data)) {
-            $result = reset($this->data);
-        }
-        next($this->data);
-
-        return $result;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function current()
-    {
-        return current($this->data);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function next(): void
-    {
-        next($this->data);
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function key()
     {
-        return key($this->data);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function valid(): bool
-    {
-        return
-            false !== current($this->data);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function rewind(): void
-    {
-        reset($this->data);
-    }
-
-    /**
-     * @param mixed $data
-     * @return mixed
-     */
-    private function assertData($data)
-    {
-        if (is_array($data)) {
-            return $data;
-        }
-        if (is_callable($data)) {
-            if (!($data() instanceof \Generator)) {
-                throw new \InvalidArgumentException('Return type of your generator function MUST be a \Generator.');
-            }
-            return new Rewindable($data);
-        }
-        throw new \InvalidArgumentException('Unexpected argument type: ' . typeOf($data) . ' for ' . Caller::get());
+        return $this->data->key();
     }
 }
