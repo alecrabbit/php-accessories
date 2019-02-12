@@ -108,15 +108,6 @@ class Circular implements \Iterator
     }
 
     /**
-     * @deprecated
-     * @return mixed
-     */
-    public function getElement()
-    {
-        return $this->value();
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function key()
