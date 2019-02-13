@@ -33,16 +33,14 @@ if($wrongArguments) {
 Helper class to get values in a circle
 ```php
 $c = new Circular([1, 2, 3]);
-$value = $c(); // invoke 
-$value = $c->getElement(); // method 
-// not implemented yet
-// $value = $c->value(); // alias for getElement()
+$value = $c(); // int(1) invoke 
+$value = $c->value(); // int(2) get value by method 
 ```
 
 ##### Rewindable::class
 Rewindable generator helper class
 ```php
-$r = new Rewindable($generatorFunction);
+$r = new Rewindable($genFunc); // $genFunc is a callable and returns \Generator
 iterator_to_array($r);
 $r->rewind();
 ```
