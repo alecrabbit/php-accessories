@@ -2,24 +2,28 @@
 
 use AlecRabbit\Accessories\Circular;
 use AlecRabbit\Accessories\MemoryUsage;
+use AlecRabbit\Accessories\R;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 
+$c = new Circular(R::range(1, 100000));
+
+$a = 0;
+foreach ($c as $item) {
+    $a += $item;
+}
+var_dump($a);
+
+echo MemoryUsage::report() . PHP_EOL;
+
+// uses more memory
 $c = new Circular(range(1, 100000));
 
-var_dump($c->value()); // int(1)
-var_dump($c->value()); // int(2)
-var_dump($c->value()); // int(3)
-var_dump($c->value()); // int(1)
-
-// or you can invoke $c
-var_dump($c()); // int(2)
-var_dump($c()); // int(3)
-var_dump($c()); // int(1)
-
+$a = 0;
 foreach ($c as $item) {
-    var_dump($item); // int(1..3)
+    $a += $item;
 }
+var_dump($a);
 
 echo MemoryUsage::report() . PHP_EOL;

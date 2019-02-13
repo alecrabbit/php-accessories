@@ -1,10 +1,11 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
+use AlecRabbit\Accessories\G;
+use AlecRabbit\Accessories\MemoryUsage;
 
-use AlecRabbit\G;
-use AlecRabbit\MemoryUsage;
+require_once __DIR__ . '/../../vendor/autoload.php';
 
+// note: your output may differ
 var_dump(MemoryUsage::get(true)); // string(6) "2.00MB"
 
 $r = range(1, 1000000);
@@ -12,7 +13,7 @@ $r = range(1, 1000000);
 var_dump(MemoryUsage::get(true)); // string(7) "34.00MB"
 unset($r);
 
-// when using a generator range much less memory is needed
+// when using a generator range much less memory is used
 $r = G::range(1, 1000000);
 
 var_dump(MemoryUsage::get(true)); // string(6) "2.00MB"
