@@ -66,12 +66,6 @@ class Circular implements \Iterator
         }
         $this->next();
         return $value;
-//        if (!$this->valid()) {
-//            $this->rewind();
-//        } else {
-//            $this->next();
-//        }
-//        return $this->current();
     }
 
     /**
