@@ -1,8 +1,9 @@
 <?php
 
-use AlecRabbit\Rewindable;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+use AlecRabbit\Accessories\Rewindable;
+
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 $generatorFunction =
     function () {

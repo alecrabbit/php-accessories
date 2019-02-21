@@ -4,12 +4,13 @@ namespace AlecRabbit\Tests\Accessories;
 
 
 use AlecRabbit\Accessories\Circular;
+use AlecRabbit\Accessories\Rewindable;
 use PHPUnit\Framework\TestCase;
 
 class CircularTest extends TestCase
 {
     /** @test */
-    public function iterates(): void
+    public function iteratesByMethodValue(): void
     {
         $c = new Circular([1, 2, 3, 4]);
         $expected = [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2];
@@ -21,7 +22,7 @@ class CircularTest extends TestCase
     }
 
     /** @test */
-    public function invokes(): void
+    public function iteratesInvoked(): void
     {
         $c = new Circular([1, 2, 3, 4]);
         $expected = [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2];
@@ -64,6 +65,21 @@ class CircularTest extends TestCase
             yield from $expected;
         };
         $c = new Circular($genFunc);
+        $actual = [];
+        foreach ($c as $key => $value) {
+            $actual[$key] = $value;
+        }
+        $this->assertEquals($expected, $actual);
+    }
+
+    /** @test */
+    public function acceptsRewindableAsParameter(): void
+    {
+        $expected = [1 => 1, 'two' => 2, 3 => 3, 'four' => 4];
+        $genFunc = function () use ($expected) {
+            yield from $expected;
+        };
+        $c = new Circular(new Rewindable($genFunc));
         $actual = [];
         foreach ($c as $key => $value) {
             $actual[$key] = $value;

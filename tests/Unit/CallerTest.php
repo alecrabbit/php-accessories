@@ -12,8 +12,6 @@ class CallerTest extends TestCase
     /** @test */
     public function caller(): void
     {
-//        dump(__CLASS__, __FUNCTION__, __METHOD__);
-//        dump($this->called());
         $this->assertEquals(__CLASS__ . '->' . __FUNCTION__ . '()', $this->called());
         $this->assertEquals(__NAMESPACE__ . '\outsideCaller()', outsideCaller());
     }

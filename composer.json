@@ -3,12 +3,15 @@
     "type": "library",
     "description": "PHP Accessories: Classes etc.",
     "keywords": [
+        "caller",
+        "iterator",
         "circular",
         "array",
         "generator",
         "rewindable",
         "pretty",
         "time",
+        "percent",
         "bytes",
         "range"
     ],

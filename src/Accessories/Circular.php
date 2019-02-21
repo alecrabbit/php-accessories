@@ -16,7 +16,7 @@ class Circular implements \Iterator
 
     /**
      * Circular constructor.
-     * @param array|callable|Rewindable $data
+     * @param array|callable|Rewindable $data accepts array, callable which returns \Generator or Rewindable
      */
     public function __construct($data)
     {
@@ -24,27 +24,27 @@ class Circular implements \Iterator
     }
 
     /**
-     * @param mixed $data
+     * @param mixed $arg
      * @return Rewindable
      */
-    private function convert(&$data): Rewindable
+    private function convert(&$arg): Rewindable
     {
-        if (\is_array($data)) {
+        if (\is_array($arg)) {
             return
                 new Rewindable(
-                    function () use (&$data): \Generator {
-                        yield from $data;
+                    function () use (&$arg): \Generator {
+                        yield from $arg;
                     }
                 );
         }
-        if (\is_callable($data)) {
+        if (\is_callable($arg)) {
             return
-                new Rewindable($data);
+                new Rewindable($arg);
         }
-        if ($data instanceof Rewindable) {
-            return $data;
+        if ($arg instanceof Rewindable) {
+            return $arg;
         }
-        throw new \InvalidArgumentException('Unexpected argument type: ' . typeOf($data) . ' for ' . Caller::get());
+        throw new \InvalidArgumentException('Unexpected argument type: ' . typeOf($arg) . ' for ' . Caller::get());
     }
 
     /**
@@ -66,12 +66,6 @@ class Circular implements \Iterator
         }
         $this->next();
         return $value;
-//        if (!$this->valid()) {
-//            $this->rewind();
-//        } else {
-//            $this->next();
-//        }
-//        return $this->current();
     }
 
     /**
@@ -105,15 +99,6 @@ class Circular implements \Iterator
     {
         return
             $this->data->valid();
-    }
-
-    /**
-     * @deprecated
-     * @return mixed
-     */
-    public function getElement()
-    {
-        return $this->value();
     }
 
     /**

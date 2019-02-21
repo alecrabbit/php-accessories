@@ -15,7 +15,6 @@ class Caller
     private function __construct()
     {
     }
-
     // @codeCoverageIgnoreEnd
 
     public static function get(int $depth = 2): string
