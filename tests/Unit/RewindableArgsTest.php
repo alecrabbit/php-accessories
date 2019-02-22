@@ -28,5 +28,4 @@ class RewindableArgsTest extends TestCase
             iterator_to_array($iterator)
         );
     }
-
 }

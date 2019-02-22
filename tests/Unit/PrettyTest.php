@@ -2,7 +2,6 @@
 
 namespace AlecRabbit\Tests\Accessories;
 
-
 use AlecRabbit\Accessories\Pretty;
 use PHPUnit\Framework\TestCase;
 use const AlecRabbit\Helpers\Constants\UNIT_MICROSECONDS;
@@ -322,6 +321,4 @@ class PrettyTest extends TestCase
             ['12.350%', [0.1234999, 5]],
         ];
     }
-
-
 }

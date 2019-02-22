@@ -62,5 +62,4 @@ class RTest extends TestCase
             [1, 5, -1],
         ];
     }
-
 }

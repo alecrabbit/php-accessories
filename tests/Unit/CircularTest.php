@@ -2,7 +2,6 @@
 
 namespace AlecRabbit\Tests\Accessories;
 
-
 use AlecRabbit\Accessories\Circular;
 use AlecRabbit\Accessories\Rewindable;
 use PHPUnit\Framework\TestCase;
