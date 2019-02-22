@@ -61,7 +61,7 @@ class MemoryUsageTest extends TestCase
     // these tests just for lulz
 
     /** @test */
-    public function ItBehaves(): void
+    public function itBehaves(): void
     {
         $this->assertEquals(format_bytes(memory_get_usage(), 'GB'), MemoryUsage::get(false, 'GB'));
         $this->assertEquals(format_bytes(memory_get_usage(true)), MemoryUsage::get(true));
