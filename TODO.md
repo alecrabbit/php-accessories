@@ -1,5 +1,4 @@
 - [ ] Improve formatting for `MemoryUsage::class`
-- [ ] move all to `AlecRabbit\Accessories` namespace (0.5.0)
 
 - [x] Circular can use `\Generator` or `Rewindable` as parameter (0.4.0-BETA) 
 ```php
