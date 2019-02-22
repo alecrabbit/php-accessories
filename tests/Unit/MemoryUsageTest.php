@@ -2,7 +2,6 @@
 
 namespace AlecRabbit\Tests\Accessories;
 
-
 use AlecRabbit\Accessories\MemoryUsage;
 use AlecRabbit\Accessories\MemoryUsageReport;
 use PHPUnit\Framework\TestCase;
@@ -69,6 +68,4 @@ class MemoryUsageTest extends TestCase
         $this->assertEquals(format_bytes(memory_get_peak_usage()), MemoryUsage::getPeak());
         $this->assertIsString((string)MemoryUsage::report());
     }
-
-
 }

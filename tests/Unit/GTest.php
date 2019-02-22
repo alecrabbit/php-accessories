@@ -2,7 +2,6 @@
 
 namespace AlecRabbit\Tests\Accessories;
 
-
 use AlecRabbit\Accessories\G;
 use PHPUnit\Framework\TestCase;
 

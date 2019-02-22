@@ -4,26 +4,26 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "91fe26d3b760faa8f210b7f8a788934f",
+    "content-hash": "067c06afdfd8860356160d2e649ad756",
     "packages": [
         {
             "name": "alecrabbit/php-helpers",
-            "version": "0.3.0-BETA1",
+            "version": "0.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-helpers.git",
-                "reference": "8602e913d90467c51c74b2c0413e4341332eb674"
+                "reference": "e915bce76551e6d9892bffd37e0d95c5bd8c23a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/8602e913d90467c51c74b2c0413e4341332eb674",
-                "reference": "8602e913d90467c51c74b2c0413e4341332eb674",
+                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/e915bce76551e6d9892bffd37e0d95c5bd8c23a3",
+                "reference": "e915bce76551e6d9892bffd37e0d95c5bd8c23a3",
                 "shasum": ""
             },
             "require": {
                 "krowinski/bcmath-extended": "^4.2",
-                "nesbot/carbon": "^2.10",
-                "php": ">=7.2",
+                "nesbot/carbon": "^2.11",
+                "php": "^7.2",
                 "symfony/polyfill-php73": "^1.10"
             },
             "require-dev": {
@@ -49,7 +49,17 @@
                 "MIT"
             ],
             "description": "PHP helpers functions",
-            "time": "2019-02-11T22:07:03+00:00"
+            "keywords": [
+                "array",
+                "first",
+                "format",
+                "string",
+                "trim",
+                "unset",
+                "wrap",
+                "zeros"
+            ],
+            "time": "2019-02-22T07:55:53+00:00"
         },
         {
             "name": "krowinski/bcmath-extended",
@@ -110,16 +120,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.11.0",
+            "version": "2.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "48d211435ecb3671a2237614dc19fc2be185acb6"
+                "reference": "35dc8834ae9ad79b77c22d1e276fd838ca8c503d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/48d211435ecb3671a2237614dc19fc2be185acb6",
-                "reference": "48d211435ecb3671a2237614dc19fc2be185acb6",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/35dc8834ae9ad79b77c22d1e276fd838ca8c503d",
+                "reference": "35dc8834ae9ad79b77c22d1e276fd838ca8c503d",
                 "shasum": ""
             },
             "require": {
@@ -165,7 +175,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-01-29T16:35:35+00:00"
+            "time": "2019-02-06T21:23:55+00:00"
         },
         {
             "name": "symfony/contracts",
@@ -1212,16 +1222,16 @@
         },
         {
             "name": "phpunit/php-timer",
-            "version": "2.0.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-timer.git",
-                "reference": "8b8454ea6958c3dee38453d3bd571e023108c91f"
+                "reference": "8b389aebe1b8b0578430bda0c7c95a829608e059"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/8b8454ea6958c3dee38453d3bd571e023108c91f",
-                "reference": "8b8454ea6958c3dee38453d3bd571e023108c91f",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/8b389aebe1b8b0578430bda0c7c95a829608e059",
+                "reference": "8b389aebe1b8b0578430bda0c7c95a829608e059",
                 "shasum": ""
             },
             "require": {
@@ -1233,7 +1243,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "2.1-dev"
                 }
             },
             "autoload": {
@@ -1257,7 +1267,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2018-02-01T13:07:23+00:00"
+            "time": "2019-02-20T10:12:59+00:00"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -1310,16 +1320,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.5.4",
+            "version": "7.5.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "2896657da5fb237bc316bdfc18c2650efeee0dc0"
+                "reference": "09c85e14994df92e5ff1f5ec0b481bdb7d3d3df9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2896657da5fb237bc316bdfc18c2650efeee0dc0",
-                "reference": "2896657da5fb237bc316bdfc18c2650efeee0dc0",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/09c85e14994df92e5ff1f5ec0b481bdb7d3d3df9",
+                "reference": "09c85e14994df92e5ff1f5ec0b481bdb7d3d3df9",
                 "shasum": ""
             },
             "require": {
@@ -1390,7 +1400,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-02-07T14:15:04+00:00"
+            "time": "2019-02-18T09:24:50+00:00"
         },
         {
             "name": "psr/log",
@@ -2364,7 +2374,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.2"
+        "php": "^7.2"
     },
     "platform-dev": []
 }
