@@ -80,7 +80,7 @@ Pretty::microseconds(12); // string(5) "12μs"
 Pretty::nanoseconds(10485); // string(7) "10.5μs"
 Pretty::nanoseconds(105); // string(7) "105ns"
 ```
-Note: time formatting methods of `Pretty::class` named by units they are accepting
+> Note: time formatting methods of `Pretty::class` named by units they are accepting
 
 ##### MemoryUsage::class
 Helper class to get memory usage

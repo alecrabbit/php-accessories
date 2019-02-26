@@ -1,4 +1,5 @@
 - [ ] Improve formatting for `MemoryUsage::class`
+- [ ] Closure caller tests
 
 - [x] Circular can use `\Generator` or `Rewindable` as parameter (0.4.0-BETA) 
 ```php
