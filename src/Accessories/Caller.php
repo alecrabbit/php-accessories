@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace AlecRabbit\Accessories;
 
+use AlecRabbit\Accessories\Caller\CallerData;
+use AlecRabbit\Accessories\Caller\Contracts\CallerDataFormatterInterface;
+use AlecRabbit\Accessories\Caller\Contracts\CallerDataInterface;
+
 class Caller
 {
-    public const STR_UNDEFINED = 'UNDEFINED';
-    public const UNDEFINED =
-        [
-            'function' => self::STR_UNDEFINED,
-        ];
 
     /**
      * Static class. Private Constructor.
@@ -19,16 +18,21 @@ class Caller
     {
     } // @codeCoverageIgnoreEnd
 
-    public static function get(int $depth = 2): string
+    public static function get(int $depth = 2, ?CallerDataFormatterInterface $formatter = null): CallerDataInterface
     {
-        $caller =
-            debug_backtrace()[$depth] ?? self::UNDEFINED;
-        $type = $caller['type'] ?? '';
-        $function = $caller['function'] . '()';
-//        dump($caller);
         return
-            isset($caller['class']) ?
-                $caller['class'] . $type . $function :
-                $function;
+            new CallerData($depth + 1, $formatter);
     }
+//    public static function get(int $depth = 2): string
+//    {
+//        $caller =
+//            debug_backtrace()[$depth] ?? self::UNDEFINED;
+//        $type = $caller['type'] ?? '';
+//        $function = $caller['function'] . '()';
+////        dump($caller);
+//        return
+//            isset($caller['class']) ?
+//                $caller['class'] . $type . $function :
+//                $function;
+//    }
 }
