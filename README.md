@@ -24,7 +24,7 @@ for details see [examples](https://github.com/alecrabbit/php-accessories/tree/ma
 ### Features
 
 ##### Caller::class 
-Gets a caller Class::method() or function() with corresponding depth, default 2
+Gets a caller `Class::method()` or `function()` with corresponding depth, default 2
 ```php
 if($wrongArguments) {
  throw new \RuntimeException(Caller::get() . ' provided wrong arguments'); 
@@ -50,13 +50,13 @@ $r->rewind();
 ##### G::class 
 Contains generator functions
 ```php
-$r = G::range(1, 3); 
+$r = G::range(1, 3);  // \Generator
 ```
 
 ##### R::class 
 Contains rewindable generator functions
 ```php
-$r = R::range(1, 3);
+$r = R::range(1, 3); // Rewindable
 iterator_to_array($r);
 $r->rewind();
 ```
