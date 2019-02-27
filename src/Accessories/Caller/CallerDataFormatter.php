@@ -12,12 +12,18 @@ class CallerDataFormatter implements CallerDataFormatterInterface, CallerConstan
     /** @var int */
     protected $options;
 
+    /**
+     * {@inheritdoc}
+     */
     public function __construct($options = null)
     {
         $this->assertOptions($options);
         $this->options = $options ?? static::SHOW_LINE_AND_FILE;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function process(CallerData $data): string
     {
         if (null !== $class = $data->getClass()) {
@@ -55,7 +61,7 @@ class CallerDataFormatter implements CallerDataFormatterInterface, CallerConstan
         return '';
     }
 
-    private function getFunction(CallerData $caller)
+    private function getFunction(CallerData $caller):string
     {
         if (self::STR_UNDEFINED === $function = $caller->getFunction()) {
             $function = ucfirst($function);
@@ -66,7 +72,7 @@ class CallerDataFormatter implements CallerDataFormatterInterface, CallerConstan
     }
 
     /**
-     * @param $options
+     * @param mixed $options
      */
     private function assertOptions($options): void
     {
