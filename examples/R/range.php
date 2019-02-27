@@ -5,6 +5,7 @@ use AlecRabbit\Accessories\R;
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 $r = R::range(1, 3);
+var_dump($r);
 var_dump(iterator_to_array($r));
 // array(3) {
 //    [0] =>

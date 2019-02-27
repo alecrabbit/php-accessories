@@ -6,7 +6,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 
 
 $range = G::range(1, 3);
-var_dump($range); // class Generator#3 (0) {}
+var_dump($range); // object(Generator)
 
 foreach ($range as $item) {
     var_dump($item); // int(1..3)
