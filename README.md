@@ -52,6 +52,7 @@ $c(); // int(3)
 ...
 $c(); // int(1)
 ```
+> Note: Circular can accept `array`, `Rewindable` or callable which returns `\Generator` 
 
 ##### Rewindable::class
 Rewindable generator helper class
