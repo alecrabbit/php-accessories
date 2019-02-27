@@ -9,16 +9,13 @@ class CallerDataFormatter implements CallerDataFormatterInterface
 {
     public function process(CallerData $data): string
     {
-        $fl = '';
         $function = $data->getFunction();
-        if (false !== strpos($function, '{closure}')) {
-            $fl =
-                sprintf(
-                    '[%s:"%s"]',
-                    $data->getLine(),
-                    $data->getFile()
-                );
-        }
+        $lineAndFile =
+            sprintf(
+                '[%s:"%s"]',
+                $data->getLine(),
+                $data->getFile()
+            );
         if (null !== $class = $data->getClass()) {
             return
                 sprintf(
@@ -26,14 +23,14 @@ class CallerDataFormatter implements CallerDataFormatterInterface
                     $class,
                     $data->getType(),
                     $function,
-                    $fl
+                    $lineAndFile
                 );
         }
         return
             sprintf(
                 '%s %s',
                 $function,
-                $fl
+                $lineAndFile
             );
     }
 }

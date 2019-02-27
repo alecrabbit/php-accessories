@@ -2,10 +2,11 @@
 
 namespace AlecRabbit\Accessories\Caller;
 
-use AlecRabbit\Accessories\Caller\Contracts\CallerDataFormatterInterface;
+use AlecRabbit\Accessories\Caller;
+use AlecRabbit\Accessories\Caller\Contracts\CallerConstants;
 use AlecRabbit\Accessories\Caller\Contracts\CallerDataInterface;
 
-class CallerData implements CallerDataInterface
+class CallerData implements CallerDataInterface, CallerConstants
 {
     /** @var string */
     protected $function;
@@ -28,28 +29,33 @@ class CallerData implements CallerDataInterface
     /** @var array|null */
     protected $args;
 
-    /** @var CallerDataFormatterInterface */
-    protected $formatter;
-
-    /** @var array */
-    protected $caller;
-
-
-    public function __construct(?int $depth, ?CallerDataFormatterInterface $formatter = null)
-    {
-        $this->formatter = $formatter ?? new CallerDataFormatter();
-        $this->caller = debug_backtrace()[$depth] ?? self::UNDEFINED;
-        $this->function = $this->caller[self::FUNCTION];
-        $this->parse();
+    public function __construct(
+        array $caller
+    ) {
+        $this->function = $caller[self::FUNCTION];
+        $this->parse($caller);
     }
 
-    public function __toString(): string
+    protected function parse(array $caller): void
     {
-        return $this->formatter->process($this);
+        $this->line = $caller[self::LINE] ?? null;
+        $this->file = $caller[self::FILE] ?? null;
+        $this->class = $caller[self::CLS] ?? null;
+        $this->object = $caller[self::OBJECT] ?? null;
+        $this->type = $caller[self::TYPE] ?? null;
+        $this->args = $caller[self::ARGS] ?? null;
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
+     */
+    public function __toString(): string
+    {
+        return Caller::getFormatter()->process($this);
+    }
+
+    /**
+     * {@inheritdoc}
      */
     public function getFunction(): string
     {
@@ -57,7 +63,7 @@ class CallerData implements CallerDataInterface
     }
 
     /**
-     * @return null|int
+     * {@inheritdoc}
      */
     public function getLine(): ?int
     {
@@ -65,7 +71,7 @@ class CallerData implements CallerDataInterface
     }
 
     /**
-     * @return null|string
+     * {@inheritdoc}
      */
     public function getFile(): ?string
     {
@@ -73,7 +79,7 @@ class CallerData implements CallerDataInterface
     }
 
     /**
-     * @return null|string
+     * {@inheritdoc}
      */
     public function getClass(): ?string
     {
@@ -81,7 +87,7 @@ class CallerData implements CallerDataInterface
     }
 
     /**
-     * @return null|object
+     * {@inheritdoc}
      */
     public function getObject(): ?object
     {
@@ -89,7 +95,7 @@ class CallerData implements CallerDataInterface
     }
 
     /**
-     * @return null|string
+     * {@inheritdoc}
      */
     public function getType(): ?string
     {
@@ -97,20 +103,10 @@ class CallerData implements CallerDataInterface
     }
 
     /**
-     * @return null|array
+     * {@inheritdoc}
      */
     public function getArgs(): ?array
     {
         return $this->args;
-    }
-
-    protected function parse(): void
-    {
-        $this->line = $this->caller[self::LINE] ?? null;
-        $this->file = $this->caller[self::FILE] ?? null;
-        $this->class = $this->caller[self::CLS] ?? null;
-        $this->object = $this->caller[self::OBJECT] ?? null;
-        $this->type = $this->caller[self::TYPE] ?? null;
-        $this->args = $this->caller[self::ARGS] ?? null;
     }
 }

@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 class CallerDataFormatterTest extends TestCase
 {
     /** @test */
-    public function caller(): void
+    public function one(): void
     {
         $this->assertTrue(true);
     }
