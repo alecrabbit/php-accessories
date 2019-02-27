@@ -19,5 +19,5 @@ interface CallerConstants
         [
             self::FUNCTION => self::STR_UNDEFINED,
         ];
-
+    public const SHOW_LINE_AND_FILE = 1 << 0;
 }

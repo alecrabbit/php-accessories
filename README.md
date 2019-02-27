@@ -35,6 +35,12 @@ $caller = Caller::get() // object(AlecRabbit\Accessories\Caller\CallerData)
 ```
 > Note: $caller can be casted to string
 
+You can set your custom formatter for string casting:
+```php
+$formatter = new CustomFormatter($options);
+Caller::setFormatter($formatter);
+```
+> Note: CustomFormatter should implement CallerDataFormatterInterface
 ##### Circular::class
 Helper class to get values in a circle
 ```php
