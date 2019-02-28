@@ -3,7 +3,7 @@
 namespace AlecRabbit\Tests\Accessories;
 
 use AlecRabbit\Accessories\MemoryUsage;
-use AlecRabbit\Accessories\MemoryUsageReport;
+use AlecRabbit\Accessories\MemoryUsage\MemoryUsageReportFormatter;
 use PHPUnit\Framework\TestCase;
 use function AlecRabbit\format_bytes;
 
@@ -48,7 +48,7 @@ class MemoryUsageTest extends TestCase
     {
         $this->assertStringMatchesFormat(
             sprintf(
-                MemoryUsageReport::STRING_FORMAT,
+                MemoryUsageReportFormatter::STRING_FORMAT,
                 '%fMB',
                 '%fMB',
                 '%fMB',

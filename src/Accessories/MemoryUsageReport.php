@@ -4,19 +4,17 @@ namespace AlecRabbit\Accessories;
 
 class MemoryUsageReport
 {
-    public const STRING_FORMAT = 'Memory: %s(%s) Real: %s(%s)';
     /** @var int */
     protected $usage;
+
     /** @var int */
     protected $peakUsage;
+
     /** @var int */
     protected $usageReal;
+
     /** @var int */
     protected $peakUsageReal;
-    /** @var string */
-    protected $unit = 'Mb';
-    /** @var int */
-    protected $decimals = 2;
 
     /**
      * MemoryUsageReport constructor.
@@ -24,39 +22,22 @@ class MemoryUsageReport
      * @param int $peakUsage
      * @param int $usageReal
      * @param int $peakUsageReal
-     * @param null|string $unit
-     * @param null|int $decimals
      */
     public function __construct(
         int $usage,
         int $peakUsage,
         int $usageReal,
-        int $peakUsageReal,
-        ?string $unit = null,
-        ?int $decimals = null
+        int $peakUsageReal
     ) {
         $this->usage = $usage;
         $this->peakUsage = $peakUsage;
         $this->usageReal = $usageReal;
         $this->peakUsageReal = $peakUsageReal;
-        if (null !== $unit) {
-            $this->unit = $unit;
-        }
-        if (null !== $decimals) {
-            $this->decimals = $decimals;
-        }
     }
 
     public function __toString(): string
     {
-        return
-            sprintf(
-                self::STRING_FORMAT,
-                Pretty::bytes($this->usage, $this->unit, $this->decimals),
-                Pretty::bytes($this->peakUsage, $this->unit, $this->decimals),
-                Pretty::bytes($this->usageReal, $this->unit, $this->decimals),
-                Pretty::bytes($this->peakUsageReal, $this->unit, $this->decimals)
-            );
+        return MemoryUsage::getFormatter()->process($this);
     }
 
     /**
@@ -99,7 +80,7 @@ class MemoryUsageReport
     public function getUsageString(?string $unit = null, ?int $decimals = null): string
     {
         return
-            Pretty::bytes($this->usage, $unit ?? $this->unit, $decimals ?? $this->decimals);
+            MemoryUsage::getFormatter()->getUsageString($this, $unit, $decimals);
     }
 
     /**
@@ -110,7 +91,7 @@ class MemoryUsageReport
     public function getPeakUsageString(?string $unit = null, ?int $decimals = null): string
     {
         return
-            Pretty::bytes($this->peakUsage, $unit ?? $this->unit, $decimals ?? $this->decimals);
+            MemoryUsage::getFormatter()->getPeakUsageString($this, $unit, $decimals);
     }
 
     /**
@@ -121,7 +102,7 @@ class MemoryUsageReport
     public function getUsageRealString(?string $unit = null, ?int $decimals = null): string
     {
         return
-            Pretty::bytes($this->usageReal, $unit ?? $this->unit, $decimals ?? $this->decimals);
+            MemoryUsage::getFormatter()->getUsageRealString($this, $unit, $decimals);
     }
 
     /**
@@ -132,6 +113,6 @@ class MemoryUsageReport
     public function getPeakUsageRealString(?string $unit = null, ?int $decimals = null): string
     {
         return
-            Pretty::bytes($this->peakUsageReal, $unit ?? $this->unit, $decimals ?? $this->decimals);
+            MemoryUsage::getFormatter()->getPeakUsageRealString($this, $unit, $decimals);
     }
 }
