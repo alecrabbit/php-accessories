@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.5.0] - 2019-0.-.. - upcoming
 ## [0.4.2] - 2019-02-27
 ### Changed
- - `Caller::get()` now returns `CallerData::class` (can be casted to string) 
+ - `Caller::get()` now returns `CallerData::class` (can be casted to string by `CallerDataFormatter::class`) 
  
 ## [0.4.1] - 2019-02-13
 
