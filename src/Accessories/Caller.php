@@ -28,9 +28,12 @@ class Caller implements CallerConstants
     {
     } // @codeCoverageIgnoreEnd
 
-    public static function get(
-        ?int $depth = null
-    ): CallerDataInterface {
+    /**
+     * @param null|int $depth
+     * @return CallerDataInterface
+     */
+    public static function get(?int $depth = null): CallerDataInterface
+    {
         return
             new CallerData(
                 self::getCallerData($depth ?? 2)
@@ -48,22 +51,19 @@ class Caller implements CallerConstants
     }
 
     /**
-     * @return CallerDataFormatterInterface
+     * @return int
      */
-    public static function getFormatter(): CallerDataFormatterInterface
+    public static function getOptions(): int
     {
-        if (null === static::$formatter) {
-            static::$formatter = new CallerDataFormatter();
-        }
-        return static::$formatter;
+        return self::$options;
     }
 
     /**
-     * @param CallerDataFormatterInterface $formatter
+     * @param int $options
      */
-    public static function setFormatter(CallerDataFormatterInterface $formatter): void
+    public static function setOptions(int $options): void
     {
-        self::$formatter = $formatter;
+        self::$options = $options;
     }
 
     /**
@@ -83,18 +83,21 @@ class Caller implements CallerConstants
     }
 
     /**
-     * @return int
+     * @return CallerDataFormatterInterface
      */
-    public static function getOptions(): int
+    public static function getFormatter(): CallerDataFormatterInterface
     {
-        return self::$options;
+        if (null === static::$formatter) {
+            static::$formatter = new CallerDataFormatter();
+        }
+        return static::$formatter;
     }
 
     /**
-     * @param int $options
+     * @param CallerDataFormatterInterface $formatter
      */
-    public static function setOptions(int $options): void
+    public static function setFormatter(CallerDataFormatterInterface $formatter): void
     {
-        self::$options = $options;
+        self::$formatter = $formatter;
     }
 }

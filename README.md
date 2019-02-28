@@ -24,20 +24,35 @@ for details see [examples](https://github.com/alecrabbit/php-accessories/tree/ma
 ### Features
 
 ##### Caller::class 
-Gets a caller `Class::method()` or `function()` with corresponding depth, default 2
+Gets a caller of `Class::method()` or `function()` 
 ```php
 if($wrongArguments) {
  throw new \RuntimeException(Caller::get() . ' provided wrong arguments'); 
 }
 ```
+```php
+$caller = Caller::get() // object(AlecRabbit\Accessories\Caller\CallerData)
+```
+> Note: $caller can be casted to string
 
+You can set your custom formatter for string casting:
+```php
+$formatter = new CustomFormatter($options);
+Caller::setFormatter($formatter);
+```
+> Note: CustomFormatter should implement CallerDataFormatterInterface
 ##### Circular::class
 Helper class to get values in a circle
 ```php
 $c = new Circular([1, 2, 3]);
 $value = $c(); // int(1) invoke 
-$value = $c->value(); // int(2) get value by method 
+$value = $c->value(); // int(2) get value by method
+... 
+$c(); // int(3)
+...
+$c(); // int(1)
 ```
+> Note: Circular can accept `array`, `Rewindable` or callable which returns `\Generator` 
 
 ##### Rewindable::class
 Rewindable generator helper class
@@ -50,13 +65,13 @@ $r->rewind();
 ##### G::class 
 Contains generator functions
 ```php
-$r = G::range(1, 3);  // \Generator
+$r = G::range(1, 3);  // object(Generator)
 ```
 
 ##### R::class 
 Contains rewindable generator functions
 ```php
-$r = R::range(1, 3); // Rewindable
+$r = R::range(1, 3); // object(AlecRabbit\Accessories\Rewindable)
 iterator_to_array($r);
 $r->rewind();
 ```

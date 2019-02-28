@@ -16,7 +16,8 @@ function usesSomeFunction(): void
 }
 
 
-dump(Caller::get()); // "UNDEFINED()"
+var_dump(Caller::get()); // object(AlecRabbit\Accessories\Caller\CallerData)
+dump((string)Caller::get()); // "UNDEFINED()"
 try {
     usesSomeFunction();
 } catch (\Exception $e) {
