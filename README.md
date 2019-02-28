@@ -26,21 +26,21 @@ for details see [examples](https://github.com/alecrabbit/php-accessories/tree/ma
 ##### Caller::class 
 Gets a caller of `Class::method()` or `function()` 
 ```php
+$caller = Caller::get() // object(AlecRabbit\Accessories\Caller\CallerData)
+```
+> Note: `CallerData::class` can be casted to string
+```php
 if($wrongArguments) {
  throw new \RuntimeException(Caller::get() . ' provided wrong arguments'); 
 }
 ```
-```php
-$caller = Caller::get() // object(AlecRabbit\Accessories\Caller\CallerData)
-```
-> Note: $caller can be casted to string
-
 You can set your custom formatter for string casting:
 ```php
 $formatter = new CustomFormatter($options);
 Caller::setFormatter($formatter);
 ```
-> Note: CustomFormatter should implement CallerDataFormatterInterface
+> Note: `CustomFormatter::class` should implement `CallerDataFormatterInterface`
+
 ##### Circular::class
 Helper class to get values in a circle
 ```php
@@ -52,7 +52,7 @@ $c(); // int(3)
 ...
 $c(); // int(1)
 ```
-> Note: Circular can accept `array`, `Rewindable` or callable which returns `\Generator` 
+> Note: `Circular::__construct` can accept `array`, `Rewindable` or callable which returns `\Generator` 
 
 ##### Rewindable::class
 Rewindable generator helper class
