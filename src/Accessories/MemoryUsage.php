@@ -1,20 +1,15 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace AlecRabbit\Accessories;
 
 class MemoryUsage
 {
-
     /**
      * Static class. Private Constructor.
      */
-    // @codeCoverageIgnoreStart
-    private function __construct()
+    private function __construct() // @codeCoverageIgnoreStart
     {
-    }
-    // @codeCoverageIgnoreEnd
+    } // @codeCoverageIgnoreEnd
 
     /**
      * @param bool $real

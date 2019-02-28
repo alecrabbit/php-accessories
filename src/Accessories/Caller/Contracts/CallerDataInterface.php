@@ -5,7 +5,6 @@ namespace AlecRabbit\Accessories\Caller\Contracts;
 
 interface CallerDataInterface
 {
-
     /**
      * @return string
      */

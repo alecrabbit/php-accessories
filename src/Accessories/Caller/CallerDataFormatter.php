@@ -5,32 +5,17 @@ namespace AlecRabbit\Accessories\Caller;
 
 use AlecRabbit\Accessories\Caller\Contracts\CallerConstants;
 use AlecRabbit\Accessories\Caller\Contracts\CallerDataFormatterInterface;
-use function AlecRabbit\typeOf;
+use AlecRabbit\Accessories\Contracts\AbstractFormatter;
 
-class CallerDataFormatter implements CallerDataFormatterInterface, CallerConstants
+class CallerDataFormatter extends AbstractFormatter implements CallerDataFormatterInterface, CallerConstants
 {
-    /** @var int */
-    protected $options;
-
     /**
      * @param mixed $options
      */
     public function __construct($options = null)
     {
-        $this->assertOptions($options);
+        parent::__construct($options);
         $this->options = $options ?? static::SHOW_LINE_AND_FILE;
-    }
-
-    /**
-     * @param mixed $options
-     */
-    private function assertOptions($options): void
-    {
-        if (null !== $options && !is_int($options)) {
-            throw new \RuntimeException(
-                'Options for ' . __CLASS__ . ' constructor should be int, "' . typeOf($options) . '" given.'
-            );
-        }
     }
 
     /**
