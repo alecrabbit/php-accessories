@@ -13,12 +13,24 @@ class CallerDataFormatter implements CallerDataFormatterInterface, CallerConstan
     protected $options;
 
     /**
-     * {@inheritdoc}
+     * @param mixed $options
      */
     public function __construct($options = null)
     {
         $this->assertOptions($options);
         $this->options = $options ?? static::SHOW_LINE_AND_FILE;
+    }
+
+    /**
+     * @param mixed $options
+     */
+    private function assertOptions($options): void
+    {
+        if (null !== $options && !is_int($options)) {
+            throw new \RuntimeException(
+                'Options for ' . __CLASS__ . ' constructor should be int, "' . typeOf($options) . '" given.'
+            );
+        }
     }
 
     /**
@@ -61,25 +73,16 @@ class CallerDataFormatter implements CallerDataFormatterInterface, CallerConstan
         return '';
     }
 
-    private function getFunction(CallerData $caller):string
-    {
-        if (self::STR_UNDEFINED === $function = $caller->getFunction()) {
-            $function = ucfirst($function);
-        } else {
-            $function .= '()';
-        }
-        return $function;
-    }
-
     /**
-     * @param mixed $options
+     * @param CallerData $caller
+     * @return string
      */
-    private function assertOptions($options): void
+    private function getFunction(CallerData $caller): string
     {
-        if (null !== $options && !is_int($options)) {
-            throw new \RuntimeException(
-                'Options for ' . __CLASS__ . ' constructor should be int, "' . typeOf($options) . '" given.'
-            );
+        $function = $caller->getFunction();
+        if ($function === self::STR_UNDEFINED) {
+            return ucfirst($function);
         }
+        return $function . '()';
     }
 }
