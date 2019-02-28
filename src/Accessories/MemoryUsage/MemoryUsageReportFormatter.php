@@ -4,7 +4,6 @@ namespace AlecRabbit\Accessories\MemoryUsage;
 
 use AlecRabbit\Accessories\Contracts\AbstractFormatter;
 use AlecRabbit\Accessories\MemoryUsage\Contracts\MemoryUsageReportFormatterInterface;
-use AlecRabbit\Accessories\MemoryUsageReport;
 use AlecRabbit\Accessories\Pretty;
 use function AlecRabbit\Helpers\bounds;
 use const AlecRabbit\Helpers\Strings\Constants\BYTES_UNITS;

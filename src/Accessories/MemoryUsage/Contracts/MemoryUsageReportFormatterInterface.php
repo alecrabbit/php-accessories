@@ -2,7 +2,7 @@
 
 namespace AlecRabbit\Accessories\MemoryUsage\Contracts;
 
-use AlecRabbit\Accessories\MemoryUsageReport;
+use AlecRabbit\Accessories\MemoryUsage\MemoryUsageReport;
 
 interface MemoryUsageReportFormatterInterface
 {

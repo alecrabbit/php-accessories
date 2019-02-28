@@ -1,8 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace AlecRabbit\Accessories;
+namespace AlecRabbit\Accessories\MemoryUsage;
 
-class MemoryUsageReport
+use AlecRabbit\Accessories\MemoryUsage;
+
+class MemoryUsageReport implements MemoryUsageReportInterface
 {
     /** @var int */
     protected $usage;
@@ -23,12 +25,8 @@ class MemoryUsageReport
      * @param int $usageReal
      * @param int $peakUsageReal
      */
-    public function __construct(
-        int $usage,
-        int $peakUsage,
-        int $usageReal,
-        int $peakUsageReal
-    ) {
+    public function __construct(int $usage, int $peakUsage, int $usageReal, int $peakUsageReal)
+    {
         $this->usage = $usage;
         $this->peakUsage = $peakUsage;
         $this->usageReal = $usageReal;
@@ -41,7 +39,7 @@ class MemoryUsageReport
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function getUsage(): int
     {
@@ -49,7 +47,7 @@ class MemoryUsageReport
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function getPeakUsage(): int
     {
@@ -57,7 +55,7 @@ class MemoryUsageReport
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function getUsageReal(): int
     {
@@ -65,7 +63,7 @@ class MemoryUsageReport
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function getPeakUsageReal(): int
     {
@@ -73,9 +71,7 @@ class MemoryUsageReport
     }
 
     /**
-     * @param null|string $unit
-     * @param null|int $decimals
-     * @return string
+     * {@inheritdoc}
      */
     public function getUsageString(?string $unit = null, ?int $decimals = null): string
     {
@@ -84,9 +80,7 @@ class MemoryUsageReport
     }
 
     /**
-     * @param null|string $unit
-     * @param null|int $decimals
-     * @return string
+     * {@inheritdoc}
      */
     public function getPeakUsageString(?string $unit = null, ?int $decimals = null): string
     {
@@ -95,9 +89,7 @@ class MemoryUsageReport
     }
 
     /**
-     * @param null|string $unit
-     * @param null|int $decimals
-     * @return string
+     * {@inheritdoc}
      */
     public function getUsageRealString(?string $unit = null, ?int $decimals = null): string
     {
@@ -106,9 +98,7 @@ class MemoryUsageReport
     }
 
     /**
-     * @param null|string $unit
-     * @param null|int $decimals
-     * @return string
+     * {@inheritdoc}
      */
     public function getPeakUsageRealString(?string $unit = null, ?int $decimals = null): string
     {

@@ -3,6 +3,7 @@
 namespace AlecRabbit\Accessories;
 
 use AlecRabbit\Accessories\MemoryUsage\Contracts\MemoryUsageReportFormatterInterface;
+use AlecRabbit\Accessories\MemoryUsage\MemoryUsageReport;
 use AlecRabbit\Accessories\MemoryUsage\MemoryUsageReportFormatter;
 
 class MemoryUsage
