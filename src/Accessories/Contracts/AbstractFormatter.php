@@ -25,9 +25,8 @@ abstract class AbstractFormatter implements FormatterInterface
     {
         if (null !== $options && !is_int($options)) {
             throw new \RuntimeException(
-                'Options for `' . static::class . '` constructor should be type of "int", "' .
-                typeOf($options) . '" given.' . PHP_EOL .
-                Caller::get(3)
+                'Options for "' . static::class . '" constructor should be type of "int", "' .
+                typeOf($options) . '" given.'
             );
         }
     }

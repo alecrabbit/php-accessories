@@ -23,6 +23,14 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
     protected $decimals = 2;
 
     /**
+     * @param mixed $options
+     */
+    public function __construct($options = null)
+    {
+        parent::__construct($options);
+    }
+
+    /**
      * @param string $units
      */
     public function setUnits(string $units): void
@@ -35,10 +43,7 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
      */
     protected function assertUnits(string $units): void
     {
-        if (null === static::$unitsArray) {
-            static::$unitsArray = array_keys(BYTES_UNITS);
-        }
-        if (false === in_array(strtoupper($units), static::$unitsArray, true)) {
+        if (false === array_key_exists(strtoupper($units), BYTES_UNITS)) {
             throw new \RuntimeException(
                 'Unsupported units: "' . $units . '"'
             );
