@@ -14,7 +14,7 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
     public const MAX_DECIMALS = 3;
 
     /** @var null|array */
-    private static $unitsArray;
+    protected static $unitsArray;
 
     /** @var string */
     protected $units = 'MB';

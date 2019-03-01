@@ -2,6 +2,7 @@
 
 namespace AlecRabbit\Accessories\Contracts;
 
+use AlecRabbit\Accessories\Caller;
 use function AlecRabbit\typeOf;
 
 abstract class AbstractFormatter implements FormatterInterface
@@ -24,7 +25,9 @@ abstract class AbstractFormatter implements FormatterInterface
     {
         if (null !== $options && !is_int($options)) {
             throw new \RuntimeException(
-                'Options for ' . __CLASS__ . ' constructor should be int, "' . typeOf($options) . '" given.'
+                'Options for `' . static::class . '` constructor should be type of "int", "' .
+                typeOf($options) . '" given.' . PHP_EOL .
+                Caller::get(3)
             );
         }
     }
