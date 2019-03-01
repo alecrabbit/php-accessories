@@ -24,7 +24,7 @@ for details see [examples](https://github.com/alecrabbit/php-accessories/tree/ma
 ### Features
 
 ##### Caller::class 
-Gets a caller of `Class::method()` or `function()` 
+Gets a caller `Class::method()` or `function()` or `Undefined`
 ```php
 $caller = Caller::get() // object(AlecRabbit\Accessories\Caller\CallerData)
 ```
@@ -104,3 +104,11 @@ $report = MemoryUsage::report('mb');
 echo $report . PHP_EOL;
 // Memory: 0.75MB(32.73MB) Real: 2.00MB(34.00MB)
 ```
+You can set your custom formatter for string casting:
+```php
+$formatter = new CustomFormatter($options);
+MemoryUsage::setFormatter($formatter);
+```
+> Note: `CustomFormatter::class` should implement `MemoryUsageReportFormatterInterface`
+
+> Note: Parameter `$options` has no effect on `MemoryUsageReportFormatter`
