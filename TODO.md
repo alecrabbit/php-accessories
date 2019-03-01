@@ -1,4 +1,6 @@
-- [ ] Implement formatter for `MemoryUsageReport::class`
+- [ ] Add tests for `MemoryUsageReport::class`
+- [ ] Add tests for `CallerData::class`
+- [x] Implement formatter for `MemoryUsageReport::class` (0.4.3)
 - [x] Implement formatter for `CallerData::class` (0.4.2)
 - [x] `Caller::get()` can process closure (0.4.2)
 

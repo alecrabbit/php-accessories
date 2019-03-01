@@ -14,33 +14,33 @@ interface MemoryUsageReportFormatterInterface
 
     /**
      * @param MemoryUsageReport $param
-     * @param null|string $unit
+     * @param null|string $units
      * @param null|int $decimals
      * @return mixed
      */
-    public function getUsageString(MemoryUsageReport $param, ?string $unit, ?int $decimals);
+    public function getUsageString(MemoryUsageReport $param, ?string $units, ?int $decimals);
 
     /**
      * @param MemoryUsageReport $param
-     * @param null|string $unit
+     * @param null|string $units
      * @param null|int $decimals
      * @return mixed
      */
-    public function getPeakUsageString(MemoryUsageReport $param, ?string $unit, ?int $decimals);
+    public function getPeakUsageString(MemoryUsageReport $param, ?string $units, ?int $decimals);
 
     /**
      * @param MemoryUsageReport $param
-     * @param null|string $unit
+     * @param null|string $units
      * @param null|int $decimals
      * @return mixed
      */
-    public function getUsageRealString(MemoryUsageReport $param, ?string $unit, ?int $decimals);
+    public function getUsageRealString(MemoryUsageReport $param, ?string $units, ?int $decimals);
 
     /**
      * @param MemoryUsageReport $param
-     * @param null|string $unit
+     * @param null|string $units
      * @param null|int $decimals
      * @return mixed
      */
-    public function getPeakUsageRealString(MemoryUsageReport $param, ?string $unit, ?int $decimals);
+    public function getPeakUsageRealString(MemoryUsageReport $param, ?string $units, ?int $decimals);
 }

@@ -10,6 +10,20 @@ use function AlecRabbit\format_bytes;
 class MemoryUsageTest extends TestCase
 {
     /** @test */
+    public function setFormatter(): void
+    {
+        $formatter = new MemoryUsageReportFormatter();
+        MemoryUsage::setFormatter($formatter);
+        $this->assertSame($formatter, MemoryUsage::getFormatter());
+    }
+
+    /** @test */
+    public function getFormatter(): void
+    {
+        $this->assertInstanceOf(MemoryUsageReportFormatter::class, MemoryUsage::getFormatter());
+    }
+
+    /** @test */
     public function formatGet(): void
     {
         $this->assertStringMatchesFormat('%fMB', MemoryUsage::get(false, 'MB'));
@@ -31,7 +45,7 @@ class MemoryUsageTest extends TestCase
     /** @test */
     public function stringGetters(): void
     {
-        $report = MemoryUsage::report('mb', 2);
+        $report = MemoryUsage::report();
         $this->assertIsString($report->getUsageString());
         $this->assertIsString($report->getPeakUsageString());
         $this->assertIsString($report->getUsageRealString());

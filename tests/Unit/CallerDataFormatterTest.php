@@ -17,12 +17,6 @@ class CallerDataFormatterTest extends TestCase
     public const ARGS = [1, 2];
 
     /** @test */
-    public function one(): void
-    {
-        $this->assertTrue(true);
-    }
-
-    /** @test */
     public function wrongOptions(): void
     {
         $this->expectException(\RuntimeException::class);

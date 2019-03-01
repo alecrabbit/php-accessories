@@ -12,7 +12,8 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
 {
     public const STRING_FORMAT = 'Memory: %s(%s) Real: %s(%s)';
     public const MAX_DECIMALS = 3;
-    /** @var array */
+
+    /** @var null|array */
     private static $unitsArray;
 
     /** @var string */
@@ -26,18 +27,20 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
      */
     public function setUnits(string $units): void
     {
-        $this->assertUnits($units);
-        $this->units = $units;
+        $this->units = $this->refineUnits($units);
     }
 
-    protected function assertUnits(string $units)
+    /**
+     * @param string $units
+     */
+    protected function assertUnits(string $units): void
     {
         if (null === static::$unitsArray) {
             static::$unitsArray = array_keys(BYTES_UNITS);
         }
         if (false === in_array(strtoupper($units), static::$unitsArray, true)) {
             throw new \RuntimeException(
-                'Unsupported units: "' . $units .'"'
+                'Unsupported units: "' . $units . '"'
             );
         }
     }
@@ -47,7 +50,16 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
      */
     public function setDecimals(int $decimals): void
     {
-        $this->decimals = (int)bounds($decimals, 0, self::MAX_DECIMALS);
+        $this->decimals = $this->refineDecimals($decimals);
+    }
+
+    /**
+     * @param null|int $decimals
+     * @return int
+     */
+    private function refineDecimals(?int $decimals): int
+    {
+        return (int)bounds($decimals ?? $this->decimals, 0, self::MAX_DECIMALS);
     }
 
     /**
@@ -70,11 +82,22 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
      */
     public function getUsageString(
         MemoryUsageReport $report,
-        ?string $unit = null,
+        ?string $units = null,
         ?int $decimals = null
     ): string {
         return
-            Pretty::bytes($report->getUsage(), $unit ?? $this->units, $decimals ?? $this->decimals);
+            Pretty::bytes($report->getUsage(), $this->refineUnits($units), $this->refineDecimals($decimals));
+    }
+
+    /**
+     * @param null|string $units
+     * @return string
+     */
+    private function refineUnits(?string $units): string
+    {
+        $units = $units ?? $this->units;
+        $this->assertUnits($units);
+        return $units;
     }
 
     /**
@@ -83,11 +106,11 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
 
     public function getPeakUsageString(
         MemoryUsageReport $report,
-        ?string $unit = null,
+        ?string $units = null,
         ?int $decimals = null
     ): string {
         return
-            Pretty::bytes($report->getPeakUsage(), $unit ?? $this->units, $decimals ?? $this->decimals);
+            Pretty::bytes($report->getPeakUsage(), $this->refineUnits($units), $this->refineDecimals($decimals));
     }
 
     /**
@@ -95,11 +118,11 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
      */
     public function getUsageRealString(
         MemoryUsageReport $report,
-        ?string $unit = null,
+        ?string $units = null,
         ?int $decimals = null
     ): string {
         return
-            Pretty::bytes($report->getUsageReal(), $unit ?? $this->units, $decimals ?? $this->decimals);
+            Pretty::bytes($report->getUsageReal(), $this->refineUnits($units), $this->refineDecimals($decimals));
     }
 
     /**
@@ -107,14 +130,14 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
      */
     public function getPeakUsageRealString(
         MemoryUsageReport $report,
-        ?string $unit = null,
+        ?string $units = null,
         ?int $decimals = null
     ): string {
         return
             Pretty::bytes(
                 $report->getPeakUsageReal(),
-                $unit ?? $this->units,
-                $decimals ?? $this->decimals
+                $this->refineUnits($units),
+                $this->refineDecimals($decimals)
             );
     }
 }
