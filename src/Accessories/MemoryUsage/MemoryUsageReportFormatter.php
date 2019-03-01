@@ -43,14 +43,6 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
      */
     protected function assertUnits(string $units): void
     {
-//        if (null === static::$unitsArray) {
-//            static::$unitsArray = array_keys(BYTES_UNITS);
-//        }
-//        if (false === in_array(strtoupper($units), static::$unitsArray, true)) {
-//            throw new \RuntimeException(
-//                'Unsupported units: "' . $units . '"'
-//            );
-//        }
         if (false === array_key_exists(strtoupper($units), BYTES_UNITS)) {
             throw new \RuntimeException(
                 'Unsupported units: "' . $units . '"'
