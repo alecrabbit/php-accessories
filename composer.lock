@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "71c665dc484fdc383debec0cb57855ba",
+    "content-hash": "0ef6b3dbc3f3b8d5c47bc1ce93245fcd",
     "packages": [
         {
             "name": "alecrabbit/php-helpers",
-            "version": "0.4.2",
+            "version": "0.5.0-BETA0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-helpers.git",
-                "reference": "ae6cab7a3cc4cc1dd0c652636cabdd72fff47407"
+                "reference": "a8d0b27432c896929e35dc7da8c44585d9420d26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/ae6cab7a3cc4cc1dd0c652636cabdd72fff47407",
-                "reference": "ae6cab7a3cc4cc1dd0c652636cabdd72fff47407",
+                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/a8d0b27432c896929e35dc7da8c44585d9420d26",
+                "reference": "a8d0b27432c896929e35dc7da8c44585d9420d26",
                 "shasum": ""
             },
             "require": {
@@ -28,6 +28,7 @@
             },
             "require-dev": {
                 "ext-curl": "*",
+                "kylekatarnls/multi-tester": "^1.1",
                 "nunomaduro/collision": "^2.1",
                 "phpunit/phpunit": "^7.5",
                 "symfony/var-dumper": "^4.2"
@@ -59,7 +60,7 @@
                 "wrap",
                 "zeros"
             ],
-            "time": "2019-02-22T14:54:16+00:00"
+            "time": "2019-03-03T18:18:44+00:00"
         },
         {
             "name": "krowinski/bcmath-extended",
