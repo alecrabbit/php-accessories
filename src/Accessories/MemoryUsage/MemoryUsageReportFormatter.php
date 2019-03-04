@@ -9,7 +9,8 @@ use AlecRabbit\Accessories\Pretty;
 use function AlecRabbit\Helpers\bounds;
 use const AlecRabbit\Helpers\Strings\Constants\BYTES_UNITS;
 
-class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsageReportFormatterInterface,
+class MemoryUsageReportFormatter extends AbstractFormatter implements
+    MemoryUsageReportFormatterInterface,
     MemoryUsageConstants
 {
 
