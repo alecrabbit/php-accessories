@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace AlecRabbit\Accessories;
 
 use function AlecRabbit\typeOf;
+use Countable;
 
 /**
  * Class Circular
@@ -15,7 +16,7 @@ class Circular implements \Iterator
     protected $data;
 
     /** @var bool */
-    protected $oneElement;
+    protected $oneElement = false;
 
     /**
      * Circular constructor.
@@ -23,7 +24,7 @@ class Circular implements \Iterator
      */
     public function __construct($data)
     {
-        if (is_countable($data) && $this->oneElement = (1 === count($data))) {
+        if ((\is_array($data) || $data instanceof Countable) && $this->oneElement = (1 === count($data))) {
             $this->data = reset($data);
         } else {
             $this->data = $this->convert($data);
@@ -67,7 +68,7 @@ class Circular implements \Iterator
      */
     public function value()
     {
-        if($this->oneElement) {
+        if ($this->oneElement) {
             return $this->data;
         }
         if (null === $value = $this->current()) {
