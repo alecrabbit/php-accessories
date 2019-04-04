@@ -14,13 +14,20 @@ class Circular implements \Iterator
     /** @var Rewindable */
     protected $data;
 
+    /** @var bool */
+    protected $oneElement;
+
     /**
      * Circular constructor.
      * @param array|callable|Rewindable $data accepts array, callable which returns \Generator or Rewindable
      */
     public function __construct($data)
     {
-        $this->data = $this->convert($data);
+        if (is_countable($data) && $this->oneElement = (1 === count($data))) {
+            $this->data = reset($data);
+        } else {
+            $this->data = $this->convert($data);
+        }
     }
 
     /**
@@ -60,6 +67,9 @@ class Circular implements \Iterator
      */
     public function value()
     {
+        if($this->oneElement) {
+            return $this->data;
+        }
         if (null === $value = $this->current()) {
             $this->rewind();
             $value = $this->current();
