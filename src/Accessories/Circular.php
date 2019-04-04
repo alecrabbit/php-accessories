@@ -32,7 +32,7 @@ class Circular implements \Iterator
         if (\is_array($arg)) {
             return
                 new Rewindable(
-                    function () use (&$arg): \Generator {
+                    static function () use (&$arg): \Generator {
                         yield from $arg;
                     }
                 );
