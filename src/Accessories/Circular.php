@@ -28,7 +28,7 @@ class Circular implements \Iterator
     }
 
     /**
-     * @param $data
+     * @param mixed $data
      * @return mixed
      */
     protected function refineData($data)
