@@ -24,12 +24,34 @@ class Circular implements \Iterator
      */
     public function __construct($data)
     {
-        if ((\is_array($data) || $data instanceof Countable) &&
-            $this->oneElement = ((1 === $count = count($data)) || 0 === $count)) {
-            $this->data = reset($data);
-        } else {
-            $this->data = $this->convert($data);
+        $this->data = $this->refineData($data);
+    }
+
+    /**
+     * @param $data
+     * @return mixed
+     */
+    protected function refineData($data)
+    {
+        if (\is_array($data) || $data instanceof Countable) {
+            if (1 === $count = count($data)) {
+                return $this->setOneElementData(reset($data));
+            }
+            if (0 === $count) {
+                return $this->setOneElementData(null);
+            }
         }
+        return $this->convert($data);
+    }
+
+    /**
+     * @param mixed $data
+     * @return mixed
+     */
+    protected function setOneElementData($data)
+    {
+        $this->oneElement = true;
+        return $data;
     }
 
     /**
