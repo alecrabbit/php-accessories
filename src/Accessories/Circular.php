@@ -24,7 +24,8 @@ class Circular implements \Iterator
      */
     public function __construct($data)
     {
-        if ((\is_array($data) || $data instanceof Countable) && $this->oneElement = (1 === count($data))) {
+        if ((\is_array($data) || $data instanceof Countable) &&
+            $this->oneElement = ((1 === $count = count($data)) || 0 === $count)) {
             $this->data = reset($data);
         } else {
             $this->data = $this->convert($data);
