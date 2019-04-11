@@ -9,7 +9,7 @@ class RewindableArgsTest extends TestCase
 {
     private static $generator;
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         static::$generator = function (int $a = 1, int $b = 2, int $c = 3) {
             yield $a;

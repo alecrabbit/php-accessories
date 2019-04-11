@@ -9,7 +9,7 @@ class RewindableTest extends TestCase
 {
     private static $generator;
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         static::$generator = function () {
             yield '1234';
