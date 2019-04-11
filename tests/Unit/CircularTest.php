@@ -32,10 +32,21 @@ class CircularTest extends TestCase
         $this->assertSame($expected, $actual);
     }
 
+    /** @test */
     public function iteratesByMethodValueOneValue(): void
     {
         $value = 1;
         $c = new Circular([$value,]);
+        for ($i = 0; $i < 18; $i++) {
+            $this->assertSame($value, $c->value());
+        }
+    }
+
+    /** @test */
+    public function iteratesByMethodValueEmptyArrayGiven(): void
+    {
+        $value = null;
+        $c = new Circular([]);
         for ($i = 0; $i < 18; $i++) {
             $this->assertSame($value, $c->value());
         }
