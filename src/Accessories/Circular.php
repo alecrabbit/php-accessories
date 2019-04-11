@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace AlecRabbit\Accessories;
 
 use function AlecRabbit\typeOf;
+use Countable;
 
 /**
  * Class Circular
@@ -14,13 +15,21 @@ class Circular implements \Iterator
     /** @var Rewindable */
     protected $data;
 
+    /** @var bool */
+    protected $oneElement = false;
+
     /**
      * Circular constructor.
      * @param array|callable|Rewindable $data accepts array, callable which returns \Generator or Rewindable
      */
     public function __construct($data)
     {
-        $this->data = $this->convert($data);
+        if ((\is_array($data) || $data instanceof Countable) &&
+            $this->oneElement = ((1 === $count = count($data)) || 0 === $count)) {
+            $this->data = reset($data);
+        } else {
+            $this->data = $this->convert($data);
+        }
     }
 
     /**
@@ -32,7 +41,7 @@ class Circular implements \Iterator
         if (\is_array($arg)) {
             return
                 new Rewindable(
-                    function () use (&$arg): \Generator {
+                    static function () use (&$arg): \Generator {
                         yield from $arg;
                     }
                 );
@@ -60,6 +69,9 @@ class Circular implements \Iterator
      */
     public function value()
     {
+        if ($this->oneElement) {
+            return $this->data;
+        }
         if (null === $value = $this->current()) {
             $this->rewind();
             $value = $this->current();

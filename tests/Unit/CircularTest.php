@@ -17,7 +17,7 @@ class CircularTest extends TestCase
         for ($i = 0; $i < 18; $i++) {
             $actual[] = $c->value();
         }
-        $this->assertEquals($expected, $actual);
+        $this->assertSame($expected, $actual);
     }
 
     /** @test */
@@ -29,7 +29,26 @@ class CircularTest extends TestCase
         for ($i = 0; $i < 18; $i++) {
             $actual[] = $c();
         }
-        $this->assertEquals($expected, $actual);
+        $this->assertSame($expected, $actual);
+    }
+
+    public function iteratesByMethodValueOneValue(): void
+    {
+        $value = 1;
+        $c = new Circular([$value,]);
+        for ($i = 0; $i < 18; $i++) {
+            $this->assertSame($value, $c->value());
+        }
+    }
+
+    /** @test */
+    public function iteratesInvokedOneValue(): void
+    {
+        $value = 1;
+        $c = new Circular([$value,]);
+        for ($i = 0; $i < 18; $i++) {
+            $this->assertSame($value, $c());
+        }
     }
 
     /** @test */

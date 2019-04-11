@@ -3,15 +3,16 @@
 namespace AlecRabbit\Accessories\MemoryUsage;
 
 use AlecRabbit\Accessories\Contracts\AbstractFormatter;
+use AlecRabbit\Accessories\MemoryUsage\Contracts\MemoryUsageConstants;
 use AlecRabbit\Accessories\MemoryUsage\Contracts\MemoryUsageReportFormatterInterface;
 use AlecRabbit\Accessories\Pretty;
 use function AlecRabbit\Helpers\bounds;
 use const AlecRabbit\Helpers\Strings\Constants\BYTES_UNITS;
 
-class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsageReportFormatterInterface
+class MemoryUsageReportFormatter extends AbstractFormatter implements
+    MemoryUsageReportFormatterInterface,
+    MemoryUsageConstants
 {
-    public const STRING_FORMAT = 'Memory: %s(%s) Real: %s(%s)';
-    public const MAX_DECIMALS = 3;
 
     /** @var null|array */
     protected static $unitsArray;
@@ -36,6 +37,17 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
     public function setUnits(string $units): void
     {
         $this->units = $this->refineUnits($units);
+    }
+
+    /**
+     * @param null|string $units
+     * @return string
+     */
+    private function refineUnits(?string $units): string
+    {
+        $units = $units ?? $this->units;
+        $this->assertUnits($units);
+        return $units;
     }
 
     /**
@@ -92,17 +104,6 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
     ): string {
         return
             Pretty::bytes($report->getUsage(), $this->refineUnits($units), $this->refineDecimals($decimals));
-    }
-
-    /**
-     * @param null|string $units
-     * @return string
-     */
-    private function refineUnits(?string $units): string
-    {
-        $units = $units ?? $this->units;
-        $this->assertUnits($units);
-        return $units;
     }
 
     /**

@@ -7,8 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-
-## [0.5.0] - 2019-0.-.. - upcoming
+## [0.5.2] - 2019-04-04
+ - minor optimization
+  
+## [0.5.1] - 2019-04-04
+ - minor optimization
+  
+## [0.5.0] - 2019-03-03 
+### Changed
+ - alecrabbit/php-helpers version updated to 0.5.x
+  
 ## [0.4.3] - 2019-03-01
 ### Changed
  - `MemoryUsage::report()` now casted to string by `MemoryUsageReportFormatter::class`) 
@@ -20,8 +28,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.4.1] - 2019-02-13
 
 
-[Unreleased]: https://github.com/alecrabbit/php-accessories/compare/0.4.3...HEAD
-[0.5.0-]: https://github.com/alecrabbit/php-accessories/compare/0.4.3...0.5.0
+[Unreleased]: https://github.com/alecrabbit/php-accessories/compare/0.5.1...HEAD
+[0.5.0]: https://github.com/alecrabbit/php-accessories/compare/0.5.0...0.5.1
+[0.5.0]: https://github.com/alecrabbit/php-accessories/compare/0.4.3...0.5.0
 [0.4.3]: https://github.com/alecrabbit/php-accessories/compare/0.4.2...0.4.3
 [0.4.2]: https://github.com/alecrabbit/php-accessories/compare/0.4.1...0.4.2
 [0.4.1]: https://github.com/alecrabbit/php-accessories/compare/0.2.5...0.4.1
