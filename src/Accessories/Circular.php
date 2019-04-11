@@ -33,7 +33,7 @@ class Circular implements \Iterator
      */
     protected function refineData($data)
     {
-        if (\is_array($data) || $data instanceof Countable) {
+        if (\is_array($data)) {
             if (1 === $count = count($data)) {
                 return $this->setOneElementData(reset($data));
             }
