@@ -11,7 +11,7 @@ use function AlecRabbit\typeOf;
  */
 class Circular implements \Iterator
 {
-    /** @var Rewindable */
+    /** @var mixed|Rewindable */
     protected $data;
 
     /** @var bool */
