@@ -34,23 +34,15 @@ class Circular implements \Iterator
     {
         if (\is_array($data)) {
             if (1 === $count = count($data)) {
-                return $this->setOneElement(reset($data));
+                $this->oneElement = true;
+                return reset($data);
             }
             if (0 === $count) {
-                return $this->setOneElement();
+                $this->oneElement = true;
+                return null;
             }
         }
         return $this->convert($data);
-    }
-
-    /**
-     * @param mixed $data
-     * @return mixed
-     */
-    protected function setOneElement($data = null)
-    {
-        $this->oneElement = true;
-        return $data;
     }
 
     /**
