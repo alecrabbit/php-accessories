@@ -5,14 +5,13 @@ declare(strict_types=1);
 namespace AlecRabbit\Accessories;
 
 use function AlecRabbit\typeOf;
-use Countable;
 
 /**
  * Class Circular
  */
 class Circular implements \Iterator
 {
-    /** @var Rewindable */
+    /** @var mixed|Rewindable */
     protected $data;
 
     /** @var bool */
@@ -28,17 +27,17 @@ class Circular implements \Iterator
     }
 
     /**
-     * @param $data
+     * @param mixed $data
      * @return mixed
      */
     protected function refineData($data)
     {
-        if (\is_array($data) || $data instanceof Countable) {
+        if (\is_array($data)) {
             if (1 === $count = count($data)) {
-                return $this->setOneElementData(reset($data));
+                return $this->setOneElement(reset($data));
             }
             if (0 === $count) {
-                return $this->setOneElementData(null);
+                return $this->setOneElement();
             }
         }
         return $this->convert($data);
@@ -48,7 +47,7 @@ class Circular implements \Iterator
      * @param mixed $data
      * @return mixed
      */
-    protected function setOneElementData($data)
+    protected function setOneElement($data = null)
     {
         $this->oneElement = true;
         return $data;
