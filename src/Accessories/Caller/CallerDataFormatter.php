@@ -29,7 +29,7 @@ class CallerDataFormatter extends AbstractFormatter implements CallerDataFormatt
                     '%s%s%s%s',
                     $this->getLineAndFile($data),
                     $class,
-                    $data->getType(),
+                    (string)$data->getType(),
                     $this->getFunction($data)
                 );
         }
@@ -51,8 +51,8 @@ class CallerDataFormatter extends AbstractFormatter implements CallerDataFormatt
             return
                 sprintf(
                     '[%s:"%s"] ',
-                    $caller->getLine(),
-                    $caller->getFile()
+                    (string)$caller->getLine(),
+                    (string)$caller->getFile()
                 );
         }
         return '';
