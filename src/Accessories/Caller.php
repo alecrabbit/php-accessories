@@ -24,7 +24,7 @@ class Caller implements CallerConstants
     /**
      * Static class. Private Constructor.
      */
-    protected function __construct() // @codeCoverageIgnoreStart
+    private function __construct() // @codeCoverageIgnoreStart
     {
     } // @codeCoverageIgnoreEnd
 
