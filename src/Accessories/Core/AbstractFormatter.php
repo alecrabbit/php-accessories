@@ -1,6 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace AlecRabbit\Accessories\Contracts;
+namespace AlecRabbit\Accessories\Core;
+
+use AlecRabbit\Accessories\Contracts\FormatterInterface;
 
 abstract class AbstractFormatter implements FormatterInterface
 {

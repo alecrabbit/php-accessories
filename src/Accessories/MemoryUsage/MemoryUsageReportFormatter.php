@@ -2,7 +2,7 @@
 
 namespace AlecRabbit\Accessories\MemoryUsage;
 
-use AlecRabbit\Accessories\Contracts\AbstractFormatter;
+use AlecRabbit\Accessories\Core\AbstractFormatter;
 use AlecRabbit\Accessories\MemoryUsage\Contracts\MemoryUsageConstants;
 use AlecRabbit\Accessories\MemoryUsage\Contracts\MemoryUsageReportFormatterInterface;
 use AlecRabbit\Accessories\Pretty;

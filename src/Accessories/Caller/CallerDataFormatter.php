@@ -5,7 +5,7 @@ namespace AlecRabbit\Accessories\Caller;
 
 use AlecRabbit\Accessories\Caller\Contracts\CallerConstants;
 use AlecRabbit\Accessories\Caller\Contracts\CallerDataFormatterInterface;
-use AlecRabbit\Accessories\Contracts\AbstractFormatter;
+use AlecRabbit\Accessories\Core\AbstractFormatter;
 
 class CallerDataFormatter extends AbstractFormatter implements CallerDataFormatterInterface, CallerConstants
 {
