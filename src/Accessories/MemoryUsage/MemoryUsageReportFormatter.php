@@ -24,14 +24,6 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements
     protected $decimals = 2;
 
     /**
-     * @param mixed $options
-     */
-    public function __construct($options = null)
-    {
-        parent::__construct($options);
-    }
-
-    /**
      * @param string $units
      */
     public function setUnits(string $units): void

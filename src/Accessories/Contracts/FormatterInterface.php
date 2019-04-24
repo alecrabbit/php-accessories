@@ -6,7 +6,7 @@ namespace AlecRabbit\Accessories\Contracts;
 interface FormatterInterface
 {
     /**
-     * @param mixed $options
+     * @param int|null $options
      */
-    public function __construct($options = null);
+    public function __construct(?int $options = null);
 }

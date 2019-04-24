@@ -9,10 +9,8 @@ use AlecRabbit\Accessories\Contracts\AbstractFormatter;
 
 class CallerDataFormatter extends AbstractFormatter implements CallerDataFormatterInterface, CallerConstants
 {
-    /**
-     * @param mixed $options
-     */
-    public function __construct($options = null)
+    /** {@inheritDoc} */
+    public function __construct(?int $options = null)
     {
         parent::__construct($options);
         $this->options = $options ?? static::SHOW_LINE_AND_FILE;
