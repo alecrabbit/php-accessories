@@ -49,7 +49,7 @@ class Circular implements \Iterator
      * @param mixed $arg
      * @return Rewindable
      */
-    private function convert(&$arg): Rewindable
+    protected function convert(&$arg): Rewindable
     {
         if (\is_array($arg)) {
             return

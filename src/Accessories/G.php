@@ -8,7 +8,7 @@ class G
      * Static class. Private Constructor.
      */
     // @codeCoverageIgnoreStart
-    private function __construct()
+    protected function __construct()
     {
     }
     // @codeCoverageIgnoreEnd

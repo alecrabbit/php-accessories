@@ -43,7 +43,7 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements
      * @param null|string $units
      * @return string
      */
-    private function refineUnits(?string $units): string
+    protected function refineUnits(?string $units): string
     {
         $units = $units ?? $this->units;
         $this->assertUnits($units);
@@ -74,7 +74,7 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements
      * @param null|int $decimals
      * @return int
      */
-    private function refineDecimals(?int $decimals): int
+    protected function refineDecimals(?int $decimals): int
     {
         return (int)bounds($decimals ?? $this->decimals, 0, self::MAX_DECIMALS);
     }

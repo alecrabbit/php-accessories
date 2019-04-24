@@ -12,16 +12,16 @@ use function AlecRabbit\typeOf;
 class Rewindable implements \Iterator
 {
     /** @var callable */
-    private $generatorFunction;
+    protected $generatorFunction;
 
     /** @var \Generator */
-    private $generator;
+    protected $generator;
 
     /** @var null|callable */
-    private $onRewind;
+    protected $onRewind;
 
     /** @var array */
-    private $args;
+    protected $args;
 
     /**
      * Rewindable constructor.
@@ -38,7 +38,7 @@ class Rewindable implements \Iterator
     /**
      * @param mixed ...$args
      */
-    private function createGenerator(...$args): void
+    protected function createGenerator(...$args): void
     {
         $this->generator = \call_user_func($this->generatorFunction, ...$args);
 

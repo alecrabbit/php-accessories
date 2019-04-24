@@ -14,7 +14,7 @@ class MemoryUsage
     /**
      * Static class. Private Constructor.
      */
-    private function __construct() // @codeCoverageIgnoreStart
+    protected function __construct() // @codeCoverageIgnoreStart
     {
     } // @codeCoverageIgnoreEnd
 

@@ -24,7 +24,7 @@ class Caller implements CallerConstants
     /**
      * Static class. Private Constructor.
      */
-    private function __construct() // @codeCoverageIgnoreStart
+    protected function __construct() // @codeCoverageIgnoreStart
     {
     } // @codeCoverageIgnoreEnd
 
@@ -44,7 +44,7 @@ class Caller implements CallerConstants
      * @param int $depth
      * @return array
      */
-    private static function getCallerData(int $depth): array
+    protected static function getCallerData(int $depth): array
     {
         return
             debug_backtrace(static::getOptions(), static::getLimit())[++$depth] ?? self::UNDEFINED;

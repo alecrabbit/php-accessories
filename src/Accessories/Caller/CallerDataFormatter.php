@@ -45,7 +45,7 @@ class CallerDataFormatter extends AbstractFormatter implements CallerDataFormatt
      * @param CallerData $caller
      * @return string
      */
-    private function getLineAndFile(CallerData $caller): string
+    protected function getLineAndFile(CallerData $caller): string
     {
         if (($this->options & static::SHOW_LINE_AND_FILE) && self::STR_UNDEFINED !== $caller->getFunction()) {
             return
@@ -62,7 +62,7 @@ class CallerDataFormatter extends AbstractFormatter implements CallerDataFormatt
      * @param CallerData $caller
      * @return string
      */
-    private function getFunction(CallerData $caller): string
+    protected function getFunction(CallerData $caller): string
     {
         $function = $caller->getFunction();
         if ($function === self::STR_UNDEFINED) {
