@@ -1,0 +1,3 @@
+[submodule "vendor/alecrabbit/php-helpers"]
+	path = vendor/alecrabbit/php-helpers
+	url = https://github.com/alecrabbit/php-helpers.git
