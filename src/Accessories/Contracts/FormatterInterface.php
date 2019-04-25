@@ -9,4 +9,6 @@ interface FormatterInterface
      * @param int|null $options
      */
     public function __construct(?int $options = null);
+
+//    public function process($data): string;
 }
