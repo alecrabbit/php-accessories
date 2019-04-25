@@ -23,12 +23,12 @@ class MemoryUsageReportFormatterTest extends TestCase
         $formatter->setUnits('op');
     }
 
-    /** @test */
-    public function wrongOptions(): void
-    {
-        $this->expectException(\RuntimeException::class);
-        new MemoryUsageReportFormatter('');
-    }
+//    /** @test */
+//    public function wrongOptions(): void
+//    {
+//        $this->expectException(\RuntimeException::class);
+//        new MemoryUsageReportFormatter('');
+//    }
 
     /** @test */
     public function useUnitsAndDecimals(): void

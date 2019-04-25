@@ -2,7 +2,7 @@
 
 namespace AlecRabbit\Accessories\MemoryUsage;
 
-use AlecRabbit\Accessories\Contracts\AbstractFormatter;
+use AlecRabbit\Accessories\Core\AbstractFormatter;
 use AlecRabbit\Accessories\MemoryUsage\Contracts\MemoryUsageConstants;
 use AlecRabbit\Accessories\MemoryUsage\Contracts\MemoryUsageReportFormatterInterface;
 use AlecRabbit\Accessories\Pretty;
@@ -22,14 +22,6 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements
 
     /** @var int */
     protected $decimals = 2;
-
-    /**
-     * @param mixed $options
-     */
-    public function __construct($options = null)
-    {
-        parent::__construct($options);
-    }
 
     /**
      * @param string $units

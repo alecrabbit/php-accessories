@@ -16,13 +16,13 @@ class CallerDataFormatterTest extends TestCase
     public const TYPE = '->';
     public const ARGS = [1, 2];
 
-    /** @test */
-    public function wrongOptions(): void
-    {
-        $this->expectException(\RuntimeException::class);
-        new CallerDataFormatter('');
-    }
-
+//    /** @test */
+//    public function wrongOptions(): void
+//    {
+//        $this->expectException(\RuntimeException::class);
+//        new CallerDataFormatter('');
+//    }
+//
     /** @test */
     public function doNotShowLineAndFile(): void
     {
