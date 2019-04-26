@@ -5,8 +5,9 @@ namespace AlecRabbit\Accessories\Caller;
 use AlecRabbit\Accessories\Caller;
 use AlecRabbit\Accessories\Caller\Contracts\CallerConstants;
 use AlecRabbit\Accessories\Caller\Contracts\CallerDataInterface;
+use AlecRabbit\Traits\ForReports\Core\Formattable;
 
-class CallerData implements CallerDataInterface, CallerConstants
+class CallerData extends Formattable implements CallerDataInterface, CallerConstants
 {
     /** @var string */
     protected $function;

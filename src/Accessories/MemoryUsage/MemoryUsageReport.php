@@ -3,8 +3,9 @@
 namespace AlecRabbit\Accessories\MemoryUsage;
 
 use AlecRabbit\Accessories\MemoryUsage;
+use AlecRabbit\Traits\ForReports\Core\Formattable;
 
-class MemoryUsageReport implements MemoryUsageReportInterface
+class MemoryUsageReport extends Formattable implements MemoryUsageReportInterface
 {
     /** @var int */
     protected $usage;

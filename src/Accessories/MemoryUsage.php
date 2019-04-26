@@ -8,7 +8,7 @@ use AlecRabbit\Accessories\MemoryUsage\MemoryUsageReportFormatter;
 
 class MemoryUsage
 {
-    /** @var null|MemoryUsageReportFormatterInterface */
+    /** @var null|MemoryUsageReportFormatter */
     protected static $formatter;
 
     /**
@@ -57,9 +57,9 @@ class MemoryUsage
     }
 
     /**
-     * @return MemoryUsageReportFormatterInterface
+     * @return MemoryUsageReportFormatter
      */
-    public static function getFormatter(): MemoryUsageReportFormatterInterface
+    public static function getFormatter(): MemoryUsageReportFormatter
     {
         if (null === static::$formatter) {
             static::$formatter = new MemoryUsageReportFormatter();
@@ -68,9 +68,9 @@ class MemoryUsage
     }
 
     /**
-     * @param null|MemoryUsageReportFormatterInterface $formatter
+     * @param null|MemoryUsageReportFormatter $formatter
      */
-    public static function setFormatter(?MemoryUsageReportFormatterInterface $formatter): void
+    public static function setFormatter(?MemoryUsageReportFormatter $formatter): void
     {
         self::$formatter = $formatter;
     }

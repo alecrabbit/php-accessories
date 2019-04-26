@@ -2,16 +2,14 @@
 
 namespace AlecRabbit\Accessories\MemoryUsage;
 
-use AlecRabbit\Accessories\Core\AbstractFormatter;
 use AlecRabbit\Accessories\MemoryUsage\Contracts\MemoryUsageConstants;
-use AlecRabbit\Accessories\MemoryUsage\Contracts\MemoryUsageReportFormatterInterface;
 use AlecRabbit\Accessories\Pretty;
+use AlecRabbit\Traits\ForReports\Core\AbstractFormatter;
+use AlecRabbit\Traits\ForReports\Core\Formattable;
 use function AlecRabbit\Helpers\bounds;
 use const AlecRabbit\Helpers\Strings\Constants\BYTES_UNITS;
 
-class MemoryUsageReportFormatter extends AbstractFormatter implements
-    MemoryUsageReportFormatterInterface,
-    MemoryUsageConstants
+class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsageConstants
 {
 
     /** @var null|array */
@@ -74,16 +72,20 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements
     /**
      * {@inheritdoc}
      */
-    public function process(MemoryUsageReport $report): string
+    public function process(Formattable $report): string
     {
-        return
-            sprintf(
-                self::STRING_FORMAT,
-                Pretty::bytes($report->getUsage(), $this->units, $this->decimals),
-                Pretty::bytes($report->getPeakUsage(), $this->units, $this->decimals),
-                Pretty::bytes($report->getUsageReal(), $this->units, $this->decimals),
-                Pretty::bytes($report->getPeakUsageReal(), $this->units, $this->decimals)
-            );
+        if ($report instanceof MemoryUsageReport) {
+            return
+                sprintf(
+                    self::STRING_FORMAT,
+                    Pretty::bytes($report->getUsage(), $this->units, $this->decimals),
+                    Pretty::bytes($report->getPeakUsage(), $this->units, $this->decimals),
+                    Pretty::bytes($report->getUsageReal(), $this->units, $this->decimals),
+                    Pretty::bytes($report->getPeakUsageReal(), $this->units, $this->decimals)
+                );
+        }
+        $this->assertData($report, MemoryUsageReport::class);
+        return '';
     }
 
     /**
@@ -138,4 +140,16 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements
                 $this->refineDecimals($decimals)
             );
     }
+
+//    /**
+//     * @param Formattable $data
+//     */
+//    protected function assertData(Formattable $data): void
+//    {
+//        if (!$data instanceof MemoryUsageReport) {
+//            throw new \InvalidArgumentException(
+//                MemoryUsageReport::class . ' expected, ' . typeOf($data) . ' given'
+//            );
+//        }
+//    }
 }

@@ -7,12 +7,11 @@ namespace AlecRabbit\Accessories;
 use AlecRabbit\Accessories\Caller\CallerData;
 use AlecRabbit\Accessories\Caller\CallerDataFormatter;
 use AlecRabbit\Accessories\Caller\Contracts\CallerConstants;
-use AlecRabbit\Accessories\Caller\Contracts\CallerDataFormatterInterface;
 use AlecRabbit\Accessories\Caller\Contracts\CallerDataInterface;
 
 class Caller implements CallerConstants
 {
-    /** @var null|CallerDataFormatterInterface */
+    /** @var null|CallerDataFormatter */
     protected static $formatter;
 
     /** @var int */
@@ -83,9 +82,9 @@ class Caller implements CallerConstants
     }
 
     /**
-     * @return CallerDataFormatterInterface
+     * @return CallerDataFormatter
      */
-    public static function getFormatter(): CallerDataFormatterInterface
+    public static function getFormatter(): CallerDataFormatter
     {
         if (null === static::$formatter) {
             static::$formatter = new CallerDataFormatter();
@@ -94,9 +93,9 @@ class Caller implements CallerConstants
     }
 
     /**
-     * @param CallerDataFormatterInterface $formatter
+     * @param CallerDataFormatter $formatter
      */
-    public static function setFormatter(CallerDataFormatterInterface $formatter): void
+    public static function setFormatter(CallerDataFormatter $formatter): void
     {
         self::$formatter = $formatter;
     }

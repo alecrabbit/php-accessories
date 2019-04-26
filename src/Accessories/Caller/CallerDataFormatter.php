@@ -4,10 +4,10 @@
 namespace AlecRabbit\Accessories\Caller;
 
 use AlecRabbit\Accessories\Caller\Contracts\CallerConstants;
-use AlecRabbit\Accessories\Caller\Contracts\CallerDataFormatterInterface;
-use AlecRabbit\Accessories\Core\AbstractFormatter;
+use AlecRabbit\Traits\ForReports\Core\AbstractFormatter;
+use AlecRabbit\Traits\ForReports\Core\Formattable;
 
-class CallerDataFormatter extends AbstractFormatter implements CallerDataFormatterInterface, CallerConstants
+class CallerDataFormatter extends AbstractFormatter implements CallerConstants
 {
     /** {@inheritDoc} */
     public function __construct(?int $options = null)
@@ -19,24 +19,28 @@ class CallerDataFormatter extends AbstractFormatter implements CallerDataFormatt
     /**
      * {@inheritdoc}
      */
-    public function process(CallerData $data): string
+    public function process(Formattable $data): string
     {
-        if (null !== $class = $data->getClass()) {
+        if ($data instanceof CallerData) {
+            if (null !== $class = $data->getClass()) {
+                return
+                    sprintf(
+                        '%s%s%s%s',
+                        $this->getLineAndFile($data),
+                        $class,
+                        (string)$data->getType(),
+                        $this->getFunction($data)
+                    );
+            }
             return
                 sprintf(
-                    '%s%s%s%s',
+                    '%s%s',
                     $this->getLineAndFile($data),
-                    $class,
-                    (string)$data->getType(),
                     $this->getFunction($data)
                 );
         }
-        return
-            sprintf(
-                '%s%s',
-                $this->getLineAndFile($data),
-                $this->getFunction($data)
-            );
+        $this->assertData($data, CallerData::class);
+        return '';
     }
 
     /**

@@ -17,9 +17,9 @@ function usesSomeFunction(): void
 
 
 var_dump(Caller::get()); // object(AlecRabbit\Accessories\Caller\CallerData)
-dump((string)Caller::get()); // "UNDEFINED()"
+var_dump((string)Caller::get()); // "Undefined"
 try {
     usesSomeFunction();
 } catch (\Exception $e) {
-    dump($e->getMessage()); // "usesSomeFunction() called someFunction()"
+    var_dump($e->getMessage()); // "[22:"/var/www/examples/Caller/caller-two.php"] usesSomeFunction() called someFunction()"
 }
