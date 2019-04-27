@@ -26,7 +26,13 @@ help_message
 
 header "Tests, coverage, analysis and metrics script"
 dark "Setting terminal title... \n'${dir}'"
-set_title "${dir}"
+if [[ -e "${TITLE_FILE}" ]]
+then
+    title=$(<${TITLE_FILE})
+    set_title "${title}"
+else
+    set_title "${dir}"
+fi
 
 if [[ ${EXEC} == 0 ]]
 then
