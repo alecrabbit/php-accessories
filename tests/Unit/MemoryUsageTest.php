@@ -3,12 +3,21 @@
 namespace AlecRabbit\Tests\Accessories;
 
 use AlecRabbit\Accessories\MemoryUsage;
+use AlecRabbit\Accessories\MemoryUsage\MemoryUsageReport;
 use AlecRabbit\Accessories\MemoryUsage\MemoryUsageReportFormatter;
 use PHPUnit\Framework\TestCase;
 use function AlecRabbit\format_bytes;
 
 class MemoryUsageTest extends TestCase
 {
+    /** @test */
+    public function instance(): void
+    {
+        $mu = new MemoryUsage();
+        $report = $mu->report();
+        $this->assertInstanceOf(MemoryUsageReport::class, $report);
+    }
+
     /** @test */
     public function setFormatter(): void
     {

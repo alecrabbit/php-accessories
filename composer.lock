@@ -74,12 +74,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-reports.git",
-                "reference": "dbcd43ac32c1a551531ed8d7fc197ec71ae5e8ae"
+                "reference": "c4f341995e4e9f031e2466f3c4ce96d1e8ac69be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-reports/zipball/dbcd43ac32c1a551531ed8d7fc197ec71ae5e8ae",
-                "reference": "dbcd43ac32c1a551531ed8d7fc197ec71ae5e8ae",
+                "url": "https://api.github.com/repos/alecrabbit/php-reports/zipball/c4f341995e4e9f031e2466f3c4ce96d1e8ac69be",
+                "reference": "c4f341995e4e9f031e2466f3c4ce96d1e8ac69be",
                 "shasum": ""
             },
             "require": {
@@ -108,7 +108,7 @@
                 "php",
                 "reports"
             ],
-            "time": "2019-04-26T14:30:35+00:00"
+            "time": "2019-04-27T08:39:56+00:00"
         },
         {
             "name": "alecrabbit/php-traits",

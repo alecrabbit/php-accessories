@@ -5,6 +5,9 @@ namespace AlecRabbit\Tests\Accessories;
 use AlecRabbit\Accessories\MemoryUsage;
 use AlecRabbit\Accessories\MemoryUsage\MemoryUsageReport;
 use AlecRabbit\Accessories\MemoryUsage\MemoryUsageReportFormatter;
+use AlecRabbit\Reports\Contracts\ReportableInterface;
+use AlecRabbit\Reports\Contracts\ReportInterface;
+use AlecRabbit\Reports\Core\AbstractReport;
 use PHPUnit\Framework\TestCase;
 
 class MemoryUsageReportFormatterTest extends TestCase
@@ -23,12 +26,43 @@ class MemoryUsageReportFormatterTest extends TestCase
         $formatter->setUnits('op');
     }
 
-//    /** @test */
-//    public function wrongOptions(): void
-//    {
-//        $this->expectException(\RuntimeException::class);
-//        new MemoryUsageReportFormatter('');
-//    }
+    /** @test */
+    public function wrongOptions(): void
+    {
+        $this->expectException(\TypeError::class);
+        new MemoryUsageReportFormatter('');
+    }
+
+    /** @test */
+    public function wrongInstance(): void
+    {
+        $formatter = MemoryUsage::getFormatter();
+        $str = $formatter->format(
+            new class extends AbstractReport
+            {
+                /**
+                 * @return string
+                 */
+                public function __toString(): string
+                {
+                    return '';
+                }
+
+                /**
+                 * @param ReportableInterface $reportable
+                 * @return ReportInterface
+                 */
+                public function buildOn(ReportableInterface $reportable): ReportInterface
+                {
+                    return $this;
+                }
+            }
+        );
+        $this->assertStringContainsString(MemoryUsageReport::class, $str);
+        $this->assertStringContainsString('expected', $str);
+        $this->assertStringContainsString(__FILE__, $str);
+        $this->assertStringContainsString('given', $str);
+    }
 
     /** @test */
     public function useUnitsAndDecimals(): void

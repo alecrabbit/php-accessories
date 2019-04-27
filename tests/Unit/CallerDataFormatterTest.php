@@ -2,9 +2,13 @@
 
 namespace AlecRabbit\Tests\Accessories;
 
+use AlecRabbit\Accessories\Caller;
 use AlecRabbit\Accessories\Caller\CallerData;
 use AlecRabbit\Accessories\Caller\CallerDataFormatter;
 use AlecRabbit\Accessories\Caller\Contracts\CallerConstants;
+use AlecRabbit\Reports\Contracts\ReportableInterface;
+use AlecRabbit\Reports\Contracts\ReportInterface;
+use AlecRabbit\Reports\Core\AbstractReport;
 use PHPUnit\Framework\TestCase;
 
 class CallerDataFormatterTest extends TestCase
@@ -23,6 +27,38 @@ class CallerDataFormatterTest extends TestCase
 //        new CallerDataFormatter('');
 //    }
 //
+
+    /** @test */
+    public function wrongInstance(): void
+    {
+        $formatter = Caller::getFormatter();
+        $str = $formatter->format(
+            new class extends AbstractReport
+            {
+                /**
+                 * @return string
+                 */
+                public function __toString(): string
+                {
+                    return '';
+                }
+
+                /**
+                 * @param ReportableInterface $reportable
+                 * @return ReportInterface
+                 */
+                public function buildOn(ReportableInterface $reportable): ReportInterface
+                {
+                    return $this;
+                }
+            }
+        );
+        $this->assertStringContainsString(CallerData::class, $str);
+        $this->assertStringContainsString('expected', $str);
+        $this->assertStringContainsString(__FILE__, $str);
+        $this->assertStringContainsString('given', $str);
+    }
+
     /** @test */
     public function doNotShowLineAndFile(): void
     {

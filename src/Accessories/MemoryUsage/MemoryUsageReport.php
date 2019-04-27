@@ -28,12 +28,16 @@ class MemoryUsageReport extends AbstractReport implements MemoryUsageReportInter
      * @param int $usageReal
      * @param int $peakUsageReal
      */
-    public function __construct(int $usage, int $peakUsage, int $usageReal, int $peakUsageReal)
-    {
-        $this->usage = $usage;
-        $this->peakUsage = $peakUsage;
-        $this->usageReal = $usageReal;
-        $this->peakUsageReal = $peakUsageReal;
+    public function __construct(
+        int $usage = null,
+        int $peakUsage = null,
+        int $usageReal = null,
+        int $peakUsageReal = null
+    ) {
+        $this->usage = $usage ?? memory_get_usage();
+        $this->peakUsage = $peakUsage ?? memory_get_peak_usage();
+        $this->usageReal = $usageReal ?? memory_get_usage(true);
+        $this->peakUsageReal = $peakUsageReal ?? memory_get_peak_usage(true);
     }
 
     public function __toString(): string
@@ -43,7 +47,12 @@ class MemoryUsageReport extends AbstractReport implements MemoryUsageReportInter
 
     public function buildOn(ReportableInterface $reportable): ReportInterface
     {
-        return $this;
+        if ($reportable instanceof MemoryUsage) {
+            return $this;
+        }
+        throw new \InvalidArgumentException(
+            MemoryUsage::class . ' expected, ' . get_class($reportable) . ' given.'
+        );
     }
 
     /**

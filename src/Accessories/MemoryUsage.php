@@ -42,12 +42,7 @@ class MemoryUsage extends Reportable
     public static function reportStatic(): MemoryUsageReport
     {
         return
-            new MemoryUsageReport(
-                memory_get_usage(),
-                memory_get_peak_usage(),
-                memory_get_usage(true),
-                memory_get_peak_usage(true)
-            );
+            new MemoryUsageReport();
     }
 
     /**
@@ -72,12 +67,6 @@ class MemoryUsage extends Reportable
     protected function createEmptyReport(): ReportInterface
     {
         return
-            $this->report =
-                new MemoryUsageReport(
-                    memory_get_usage(),
-                    memory_get_peak_usage(),
-                    memory_get_usage(true),
-                    memory_get_peak_usage(true)
-                );
+            static::reportStatic();
     }
 }
