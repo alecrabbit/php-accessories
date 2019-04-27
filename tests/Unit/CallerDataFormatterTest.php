@@ -37,7 +37,7 @@ class CallerDataFormatterTest extends TestCase
             CallerConstants::TYPE => self::TYPE,
             CallerConstants::ARGS => self::ARGS,
         ];
-        $str = $formatter->process(new CallerData($caller));
+        $str = $formatter->format(new CallerData($caller));
         $this->assertStringNotContainsString((string)self::LINE, $str);
         $this->assertStringNotContainsString(self::FILE_PHP, $str);
         $this->assertStringContainsString(self::FUNCTION_NAME, $str);
@@ -50,7 +50,7 @@ class CallerDataFormatterTest extends TestCase
     public function undefined(): void
     {
         $formatter = new CallerDataFormatter();
-        $str = $formatter->process(new CallerData(CallerConstants::UNDEFINED));
+        $str = $formatter->format(new CallerData(CallerConstants::UNDEFINED));
         $this->assertStringContainsString(CallerConstants::STR_UNDEFINED, strtolower($str));
         $this->assertStringNotContainsString('()', $str);
     }

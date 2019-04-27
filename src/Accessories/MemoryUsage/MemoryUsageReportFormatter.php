@@ -4,8 +4,8 @@ namespace AlecRabbit\Accessories\MemoryUsage;
 
 use AlecRabbit\Accessories\MemoryUsage\Contracts\MemoryUsageConstants;
 use AlecRabbit\Accessories\Pretty;
-use AlecRabbit\Traits\ForReports\Core\AbstractFormatter;
-use AlecRabbit\Traits\ForReports\Core\Formattable;
+use AlecRabbit\Formatters\Core\AbstractFormatter;
+use AlecRabbit\Formatters\Core\Formattable;
 use function AlecRabbit\Helpers\bounds;
 use const AlecRabbit\Helpers\Strings\Constants\BYTES_UNITS;
 
@@ -72,7 +72,7 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
     /**
      * {@inheritdoc}
      */
-    public function process(Formattable $report): string
+    public function format(Formattable $report): string
     {
         if ($report instanceof MemoryUsageReport) {
             return
@@ -84,8 +84,7 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
                     Pretty::bytes($report->getPeakUsageReal(), $this->units, $this->decimals)
                 );
         }
-        $this->assertData($report, MemoryUsageReport::class);
-        return '';
+        return $this->errorMessage($report, MemoryUsageReport::class);
     }
 
     /**

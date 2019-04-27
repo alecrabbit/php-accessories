@@ -4,8 +4,8 @@
 namespace AlecRabbit\Accessories\Caller;
 
 use AlecRabbit\Accessories\Caller\Contracts\CallerConstants;
-use AlecRabbit\Traits\ForReports\Core\AbstractFormatter;
-use AlecRabbit\Traits\ForReports\Core\Formattable;
+use AlecRabbit\Formatters\Core\AbstractFormatter;
+use AlecRabbit\Formatters\Core\Formattable;
 
 class CallerDataFormatter extends AbstractFormatter implements CallerConstants
 {
@@ -19,7 +19,7 @@ class CallerDataFormatter extends AbstractFormatter implements CallerConstants
     /**
      * {@inheritdoc}
      */
-    public function process(Formattable $data): string
+    public function format(Formattable $data): string
     {
         if ($data instanceof CallerData) {
             if (null !== $class = $data->getClass()) {
@@ -39,8 +39,7 @@ class CallerDataFormatter extends AbstractFormatter implements CallerConstants
                     $this->getFunction($data)
                 );
         }
-        $this->assertData($data, CallerData::class);
-        return '';
+        return $this->errorMessage($data, CallerData::class);
     }
 
     /**

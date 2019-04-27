@@ -5,7 +5,7 @@ namespace AlecRabbit\Accessories\Caller;
 use AlecRabbit\Accessories\Caller;
 use AlecRabbit\Accessories\Caller\Contracts\CallerConstants;
 use AlecRabbit\Accessories\Caller\Contracts\CallerDataInterface;
-use AlecRabbit\Traits\ForReports\Core\Formattable;
+use AlecRabbit\Formatters\Core\Formattable;
 
 class CallerData extends Formattable implements CallerDataInterface, CallerConstants
 {
@@ -52,7 +52,7 @@ class CallerData extends Formattable implements CallerDataInterface, CallerConst
      */
     public function __toString(): string
     {
-        return Caller::getFormatter()->process($this);
+        return Caller::getFormatter()->format($this);
     }
 
     /**

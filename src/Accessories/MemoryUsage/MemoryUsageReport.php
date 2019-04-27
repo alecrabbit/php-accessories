@@ -3,9 +3,11 @@
 namespace AlecRabbit\Accessories\MemoryUsage;
 
 use AlecRabbit\Accessories\MemoryUsage;
-use AlecRabbit\Traits\ForReports\Core\Formattable;
+use AlecRabbit\Reports\Contracts\ReportableInterface;
+use AlecRabbit\Reports\Contracts\ReportInterface;
+use AlecRabbit\Reports\Core\AbstractReport;
 
-class MemoryUsageReport extends Formattable implements MemoryUsageReportInterface
+class MemoryUsageReport extends AbstractReport implements MemoryUsageReportInterface
 {
     /** @var int */
     protected $usage;
@@ -36,7 +38,12 @@ class MemoryUsageReport extends Formattable implements MemoryUsageReportInterfac
 
     public function __toString(): string
     {
-        return MemoryUsage::getFormatter()->process($this);
+        return MemoryUsage::getFormatter()->format($this);
+    }
+
+    public function buildOn(ReportableInterface $reportable): ReportInterface
+    {
+        return $this;
     }
 
     /**
