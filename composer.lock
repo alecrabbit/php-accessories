@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d26dbd40e2e76d273bb31d5db676108a",
+    "content-hash": "8564720cb10db330c16b68f3d1040fe7",
     "packages": [
         {
             "name": "alecrabbit/php-helpers",
@@ -69,17 +69,59 @@
             "time": "2019-04-24T10:41:02+00:00"
         },
         {
-            "name": "alecrabbit/php-traits",
-            "version": "0.4.3-ALPHA.1",
+            "name": "alecrabbit/php-reports",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/alecrabbit/php-traits.git",
-                "reference": "c65a1ae079d29f441b8194fc1a99f470b30127b8"
+                "url": "https://github.com/alecrabbit/php-reports.git",
+                "reference": "dbcd43ac32c1a551531ed8d7fc197ec71ae5e8ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-traits/zipball/c65a1ae079d29f441b8194fc1a99f470b30127b8",
-                "reference": "c65a1ae079d29f441b8194fc1a99f470b30127b8",
+                "url": "https://api.github.com/repos/alecrabbit/php-reports/zipball/dbcd43ac32c1a551531ed8d7fc197ec71ae5e8ae",
+                "reference": "dbcd43ac32c1a551531ed8d7fc197ec71ae5e8ae",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "kylekatarnls/multi-tester": "^1.1",
+                "nunomaduro/collision": "^3.0",
+                "phpunit/phpunit": "^8.0",
+                "symfony/var-dumper": "^4.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AlecRabbit\\Reports\\": "src\\Reports",
+                    "AlecRabbit\\Formatters\\": "src\\Formatters"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP traits to use in every project :)",
+            "keywords": [
+                "formatters",
+                "php",
+                "reports"
+            ],
+            "time": "2019-04-26T14:30:35+00:00"
+        },
+        {
+            "name": "alecrabbit/php-traits",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alecrabbit/php-traits.git",
+                "reference": "3a0bc4f17ca27edcc9c126c69611d8a2a609844a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alecrabbit/php-traits/zipball/3a0bc4f17ca27edcc9c126c69611d8a2a609844a",
+                "reference": "3a0bc4f17ca27edcc9c126c69611d8a2a609844a",
                 "shasum": ""
             },
             "require": {
@@ -114,7 +156,7 @@
                 "trait",
                 "traits"
             ],
-            "time": "2019-04-26T10:19:24+00:00"
+            "time": "2019-04-24T15:10:17+00:00"
         },
         {
             "name": "krowinski/bcmath-extended",
@@ -2434,7 +2476,9 @@
     ],
     "aliases": [],
     "minimum-stability": "alpha",
-    "stability-flags": [],
+    "stability-flags": {
+        "alecrabbit/php-reports": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
