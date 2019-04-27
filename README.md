@@ -100,7 +100,7 @@ Pretty::nanoseconds(105); // string(7) "105ns"
 ##### MemoryUsage::class
 Helper class to get memory usage
 ```php
-$report = MemoryUsage::report('mb');
+$report = MemoryUsage::reportStatic('mb');
 echo $report . PHP_EOL;
 // Memory: 0.75MB(32.73MB) Real: 2.00MB(34.00MB)
 ```

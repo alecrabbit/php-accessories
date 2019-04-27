@@ -4,18 +4,13 @@ namespace AlecRabbit\Accessories;
 
 use AlecRabbit\Accessories\MemoryUsage\MemoryUsageReport;
 use AlecRabbit\Accessories\MemoryUsage\MemoryUsageReportFormatter;
+use AlecRabbit\Reports\Contracts\ReportInterface;
+use AlecRabbit\Reports\Core\Reportable;
 
-class MemoryUsage
+class MemoryUsage extends Reportable
 {
     /** @var null|MemoryUsageReportFormatter */
     protected static $formatter;
-
-    /**
-     * Static class. Private Constructor.
-     */
-    protected function __construct() // @codeCoverageIgnoreStart
-    {
-    } // @codeCoverageIgnoreEnd
 
     /**
      * @param bool $real
@@ -44,7 +39,7 @@ class MemoryUsage
     /**
      * @return MemoryUsageReport
      */
-    public static function report(): MemoryUsageReport
+    public static function reportStatic(): MemoryUsageReport
     {
         return
             new MemoryUsageReport(
@@ -72,5 +67,17 @@ class MemoryUsage
     public static function setFormatter(?MemoryUsageReportFormatter $formatter): void
     {
         self::$formatter = $formatter;
+    }
+
+    protected function createEmptyReport(): ReportInterface
+    {
+        return
+            $this->report =
+                new MemoryUsageReport(
+                    memory_get_usage(),
+                    memory_get_peak_usage(),
+                    memory_get_usage(true),
+                    memory_get_peak_usage(true)
+                );
     }
 }

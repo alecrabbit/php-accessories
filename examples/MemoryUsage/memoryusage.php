@@ -19,11 +19,11 @@ $r = G::range(1, 1000000);
 var_dump(MemoryUsage::get(true)); // string(6) "2.00MB"
 var_dump(MemoryUsage::getPeak(true)); // string(7) "34.00MB"
 
-echo MemoryUsage::report() . PHP_EOL;
+echo MemoryUsage::reportStatic() . PHP_EOL;
 // Memory: 695.45KB(33456.92KB) Real: 2048.00KB(34820.00KB)
 
 
-$report = MemoryUsage::report();
+$report = MemoryUsage::reportStatic();
 
 var_dump($report->getUsage()); // ~int(721496)
 var_dump($report->getPeakUsage()); // ~int(34262904)

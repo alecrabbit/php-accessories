@@ -15,7 +15,7 @@ foreach ($c as $item) {
 }
 var_dump($a);
 
-echo MemoryUsage::report() . PHP_EOL;
+echo MemoryUsage::reportStatic() . PHP_EOL;
 
 // uses more memory
 $c = new Circular(range(1, 100000));
@@ -26,4 +26,4 @@ foreach ($c as $item) {
 }
 var_dump($a);
 
-echo MemoryUsage::report() . PHP_EOL;
+echo MemoryUsage::reportStatic() . PHP_EOL;
