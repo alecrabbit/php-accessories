@@ -1,0 +1,8 @@
+
+alecrabbit/php-console-spinner:
+  install: default
+  script: default
+
+alecrabbit/php-simple-profiler:
+  install: default
+  script: default
