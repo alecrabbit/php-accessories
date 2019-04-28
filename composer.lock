@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ce47faa03f0ea7e172f38c43e650d56",
+    "content-hash": "c3631122f60b961f245e38df9484fc79",
     "packages": [
         {
             "name": "alecrabbit/php-helpers",
@@ -70,16 +70,16 @@
         },
         {
             "name": "alecrabbit/php-reports",
-            "version": "dev-master",
+            "version": "0.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-reports.git",
-                "reference": "ad0785a9a2b4a14d65ff965322a433d52b4d89ff"
+                "reference": "3ee6f9a7e02f9c5ec7bfe6df98282084673e920d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-reports/zipball/ad0785a9a2b4a14d65ff965322a433d52b4d89ff",
-                "reference": "ad0785a9a2b4a14d65ff965322a433d52b4d89ff",
+                "url": "https://api.github.com/repos/alecrabbit/php-reports/zipball/3ee6f9a7e02f9c5ec7bfe6df98282084673e920d",
+                "reference": "3ee6f9a7e02f9c5ec7bfe6df98282084673e920d",
                 "shasum": ""
             },
             "require": {
@@ -108,7 +108,7 @@
                 "php",
                 "reports"
             ],
-            "time": "2019-04-27T19:48:33+00:00"
+            "time": "2019-04-28T07:24:02+00:00"
         },
         {
             "name": "alecrabbit/php-traits",
@@ -2641,9 +2641,7 @@
     ],
     "aliases": [],
     "minimum-stability": "alpha",
-    "stability-flags": {
-        "alecrabbit/php-reports": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

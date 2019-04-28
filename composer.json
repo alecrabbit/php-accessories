@@ -5,6 +5,7 @@
     "keywords": [
         "caller",
         "iterator",
+        "memory usage",
         "circular",
         "array",
         "generator",
@@ -20,7 +21,7 @@
         "php": "^7.2",
         "alecrabbit/php-helpers": "^0.5",
         "alecrabbit/php-traits": "^0.3",
-        "alecrabbit/php-reports": "dev-master"
+        "alecrabbit/php-reports": "^0.0.1"
     },
     "require-dev": {
         "nunomaduro/collision": "^3.0",
