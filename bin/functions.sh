@@ -37,10 +37,12 @@ no-exec () {
 }
 
 enabled () {
-    light_green " enabled."
+    echo -e "\t\t\t[${LIGHT_GREEN} ON ${NC}]"
+#    light_green " enabled."
 }
 disabled () {
-    dark " disabled."
+    echo -e "\t\t\t[${DARK} -- ${NC}]"
+#    dark " disabled."
 }
 
 help_message () {
@@ -74,42 +76,42 @@ options_enabled () {
         disabled
     fi
 
-    printf "Analysis"
+    printf "Analysis         "
     if [[ ${ANALYZE} == 1 ]]
     then
         enabled
     else
         disabled
     fi
-    printf "PHPMetrics"
+    printf "PHPMetrics       "
     if [[ ${METRICS} == 1 ]]
     then
         enabled
     else
         disabled
     fi
-    printf "Multi-tester"
+    printf "Multi-tester     "
     if [[ ${MULTI_TEST} == 1 ]]
     then
         enabled
     else
         disabled
     fi
-    printf "PHPUnit"
+    printf "PHPUnit          "
     if [[ ${PHPUNIT} == 1 ]]
     then
         enabled
     else
         disabled
     fi
-    printf "Coverage"
+    printf "Coverage         "
     if [[ ${COVERAGE} == 1 ]]
     then
         enabled
     else
         disabled
     fi
-    printf "Beautifier"
+    printf "Beautifier       "
     if [[ ${BEAUTY} == 1 ]]
     then
         enabled

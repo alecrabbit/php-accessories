@@ -11,6 +11,13 @@ use PHPUnit\Framework\TestCase;
 class CallerTest extends TestCase
 {
     /** @test */
+    public function instance(): void
+    {
+        $caller = (new Caller())->report();
+        $this->assertInstanceOf(CallerData::class, $caller);
+    }
+
+    /** @test */
     public function setFormatter(): void
     {
         $this->assertInstanceOf(CallerDataFormatter::class, Caller::getFormatter());

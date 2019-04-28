@@ -3,7 +3,7 @@
 
 namespace AlecRabbit\Accessories\Caller\Contracts;
 
-interface CallerDataInterface
+interface CallerDataInterface extends CallerConstants
 {
     /**
      * @return string
