@@ -7,9 +7,10 @@ namespace AlecRabbit\Accessories;
 use AlecRabbit\Accessories\Caller\CallerData;
 use AlecRabbit\Accessories\Caller\CallerDataFormatter;
 use AlecRabbit\Accessories\Caller\Contracts\CallerConstants;
-use AlecRabbit\Accessories\Caller\Contracts\CallerDataInterface;
+use AlecRabbit\Reports\Contracts\ReportInterface;
+use AlecRabbit\Reports\Core\Reportable;
 
-class Caller implements CallerConstants
+class Caller extends Reportable implements CallerConstants
 {
     /** @var null|CallerDataFormatter */
     protected static $formatter;
@@ -21,17 +22,34 @@ class Caller implements CallerConstants
     protected static $options = DEBUG_BACKTRACE_PROVIDE_OBJECT | DEBUG_BACKTRACE_IGNORE_ARGS;
 
     /**
-     * Static class. Private Constructor.
+     * @return CallerDataFormatter
      */
-    private function __construct() // @codeCoverageIgnoreStart
+    public static function getFormatter(): CallerDataFormatter
     {
-    } // @codeCoverageIgnoreEnd
+        if (null === static::$formatter) {
+            static::$formatter = new CallerDataFormatter();
+        }
+        return static::$formatter;
+    }
+
+    /**
+     * @param CallerDataFormatter $formatter
+     */
+    public static function setFormatter(CallerDataFormatter $formatter): void
+    {
+        self::$formatter = $formatter;
+    }
+
+    protected function createEmptyReport(): ReportInterface
+    {
+        return static::get(3);
+    }
 
     /**
      * @param null|int $depth
-     * @return CallerDataInterface
+     * @return CallerData
      */
-    public static function get(?int $depth = null): CallerDataInterface
+    public static function get(?int $depth = null): CallerData
     {
         return
             new CallerData(
@@ -79,24 +97,5 @@ class Caller implements CallerConstants
     public static function setLimit(int $limit): void
     {
         self::$limit = $limit;
-    }
-
-    /**
-     * @return CallerDataFormatter
-     */
-    public static function getFormatter(): CallerDataFormatter
-    {
-        if (null === static::$formatter) {
-            static::$formatter = new CallerDataFormatter();
-        }
-        return static::$formatter;
-    }
-
-    /**
-     * @param CallerDataFormatter $formatter
-     */
-    public static function setFormatter(CallerDataFormatter $formatter): void
-    {
-        self::$formatter = $formatter;
     }
 }

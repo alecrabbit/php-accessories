@@ -3,11 +3,12 @@
 namespace AlecRabbit\Accessories\Caller;
 
 use AlecRabbit\Accessories\Caller;
-use AlecRabbit\Accessories\Caller\Contracts\CallerConstants;
 use AlecRabbit\Accessories\Caller\Contracts\CallerDataInterface;
-use AlecRabbit\Formatters\Core\Formattable;
+use AlecRabbit\Reports\Contracts\ReportableInterface;
+use AlecRabbit\Reports\Contracts\ReportInterface;
+use AlecRabbit\Reports\Core\AbstractReport;
 
-class CallerData extends Formattable implements CallerDataInterface, CallerConstants
+class CallerData extends AbstractReport implements CallerDataInterface
 {
     /** @var string */
     protected $function;
@@ -31,8 +32,9 @@ class CallerData extends Formattable implements CallerDataInterface, CallerConst
     protected $args;
 
     public function __construct(
-        array $caller
+        array $caller = null
     ) {
+        $caller = $caller ?? self::UNDEFINED;
         $this->function = $caller[self::FUNCTION];
         $this->parse($caller);
     }
@@ -109,5 +111,19 @@ class CallerData extends Formattable implements CallerDataInterface, CallerConst
     public function getArgs(): ?array
     {
         return $this->args;
+    }
+
+    /**
+     * @param ReportableInterface $reportable
+     * @return ReportInterface
+     */
+    public function buildOn(ReportableInterface $reportable): ReportInterface
+    {
+        if ($reportable instanceof Caller) {
+            return $this;
+        }
+        throw new \InvalidArgumentException(
+            Caller::class . ' expected, ' . get_class($reportable) . ' given.'
+        );
     }
 }
