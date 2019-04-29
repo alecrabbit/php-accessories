@@ -15,7 +15,7 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
     public function __construct(?int $options = null)
     {
         parent::__construct($options);
-        $this->options = $options ?? static::SHOW_LINE_AND_FILE;
+        $this->options = $options ?? static::SHOW_REAL_USAGE;
     }
 
     /** @var null|array */
