@@ -11,6 +11,12 @@ use const AlecRabbit\Helpers\Strings\Constants\BYTES_UNITS;
 
 class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsageConstants
 {
+    /** {@inheritDoc} */
+    public function __construct(?int $options = null)
+    {
+        parent::__construct($options);
+        $this->options = $options ?? static::SHOW_LINE_AND_FILE;
+    }
 
     /** @var null|array */
     protected static $unitsArray;
