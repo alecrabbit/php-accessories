@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c3631122f60b961f245e38df9484fc79",
+    "content-hash": "40f07c5c4b006114c4d7cdbaa2d5c73b",
     "packages": [
         {
             "name": "alecrabbit/php-helpers",
@@ -70,16 +70,16 @@
         },
         {
             "name": "alecrabbit/php-reports",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-reports.git",
-                "reference": "3ee6f9a7e02f9c5ec7bfe6df98282084673e920d"
+                "reference": "2a84c507523a51ab230570904a9f8c5039ec3db6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-reports/zipball/3ee6f9a7e02f9c5ec7bfe6df98282084673e920d",
-                "reference": "3ee6f9a7e02f9c5ec7bfe6df98282084673e920d",
+                "url": "https://api.github.com/repos/alecrabbit/php-reports/zipball/2a84c507523a51ab230570904a9f8c5039ec3db6",
+                "reference": "2a84c507523a51ab230570904a9f8c5039ec3db6",
                 "shasum": ""
             },
             "require": {
@@ -108,20 +108,20 @@
                 "php",
                 "reports"
             ],
-            "time": "2019-04-28T07:24:02+00:00"
+            "time": "2019-04-29T10:14:57+00:00"
         },
         {
             "name": "alecrabbit/php-traits",
-            "version": "0.3.0",
+            "version": "0.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-traits.git",
-                "reference": "3a0bc4f17ca27edcc9c126c69611d8a2a609844a"
+                "reference": "e30e42adbb62e2062a20a910c1436a5eddc27490"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-traits/zipball/3a0bc4f17ca27edcc9c126c69611d8a2a609844a",
-                "reference": "3a0bc4f17ca27edcc9c126c69611d8a2a609844a",
+                "url": "https://api.github.com/repos/alecrabbit/php-traits/zipball/e30e42adbb62e2062a20a910c1436a5eddc27490",
+                "reference": "e30e42adbb62e2062a20a910c1436a5eddc27490",
                 "shasum": ""
             },
             "require": {
@@ -156,7 +156,7 @@
                 "trait",
                 "traits"
             ],
-            "time": "2019-04-24T15:10:17+00:00"
+            "time": "2019-04-28T07:34:05+00:00"
         },
         {
             "name": "krowinski/bcmath-extended",
