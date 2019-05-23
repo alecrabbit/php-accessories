@@ -17,14 +17,14 @@ class CallerTest extends TestCase
         $this->assertInstanceOf(CallerData::class, $caller);
     }
 
-    /** @test */
-    public function setFormatter(): void
-    {
-        $this->assertInstanceOf(CallerDataFormatter::class, Caller::getFormatter());
-        $formatter = new CallerDataFormatter();
-        Caller::setFormatter($formatter);
-        $this->assertSame($formatter, Caller::getFormatter());
-    }
+//    /** @test */
+//    public function setFormatter(): void
+//    {
+//        $this->assertInstanceOf(CallerDataFormatter::class, Caller::getFormatter());
+//        $formatter = new CallerDataFormatter();
+//        Caller::setFormatter($formatter);
+//        $this->assertSame($formatter, Caller::getFormatter());
+//    }
 
     /** @test */
     public function setLimit(): void

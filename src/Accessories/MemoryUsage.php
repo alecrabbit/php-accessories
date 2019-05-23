@@ -4,13 +4,18 @@ namespace AlecRabbit\Accessories;
 
 use AlecRabbit\Accessories\MemoryUsage\MemoryUsageReport;
 use AlecRabbit\Accessories\MemoryUsage\MemoryUsageReportFormatter;
-use AlecRabbit\Reports\Contracts\ReportInterface;
-use AlecRabbit\Reports\Core\Reportable;
+use AlecRabbit\Reports\Core\AbstractReportable;
 
-class MemoryUsage extends Reportable
+class MemoryUsage extends AbstractReportable
 {
-    /** @var null|MemoryUsageReportFormatter */
-    protected static $formatter;
+    public function __construct()
+    {
+        parent::__construct();
+        $this->setBindings(
+            MemoryUsageReport::class,
+            MemoryUsageReportFormatter::class
+        );
+    }
 
     /**
      * @param bool $real
@@ -41,32 +46,8 @@ class MemoryUsage extends Reportable
      */
     public static function reportStatic(): MemoryUsageReport
     {
-        return
-            new MemoryUsageReport();
-    }
-
-    /**
-     * @return MemoryUsageReportFormatter
-     */
-    public static function getFormatter(): MemoryUsageReportFormatter
-    {
-        if (null === static::$formatter) {
-            static::$formatter = new MemoryUsageReportFormatter();
-        }
-        return static::$formatter;
-    }
-
-    /**
-     * @param null|MemoryUsageReportFormatter $formatter
-     */
-    public static function setFormatter(?MemoryUsageReportFormatter $formatter): void
-    {
-        self::$formatter = $formatter;
-    }
-
-    protected function createEmptyReport(): ReportInterface
-    {
-        return
-            static::reportStatic();
+        /** @var MemoryUsageReport $report */
+        $report = (new static)->report();
+        return $report;
     }
 }

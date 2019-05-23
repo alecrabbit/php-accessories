@@ -2,6 +2,7 @@
 
 use AlecRabbit\Accessories\G;
 use AlecRabbit\Accessories\MemoryUsage;
+use AlecRabbit\Accessories\MemoryUsage\MemoryUsageReport;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
@@ -19,11 +20,16 @@ $r = G::range(1, 1000000);
 var_dump(MemoryUsage::get(true)); // string(6) "2.00MB"
 var_dump(MemoryUsage::getPeak(true)); // string(7) "34.00MB"
 
-echo MemoryUsage::reportStatic() . PHP_EOL;
+//echo MemoryUsage::reportStatic() . PHP_EOL;
 // Memory: 695.45KB(33456.92KB) Real: 2048.00KB(34820.00KB)
 
+$reportStatic = MemoryUsage::reportStatic();
+echo $reportStatic . PHP_EOL;
+echo $reportStatic->getPeakUsageRealString() . PHP_EOL;
 
-$report = MemoryUsage::reportStatic();
+$memoryUsage = new MemoryUsage;
+/** @var MemoryUsageReport $report */
+$report = $memoryUsage->report();
 
 var_dump($report->getUsage()); // ~int(721496)
 var_dump($report->getPeakUsage()); // ~int(34262904)
@@ -38,3 +44,4 @@ var_dump($report->getPeakUsageRealString('gb')); // string(6) "0.03GB"
 echo PHP_EOL;
 echo $report . PHP_EOL;
 // Memory: 0.68MB(32.67MB) Real: 2.00MB(34.00MB)
+

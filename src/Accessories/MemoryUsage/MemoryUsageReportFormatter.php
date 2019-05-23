@@ -5,19 +5,12 @@ namespace AlecRabbit\Accessories\MemoryUsage;
 use AlecRabbit\Accessories\MemoryUsage\Contracts\MemoryUsageConstants;
 use AlecRabbit\Accessories\Pretty;
 use AlecRabbit\Formatters\Core\AbstractFormatter;
-use AlecRabbit\Formatters\Core\Formattable;
+use AlecRabbit\Reports\Core\Formattable;
 use function AlecRabbit\Helpers\bounds;
 use const AlecRabbit\Helpers\Strings\Constants\BYTES_UNITS;
 
 class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsageConstants
 {
-    /** {@inheritDoc} */
-    public function __construct(?int $options = null)
-    {
-        parent::__construct($options);
-        $this->options = $options ?? static::SHOW_REAL_USAGE;
-    }
-
     /** @var null|array */
     protected static $unitsArray;
 
@@ -26,6 +19,13 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
 
     /** @var int */
     protected $decimals = 2;
+
+    /** {@inheritDoc} */
+    public function __construct(?int $options = null)
+    {
+        parent::__construct($options);
+        $this->options = $options ?? static::SHOW_REAL_USAGE;
+    }
 
     /**
      * @param string $units
@@ -145,16 +145,4 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
                 $this->refineDecimals($decimals)
             );
     }
-
-//    /**
-//     * @param Formattable $data
-//     */
-//    protected function assertData(Formattable $data): void
-//    {
-//        if (!$data instanceof MemoryUsageReport) {
-//            throw new \InvalidArgumentException(
-//                MemoryUsageReport::class . ' expected, ' . typeOf($data) . ' given'
-//            );
-//        }
-//    }
 }

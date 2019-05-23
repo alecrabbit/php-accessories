@@ -2,10 +2,9 @@
 
 namespace AlecRabbit\Accessories\MemoryUsage;
 
-use AlecRabbit\Accessories\MemoryUsage;
-use AlecRabbit\Reports\Contracts\ReportableInterface;
-use AlecRabbit\Reports\Contracts\ReportInterface;
+use AlecRabbit\Formatters\Contracts\FormatterInterface;
 use AlecRabbit\Reports\Core\AbstractReport;
+use AlecRabbit\Reports\Core\AbstractReportable;
 
 class MemoryUsageReport extends AbstractReport implements MemoryUsageReportInterface
 {
@@ -21,38 +20,31 @@ class MemoryUsageReport extends AbstractReport implements MemoryUsageReportInter
     /** @var int */
     protected $peakUsageReal;
 
+    /** @var null|MemoryUsageReportFormatter */
+    protected $formatter;
+
     /**
      * MemoryUsageReport constructor.
      * @param int $usage
      * @param int $peakUsage
      * @param int $usageReal
      * @param int $peakUsageReal
+     * @param FormatterInterface|null $formatter
+     * @param AbstractReportable|null $reportable
      */
     public function __construct(
         int $usage = null,
         int $peakUsage = null,
         int $usageReal = null,
-        int $peakUsageReal = null
+        int $peakUsageReal = null,
+        FormatterInterface $formatter = null,
+        AbstractReportable $reportable = null
     ) {
+        parent::__construct($formatter, $reportable);
         $this->usage = $usage ?? memory_get_usage();
         $this->peakUsage = $peakUsage ?? memory_get_peak_usage();
         $this->usageReal = $usageReal ?? memory_get_usage(true);
         $this->peakUsageReal = $peakUsageReal ?? memory_get_peak_usage(true);
-    }
-
-    public function __toString(): string
-    {
-        return MemoryUsage::getFormatter()->format($this);
-    }
-
-    public function buildOn(ReportableInterface $reportable): ReportInterface
-    {
-        if ($reportable instanceof MemoryUsage) {
-            return $this;
-        }
-        throw new \InvalidArgumentException(
-            MemoryUsage::class . ' expected, ' . get_class($reportable) . ' given.'
-        );
     }
 
     /**
@@ -92,8 +84,13 @@ class MemoryUsageReport extends AbstractReport implements MemoryUsageReportInter
      */
     public function getUsageString(?string $unit = null, ?int $decimals = null): string
     {
-        return
-            MemoryUsage::getFormatter()->getUsageString($this, $unit, $decimals);
+        if ($this->formatter instanceof MemoryUsageReportFormatter) {
+            return
+                $this->formatter->getUsageString($this, $unit, $decimals);
+        }
+        // @codeCoverageIgnoreStart
+        return '';
+        // @codeCoverageIgnoreEnd
     }
 
     /**
@@ -101,8 +98,13 @@ class MemoryUsageReport extends AbstractReport implements MemoryUsageReportInter
      */
     public function getPeakUsageString(?string $unit = null, ?int $decimals = null): string
     {
-        return
-            MemoryUsage::getFormatter()->getPeakUsageString($this, $unit, $decimals);
+        if ($this->formatter instanceof MemoryUsageReportFormatter) {
+            return
+                $this->formatter->getPeakUsageString($this, $unit, $decimals);
+        }
+        // @codeCoverageIgnoreStart
+        return '';
+        // @codeCoverageIgnoreEnd
     }
 
     /**
@@ -110,8 +112,13 @@ class MemoryUsageReport extends AbstractReport implements MemoryUsageReportInter
      */
     public function getUsageRealString(?string $unit = null, ?int $decimals = null): string
     {
-        return
-            MemoryUsage::getFormatter()->getUsageRealString($this, $unit, $decimals);
+        if ($this->formatter instanceof MemoryUsageReportFormatter) {
+            return
+                $this->formatter->getUsageRealString($this, $unit, $decimals);
+        }
+        // @codeCoverageIgnoreStart
+        return '';
+        // @codeCoverageIgnoreEnd
     }
 
     /**
@@ -119,7 +126,12 @@ class MemoryUsageReport extends AbstractReport implements MemoryUsageReportInter
      */
     public function getPeakUsageRealString(?string $unit = null, ?int $decimals = null): string
     {
-        return
-            MemoryUsage::getFormatter()->getPeakUsageRealString($this, $unit, $decimals);
+        if ($this->formatter instanceof MemoryUsageReportFormatter) {
+            return
+                $this->formatter->getPeakUsageRealString($this, $unit, $decimals);
+        }
+        // @codeCoverageIgnoreStart
+        return '';
+        // @codeCoverageIgnoreEnd
     }
 }

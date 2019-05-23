@@ -8,9 +8,9 @@ use AlecRabbit\Accessories\Caller\CallerData;
 use AlecRabbit\Accessories\Caller\CallerDataFormatter;
 use AlecRabbit\Accessories\Caller\Contracts\CallerConstants;
 use AlecRabbit\Reports\Contracts\ReportInterface;
-use AlecRabbit\Reports\Core\Reportable;
+use AlecRabbit\Reports\Core\AbstractReportable;
 
-class Caller extends Reportable implements CallerConstants
+class Caller extends AbstractReportable implements CallerConstants
 {
     /** @var null|CallerDataFormatter */
     protected static $formatter;
@@ -21,29 +21,38 @@ class Caller extends Reportable implements CallerConstants
     /** @var int */
     protected static $options = DEBUG_BACKTRACE_PROVIDE_OBJECT | DEBUG_BACKTRACE_IGNORE_ARGS;
 
-    /**
-     * @return CallerDataFormatter
-     */
-    public static function getFormatter(): CallerDataFormatter
+    public function __construct()
     {
-        if (null === static::$formatter) {
-            static::$formatter = new CallerDataFormatter();
-        }
-        return static::$formatter;
+        parent::__construct();
+        $this->setBindings(
+            CallerData::class,
+            CallerDataFormatter::class
+        );
     }
 
-    /**
-     * @param CallerDataFormatter $formatter
-     */
-    public static function setFormatter(CallerDataFormatter $formatter): void
-    {
-        self::$formatter = $formatter;
-    }
+//    /**
+//     * @return CallerDataFormatter
+//     */
+//    public static function getFormatter(): CallerDataFormatter
+//    {
+//        if (null === static::$formatter) {
+//            static::$formatter = new CallerDataFormatter();
+//        }
+//        return static::$formatter;
+//    }
+//
+//    /**
+//     * @param CallerDataFormatter $formatter
+//     */
+//    public static function setFormatterStatic(CallerDataFormatter $formatter): void
+//    {
+//        self::$formatter = $formatter;
+//    }
 
-    protected function createEmptyReport(): ReportInterface
-    {
-        return static::get(3);
-    }
+//    protected function createEmptyReport(): ReportInterface
+//    {
+//        return static::get(3);
+//    }
 
     /**
      * @param null|int $depth

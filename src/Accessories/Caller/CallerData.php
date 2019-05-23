@@ -4,9 +4,9 @@ namespace AlecRabbit\Accessories\Caller;
 
 use AlecRabbit\Accessories\Caller;
 use AlecRabbit\Accessories\Caller\Contracts\CallerDataInterface;
-use AlecRabbit\Reports\Contracts\ReportableInterface;
-use AlecRabbit\Reports\Contracts\ReportInterface;
+use AlecRabbit\Formatters\Contracts\FormatterInterface;
 use AlecRabbit\Reports\Core\AbstractReport;
+use AlecRabbit\Reports\Core\AbstractReportable;
 
 class CallerData extends AbstractReport implements CallerDataInterface
 {
@@ -32,8 +32,11 @@ class CallerData extends AbstractReport implements CallerDataInterface
     protected $args;
 
     public function __construct(
-        array $caller = null
+        array $caller = null,
+        FormatterInterface $formatter = null,
+        AbstractReportable $reportable = null
     ) {
+        parent::__construct($formatter, $reportable);
         $caller = $caller ?? self::UNDEFINED;
         $this->function = $caller[self::FUNCTION];
         $this->parse($caller);
@@ -49,14 +52,14 @@ class CallerData extends AbstractReport implements CallerDataInterface
         $this->args = $caller[self::ARGS] ?? null;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function __toString(): string
-    {
-        return Caller::getFormatter()->format($this);
-    }
-
+//    /**
+//     * {@inheritdoc}
+//     */
+//    public function __toString(): string
+//    {
+//        return Caller::getFormatter()->format($this);
+//    }
+//
     /**
      * {@inheritdoc}
      */
@@ -111,19 +114,5 @@ class CallerData extends AbstractReport implements CallerDataInterface
     public function getArgs(): ?array
     {
         return $this->args;
-    }
-
-    /**
-     * @param ReportableInterface $reportable
-     * @return ReportInterface
-     */
-    public function buildOn(ReportableInterface $reportable): ReportInterface
-    {
-        if ($reportable instanceof Caller) {
-            return $this;
-        }
-        throw new \InvalidArgumentException(
-            Caller::class . ' expected, ' . get_class($reportable) . ' given.'
-        );
     }
 }

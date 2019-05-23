@@ -28,36 +28,36 @@ class CallerDataFormatterTest extends TestCase
 //    }
 //
 
-    /** @test */
-    public function wrongInstance(): void
-    {
-        $formatter = Caller::getFormatter();
-        $str = $formatter->format(
-            new class extends AbstractReport
-            {
-                /**
-                 * @return string
-                 */
-                public function __toString(): string
-                {
-                    return '';
-                }
-
-                /**
-                 * @param ReportableInterface $reportable
-                 * @return ReportInterface
-                 */
-                public function buildOn(ReportableInterface $reportable): ReportInterface
-                {
-                    return $this;
-                }
-            }
-        );
-        $this->assertStringContainsString(CallerData::class, $str);
-        $this->assertStringContainsString('expected', $str);
-        $this->assertStringContainsString(__FILE__, $str);
-        $this->assertStringContainsString('given', $str);
-    }
+//    /** @test */
+//    public function wrongInstance(): void
+//    {
+//        $formatter = Caller::getFormatter();
+//        $str = $formatter->format(
+//            new class extends AbstractReport
+//            {
+//                /**
+//                 * @return string
+//                 */
+//                public function __toString(): string
+//                {
+//                    return '';
+//                }
+//
+//                /**
+//                 * @param ReportableInterface $reportable
+//                 * @return ReportInterface
+//                 */
+//                public function buildOn(ReportableInterface $reportable): ReportInterface
+//                {
+//                    return $this;
+//                }
+//            }
+//        );
+//        $this->assertStringContainsString(CallerData::class, $str);
+//        $this->assertStringContainsString('expected', $str);
+//        $this->assertStringContainsString(__FILE__, $str);
+//        $this->assertStringContainsString('given', $str);
+//    }
 
     /** @test */
     public function doNotShowLineAndFile(): void

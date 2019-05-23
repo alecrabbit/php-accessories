@@ -39,19 +39,19 @@ class MemoryUsageTest extends TestCase
         $this->assertStringMatchesFormat('%fKB', $report->getPeakUsageRealString('kb'));
     }
 
-    /** @test */
-    public function setFormatter(): void
-    {
-        $formatter = new MemoryUsageReportFormatter();
-        MemoryUsage::setFormatter($formatter);
-        $this->assertSame($formatter, MemoryUsage::getFormatter());
-    }
-
-    /** @test */
-    public function getFormatter(): void
-    {
-        $this->assertInstanceOf(MemoryUsageReportFormatter::class, MemoryUsage::getFormatter());
-    }
+//    /** @test */
+//    public function setFormatter(): void
+//    {
+//        $formatter = new MemoryUsageReportFormatter();
+//        MemoryUsage::setFormatter($formatter);
+//        $this->assertSame($formatter, MemoryUsage::getFormatter());
+//    }
+//
+//    /** @test */
+//    public function getFormatter(): void
+//    {
+//        $this->assertInstanceOf(MemoryUsageReportFormatter::class, MemoryUsage::getFormatter());
+//    }
 
     /** @test */
     public function formatGet(): void
