@@ -36,7 +36,7 @@ class G
     }
 
     /**
-     * @param int |float $step
+     * @param int|float $step
      */
     protected static function assertStep($step): void
     {
