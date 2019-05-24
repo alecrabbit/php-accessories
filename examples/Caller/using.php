@@ -52,7 +52,7 @@ abstract class AbstractBase
             throw new \RuntimeException(
                 'Param 1 for ' . static::class . '::__constructor should be type of "int", "' .
                 typeOf($options) . '" given.' . PHP_EOL .
-                'Caller: ' . Caller::get(3)
+                'Caller: ' . Caller::get(5) // Change number here to get desired result
             );
         }
     }

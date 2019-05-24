@@ -7,70 +7,34 @@ namespace AlecRabbit\Accessories;
 use AlecRabbit\Accessories\Caller\CallerData;
 use AlecRabbit\Accessories\Caller\CallerDataFormatter;
 use AlecRabbit\Accessories\Caller\Contracts\CallerConstants;
-use AlecRabbit\Reports\Contracts\ReportInterface;
 use AlecRabbit\Reports\Core\AbstractReportable;
 
 class Caller extends AbstractReportable implements CallerConstants
 {
-    /** @var null|CallerDataFormatter */
-    protected static $formatter;
-
     /** @var int */
     protected static $limit = 0;
 
     /** @var int */
     protected static $options = DEBUG_BACKTRACE_PROVIDE_OBJECT | DEBUG_BACKTRACE_IGNORE_ARGS;
 
-    public function __construct()
+    /** @var array */
+    protected $data;
+
+    public function __construct(int $depth = null)
     {
         parent::__construct();
+        $this->data = $this->getCallerData($depth ?? 2);
         $this->setBindings(
             CallerData::class,
             CallerDataFormatter::class
         );
     }
 
-//    /**
-//     * @return CallerDataFormatter
-//     */
-//    public static function getFormatter(): CallerDataFormatter
-//    {
-//        if (null === static::$formatter) {
-//            static::$formatter = new CallerDataFormatter();
-//        }
-//        return static::$formatter;
-//    }
-//
-//    /**
-//     * @param CallerDataFormatter $formatter
-//     */
-//    public static function setFormatterStatic(CallerDataFormatter $formatter): void
-//    {
-//        self::$formatter = $formatter;
-//    }
-
-//    protected function createEmptyReport(): ReportInterface
-//    {
-//        return static::get(3);
-//    }
-
-    /**
-     * @param null|int $depth
-     * @return CallerData
-     */
-    public static function get(?int $depth = null): CallerData
-    {
-        return
-            new CallerData(
-                self::getCallerData($depth ?? 2)
-            );
-    }
-
     /**
      * @param int $depth
      * @return array
      */
-    protected static function getCallerData(int $depth): array
+    protected function getCallerData(int $depth): array
     {
         return
             debug_backtrace(static::getOptions(), static::getLimit())[++$depth] ?? self::UNDEFINED;
@@ -106,5 +70,38 @@ class Caller extends AbstractReportable implements CallerConstants
     public static function setLimit(int $limit): void
     {
         self::$limit = $limit;
+    }
+
+    /**
+     * @param null|int $depth
+     * @return CallerData
+     */
+    public static function get(?int $depth = null): CallerData
+    {
+        /** @var CallerData $report */
+        $report = (new static($depth ?? 3))->report();
+        return $report;
+    }
+
+    /**
+     * @return array
+     */
+    public function getData(): array
+    {
+        return $this->data;
+    }
+
+    /**
+     * @param array $data
+     */
+    public function setData(array $data): void
+    {
+        $this->assertData($data);
+        $this->data = $data;
+    }
+
+    protected function assertData(array $data): void
+    {
+        // TODO check $data
     }
 }

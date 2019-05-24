@@ -4,10 +4,13 @@ namespace AlecRabbit\Accessories\Caller;
 
 use AlecRabbit\Accessories\Caller;
 use AlecRabbit\Accessories\Caller\Contracts\CallerDataInterface;
-use AlecRabbit\Formatters\Contracts\FormatterInterface;
 use AlecRabbit\Reports\Core\AbstractReport;
 use AlecRabbit\Reports\Core\AbstractReportable;
 
+/**
+ * Class CallerData
+ * @psalm-suppress PropertyNotSetInConstructor
+ */
 class CallerData extends AbstractReport implements CallerDataInterface
 {
     /** @var string */
@@ -31,35 +34,6 @@ class CallerData extends AbstractReport implements CallerDataInterface
     /** @var array|null */
     protected $args;
 
-    public function __construct(
-        array $caller = null,
-        FormatterInterface $formatter = null,
-        AbstractReportable $reportable = null
-    ) {
-        parent::__construct($formatter, $reportable);
-        $caller = $caller ?? self::UNDEFINED;
-        $this->function = $caller[self::FUNCTION];
-        $this->parse($caller);
-    }
-
-    protected function parse(array $caller): void
-    {
-        $this->line = $caller[self::LINE] ?? null;
-        $this->file = $caller[self::FILE] ?? null;
-        $this->class = $caller[self::CLS] ?? null;
-        $this->object = $caller[self::OBJECT] ?? null;
-        $this->type = $caller[self::TYPE] ?? null;
-        $this->args = $caller[self::ARGS] ?? null;
-    }
-
-//    /**
-//     * {@inheritdoc}
-//     */
-//    public function __toString(): string
-//    {
-//        return Caller::getFormatter()->format($this);
-//    }
-//
     /**
      * {@inheritdoc}
      */
@@ -114,5 +88,24 @@ class CallerData extends AbstractReport implements CallerDataInterface
     public function getArgs(): ?array
     {
         return $this->args;
+    }
+
+    protected function extractDataFrom(AbstractReportable $reportable = null): void
+    {
+        parent::extractDataFrom($reportable);
+        if ($reportable instanceof Caller) {
+            $this->parse($reportable->getData());
+        }
+    }
+
+    protected function parse(array $caller): void
+    {
+        $this->function = $caller[self::FUNCTION];
+        $this->line = $caller[self::LINE] ?? null;
+        $this->file = $caller[self::FILE] ?? null;
+        $this->class = $caller[self::CLS] ?? null;
+        $this->object = $caller[self::OBJECT] ?? null;
+        $this->type = $caller[self::TYPE] ?? null;
+        $this->args = $caller[self::ARGS] ?? null;
     }
 }

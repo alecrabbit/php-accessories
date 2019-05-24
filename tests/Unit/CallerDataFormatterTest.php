@@ -62,6 +62,7 @@ class CallerDataFormatterTest extends TestCase
     /** @test */
     public function doNotShowLineAndFile(): void
     {
+        $c = new Caller();
         $formatter = new CallerDataFormatter(0);
         $stdClass = new \stdClass();
         $caller = [
@@ -73,7 +74,9 @@ class CallerDataFormatterTest extends TestCase
             CallerConstants::TYPE => self::TYPE,
             CallerConstants::ARGS => self::ARGS,
         ];
-        $str = $formatter->format(new CallerData($caller));
+        $c->setData($caller);
+
+        $str = $formatter->format(new CallerData(null, $c));
         $this->assertStringNotContainsString((string)self::LINE, $str);
         $this->assertStringNotContainsString(self::FILE_PHP, $str);
         $this->assertStringContainsString(self::FUNCTION_NAME, $str);
@@ -83,11 +86,57 @@ class CallerDataFormatterTest extends TestCase
     }
 
     /** @test */
+    public function showLineAndFile(): void
+    {
+        $c = new Caller();
+        $formatter = new CallerDataFormatter();
+        $stdClass = new \stdClass();
+        $caller = [
+            CallerConstants::FUNCTION => self::FUNCTION_NAME,
+            CallerConstants::FILE => self::FILE_PHP,
+            CallerConstants::LINE => self::LINE,
+            CallerConstants::CLS => self::SOME_CLASS,
+            CallerConstants::OBJECT => $stdClass,
+            CallerConstants::TYPE => self::TYPE,
+            CallerConstants::ARGS => self::ARGS,
+        ];
+        $c->setData($caller);
+
+        $str = $formatter->format(new CallerData(null, $c));
+        $this->assertStringContainsString((string)self::LINE, $str);
+        $this->assertStringContainsString(self::FILE_PHP, $str);
+        $this->assertStringContainsString(self::FUNCTION_NAME, $str);
+        $this->assertStringContainsString(self::SOME_CLASS, $str);
+        $this->assertStringContainsString(self::TYPE, $str);
+        $this->assertStringContainsString('()', $str);
+    }
+
+    /** @test */
     public function undefined(): void
     {
+        $caller = new Caller();
         $formatter = new CallerDataFormatter();
-        $str = $formatter->format(new CallerData(CallerConstants::UNDEFINED));
+        $caller->setData(CallerConstants::UNDEFINED);
+        $str = $formatter->format(new CallerData(null, $caller));
         $this->assertStringContainsString(CallerConstants::STR_UNDEFINED, strtolower($str));
         $this->assertStringNotContainsString('()', $str);
     }
+
+    /** @test */
+    public function wrongInstance(): void
+    {
+        $mu = new Caller();
+        $formatter = new CallerDataFormatter();
+        $mu->setFormatter($formatter);
+        $str = $formatter->format(
+            new class extends AbstractReport
+            {
+            }
+        );
+        $this->assertStringContainsString(CallerData::class, $str);
+        $this->assertStringContainsString('expected', $str);
+        $this->assertStringContainsString(__FILE__, $str);
+        $this->assertStringContainsString('given', $str);
+    }
+
 }
