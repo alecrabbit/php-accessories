@@ -26,11 +26,11 @@ echo PHP_EOL;
 
 // doing something
 // Param 1 for OneBase::__constructor should be type of "int", "string" given.
-// [101:"/var/www/examples/Caller/using.php"] DoingSomething->oneBase()
+// Caller: [87:"/var/www/examples/Caller/using.php"] DoingSomething->oneBase()
 //
 // doing something else
 // Param 1 for TwoBase::__constructor should be type of "int", "string" given.
-// [114:"/var/www/examples/Caller/using.php"] DoingSomething->twoBase()
+// Caller: [99:"/var/www/examples/Caller/using.php"] DoingSomething::twoBase()
 
 abstract class AbstractBase
 {
