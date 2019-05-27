@@ -138,5 +138,4 @@ class CallerDataFormatterTest extends TestCase
         $this->assertStringContainsString(__FILE__, $str);
         $this->assertStringContainsString('given', $str);
     }
-
 }
