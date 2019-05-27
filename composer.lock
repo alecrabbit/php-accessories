@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f7a419edc8efa18e68af84cdf0975649",
+    "content-hash": "782ef1f016d7502739b36a8d19b1e085",
     "packages": [
         {
             "name": "alecrabbit/php-helpers",
-            "version": "0.5.9",
+            "version": "0.6.1-ALPHA.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-helpers.git",
-                "reference": "f0b52eb8fdbabc0149c4bd6f7fcbe63e9b6ee19f"
+                "reference": "952faf7d877de3abfd884065629422f9c666cd04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/f0b52eb8fdbabc0149c4bd6f7fcbe63e9b6ee19f",
-                "reference": "f0b52eb8fdbabc0149c4bd6f7fcbe63e9b6ee19f",
+                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/952faf7d877de3abfd884065629422f9c666cd04",
+                "reference": "952faf7d877de3abfd884065629422f9c666cd04",
                 "shasum": ""
             },
             "require": {
@@ -66,7 +66,7 @@
                 "wrap",
                 "zeros"
             ],
-            "time": "2019-04-24T10:41:02+00:00"
+            "time": "2019-04-18T12:09:28+00:00"
         },
         {
             "name": "alecrabbit/php-reports",
@@ -74,12 +74,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-reports.git",
-                "reference": "efa6873927119bf4e35feb13cecea692f7f1d746"
+                "reference": "af1a536f3d6b15e483e36886095aa621f629b5ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-reports/zipball/efa6873927119bf4e35feb13cecea692f7f1d746",
-                "reference": "efa6873927119bf4e35feb13cecea692f7f1d746",
+                "url": "https://api.github.com/repos/alecrabbit/php-reports/zipball/af1a536f3d6b15e483e36886095aa621f629b5ac",
+                "reference": "af1a536f3d6b15e483e36886095aa621f629b5ac",
                 "shasum": ""
             },
             "require": {
@@ -97,19 +97,22 @@
                 "psr-4": {
                     "AlecRabbit\\Reports\\": "src\\Reports",
                     "AlecRabbit\\Formatters\\": "src\\Formatters"
-                }
+                },
+                "files": [
+                    "src/bootstrap.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-            "description": "PHP traits to use in every project :)",
+            "description": "PHP reports prototypes :)",
             "keywords": [
                 "formatters",
                 "php",
                 "reports"
             ],
-            "time": "2019-05-23T11:49:55+00:00"
+            "time": "2019-05-23T19:29:21+00:00"
         },
         {
             "name": "alecrabbit/php-traits",
