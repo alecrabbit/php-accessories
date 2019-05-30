@@ -20,4 +20,5 @@ CHANGELOG.md       export-ignore
 TODO.md            export-ignore
 CONTRIBUTING.md    export-ignore
 README.md          export-ignore
+TERMINAL_TITLE     export-ignore
 composer.lock      export-ignore

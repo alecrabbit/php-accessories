@@ -20,14 +20,14 @@
     "require": {
         "php": "^7.2",
         "alecrabbit/php-helpers": "^0.6",
-        "alecrabbit/php-traits": "^0.3",
-        "alecrabbit/php-reports": "dev-develop"
+        "alecrabbit/php-reports": "^0.2",
+        "alecrabbit/php-traits": "^0.3"
     },
     "require-dev": {
         "nunomaduro/collision": "^3.0",
         "phpunit/phpunit": "^8.0",
-        "symfony/var-dumper": "^4.2",
-        "kylekatarnls/multi-tester": "^1.1"
+        "sensiolabs/security-checker": "^5.0",
+        "symfony/var-dumper": "^4.2"
     },
     "autoload": {
         "psr-4": {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "782ef1f016d7502739b36a8d19b1e085",
+    "content-hash": "40dec8977699dfd48166948de57f46dc",
     "packages": [
         {
             "name": "alecrabbit/php-helpers",
@@ -70,16 +70,16 @@
         },
         {
             "name": "alecrabbit/php-reports",
-            "version": "dev-develop",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-reports.git",
-                "reference": "af1a536f3d6b15e483e36886095aa621f629b5ac"
+                "reference": "b16cd35850b9c8a2b031bbeda251483750e9d81a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-reports/zipball/af1a536f3d6b15e483e36886095aa621f629b5ac",
-                "reference": "af1a536f3d6b15e483e36886095aa621f629b5ac",
+                "url": "https://api.github.com/repos/alecrabbit/php-reports/zipball/b16cd35850b9c8a2b031bbeda251483750e9d81a",
+                "reference": "b16cd35850b9c8a2b031bbeda251483750e9d81a",
                 "shasum": ""
             },
             "require": {
@@ -112,7 +112,7 @@
                 "php",
                 "reports"
             ],
-            "time": "2019-05-23T19:29:21+00:00"
+            "time": "2019-05-27T20:30:33+00:00"
         },
         {
             "name": "alecrabbit/php-traits",
@@ -231,7 +231,7 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v5.8.18",
+            "version": "v5.8.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -276,7 +276,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v5.8.18",
+            "version": "v5.8.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -320,16 +320,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v5.8.18",
+            "version": "v5.8.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "eb6ad85fd80163fdaa5b97983e0e32d811128242"
+                "reference": "5283f273d0bc67964cc7f6373573273de7676c77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/eb6ad85fd80163fdaa5b97983e0e32d811128242",
-                "reference": "eb6ad85fd80163fdaa5b97983e0e32d811128242",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/5283f273d0bc67964cc7f6373573273de7676c77",
+                "reference": "5283f273d0bc67964cc7f6373573273de7676c77",
                 "shasum": ""
             },
             "require": {
@@ -377,7 +377,7 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
-            "time": "2019-05-17T18:49:15+00:00"
+            "time": "2019-05-27T17:33:34+00:00"
         },
         {
             "name": "krowinski/bcmath-extended",
@@ -594,77 +594,6 @@
             "time": "2017-10-23T01:57:42+00:00"
         },
         {
-            "name": "symfony/contracts",
-            "version": "v1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/contracts.git",
-                "reference": "d3636025e8253c6144358ec0a62773cae588395b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/contracts/zipball/d3636025e8253c6144358ec0a62773cae588395b",
-                "reference": "d3636025e8253c6144358ec0a62773cae588395b",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1.3"
-            },
-            "require-dev": {
-                "psr/cache": "^1.0",
-                "psr/container": "^1.0",
-                "symfony/polyfill-intl-idn": "^1.10"
-            },
-            "suggest": {
-                "psr/cache": "When using the Cache contracts",
-                "psr/container": "When using the Service contracts",
-                "symfony/cache-contracts-implementation": "",
-                "symfony/event-dispatcher-implementation": "",
-                "symfony/http-client-contracts-implementation": "",
-                "symfony/service-contracts-implementation": "",
-                "symfony/translation-contracts-implementation": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Contracts\\": ""
-                },
-                "exclude-from-classmap": [
-                    "**/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "A set of abstractions extracted out of the Symfony components",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "abstractions",
-                "contracts",
-                "decoupling",
-                "interfaces",
-                "interoperability",
-                "standards"
-            ],
-            "time": "2019-04-27T14:29:50+00:00"
-        },
-        {
             "name": "symfony/polyfill-mbstring",
             "version": "v1.11.0",
             "source": {
@@ -783,22 +712,22 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v4.3.0-BETA2",
+            "version": "v4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "3b1842537242d5856928e9e2a6b797c87f0495a6"
+                "reference": "f7e90f0f90e354f99f20aa9ead95a1b201b126f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/3b1842537242d5856928e9e2a6b797c87f0495a6",
-                "reference": "3b1842537242d5856928e9e2a6b797c87f0495a6",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/f7e90f0f90e354f99f20aa9ead95a1b201b126f9",
+                "reference": "f7e90f0f90e354f99f20aa9ead95a1b201b126f9",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1.3",
-                "symfony/contracts": "^1.0.2",
-                "symfony/polyfill-mbstring": "~1.0"
+                "symfony/polyfill-mbstring": "~1.0",
+                "symfony/translation-contracts": "^1.1.2"
             },
             "conflict": {
                 "symfony/config": "<3.4",
@@ -816,6 +745,7 @@
                 "symfony/finder": "~2.8|~3.0|~4.0",
                 "symfony/http-kernel": "~3.4|~4.0",
                 "symfony/intl": "~3.4|~4.0",
+                "symfony/service-contracts": "^1.1.2",
                 "symfony/var-dumper": "~3.4|~4.0",
                 "symfony/yaml": "~3.4|~4.0"
             },
@@ -854,30 +784,90 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2019-05-09T09:33:12+00:00"
+            "time": "2019-05-28T09:09:27+00:00"
+        },
+        {
+            "name": "symfony/translation-contracts",
+            "version": "v1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/translation-contracts.git",
+                "reference": "93597ce975d91c52ebfaca1253343cd9ccb7916d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/93597ce975d91c52ebfaca1253343cd9ccb7916d",
+                "reference": "93597ce975d91c52ebfaca1253343cd9ccb7916d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3"
+            },
+            "suggest": {
+                "symfony/translation-implementation": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Contracts\\Translation\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Generic abstractions related to translation",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "abstractions",
+                "contracts",
+                "decoupling",
+                "interfaces",
+                "interoperability",
+                "standards"
+            ],
+            "time": "2019-05-27T08:16:38+00:00"
         }
     ],
     "packages-dev": [
         {
-            "name": "composer/semver",
-            "version": "1.5.0",
+            "name": "composer/ca-bundle",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/composer/semver.git",
-                "reference": "46d9139568ccb8d9e7cdd4539cab7347568a5e2e"
+                "url": "https://github.com/composer/ca-bundle.git",
+                "reference": "558f321c52faeb4828c03e7dc0cfe39a09e09a2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/46d9139568ccb8d9e7cdd4539cab7347568a5e2e",
-                "reference": "46d9139568ccb8d9e7cdd4539cab7347568a5e2e",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/558f321c52faeb4828c03e7dc0cfe39a09e09a2d",
+                "reference": "558f321c52faeb4828c03e7dc0cfe39a09e09a2d",
                 "shasum": ""
             },
             "require": {
+                "ext-openssl": "*",
+                "ext-pcre": "*",
                 "php": "^5.3.2 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.5 || ^5.0.5",
-                "phpunit/phpunit-mock-objects": "2.3.0 || ^3.0"
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.5",
+                "psr/log": "^1.0",
+                "symfony/process": "^2.5 || ^3.0 || ^4.0"
             },
             "type": "library",
             "extra": {
@@ -887,7 +877,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Composer\\Semver\\": "src"
+                    "Composer\\CaBundle\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -896,29 +886,20 @@
             ],
             "authors": [
                 {
-                    "name": "Nils Adermann",
-                    "email": "naderman@naderman.de",
-                    "homepage": "http://www.naderman.de"
-                },
-                {
                     "name": "Jordi Boggiano",
                     "email": "j.boggiano@seld.be",
                     "homepage": "http://seld.be"
-                },
-                {
-                    "name": "Rob Bast",
-                    "email": "rob.bast@gmail.com",
-                    "homepage": "http://robbast.nl"
                 }
             ],
-            "description": "Semver library that offers utilities, version constraint parsing and validation.",
+            "description": "Lets you find a path to the system CA bundle, and includes a fallback to the Mozilla CA bundle.",
             "keywords": [
-                "semantic",
-                "semver",
-                "validation",
-                "versioning"
+                "cabundle",
+                "cacert",
+                "certificate",
+                "ssl",
+                "tls"
             ],
-            "time": "2019-03-19T17:25:45+00:00"
+            "time": "2019-01-28T09:30:10+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -1124,50 +1105,6 @@
             ],
             "description": "Highlight PHP code in terminal",
             "time": "2018-09-29T18:48:56+00:00"
-        },
-        {
-            "name": "kylekatarnls/multi-tester",
-            "version": "1.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kylekatarnls/multi-tester.git",
-                "reference": "57e1f8859414fd0eacfbba50931762f5ba1d9ae7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kylekatarnls/multi-tester/zipball/57e1f8859414fd0eacfbba50931762f5ba1d9ae7",
-                "reference": "57e1f8859414fd0eacfbba50931762f5ba1d9ae7",
-                "shasum": ""
-            },
-            "require": {
-                "composer/semver": "^1.0",
-                "php": ">=5.4",
-                "symfony/yaml": "^2.8 || ^3.0 || ^4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0 || ^7.0"
-            },
-            "bin": [
-                "bin/multi-tester"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "MultiTester\\": "./src/MultiTester"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "KyleK",
-                    "email": "kylekatarnls@gmail.com"
-                }
-            ],
-            "description": "Test your package change inside other packages",
-            "time": "2019-03-25T20:07:30+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -1600,16 +1537,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "7.0.3",
+            "version": "7.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "0317a769a81845c390e19684d9ba25d7f6aa4707"
+                "reference": "6024c8a6cb962d496b7bd049ed8f48473824176d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/0317a769a81845c390e19684d9ba25d7f6aa4707",
-                "reference": "0317a769a81845c390e19684d9ba25d7f6aa4707",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/6024c8a6cb962d496b7bd049ed8f48473824176d",
+                "reference": "6024c8a6cb962d496b7bd049ed8f48473824176d",
                 "shasum": ""
             },
             "require": {
@@ -1659,7 +1596,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-02-26T07:38:26+00:00"
+            "time": "2019-05-29T09:59:31+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -1852,16 +1789,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "8.1.5",
+            "version": "8.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "01392d4b5878aa617e8d9bc7a529e5febc8fe956"
+                "reference": "e3c9da6e645492c461e0a11eca117f83f4f4c840"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/01392d4b5878aa617e8d9bc7a529e5febc8fe956",
-                "reference": "01392d4b5878aa617e8d9bc7a529e5febc8fe956",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e3c9da6e645492c461e0a11eca117f83f4f4c840",
+                "reference": "e3c9da6e645492c461e0a11eca117f83f4f4c840",
                 "shasum": ""
             },
             "require": {
@@ -1930,7 +1867,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-05-14T04:57:31+00:00"
+            "time": "2019-05-28T11:53:42+00:00"
         },
         {
             "name": "psr/log",
@@ -2549,24 +2486,70 @@
             "time": "2016-10-03T07:35:21+00:00"
         },
         {
-            "name": "symfony/console",
-            "version": "v4.3.0-BETA2",
+            "name": "sensiolabs/security-checker",
+            "version": "v5.0.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/console.git",
-                "reference": "260d24eac24351644343f042e316c4fc85d473af"
+                "url": "https://github.com/sensiolabs/security-checker.git",
+                "reference": "46be3f58adac13084497961e10eed9a7fb4d44d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/260d24eac24351644343f042e316c4fc85d473af",
-                "reference": "260d24eac24351644343f042e316c4fc85d473af",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/46be3f58adac13084497961e10eed9a7fb4d44d1",
+                "reference": "46be3f58adac13084497961e10eed9a7fb4d44d1",
+                "shasum": ""
+            },
+            "require": {
+                "composer/ca-bundle": "^1.0",
+                "php": ">=5.5.9",
+                "symfony/console": "~2.7|~3.0|~4.0"
+            },
+            "bin": [
+                "security-checker"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SensioLabs\\Security\\": "SensioLabs/Security"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien.potencier@gmail.com"
+                }
+            ],
+            "description": "A security checker for your composer.lock",
+            "time": "2018-12-19T17:14:59+00:00"
+        },
+        {
+            "name": "symfony/console",
+            "version": "v4.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/console.git",
+                "reference": "707b619d2c3bedf0224d56f95f77dabc60102305"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/console/zipball/707b619d2c3bedf0224d56f95f77dabc60102305",
+                "reference": "707b619d2c3bedf0224d56f95f77dabc60102305",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1.3",
-                "symfony/contracts": "^1.1",
                 "symfony/polyfill-mbstring": "~1.0",
-                "symfony/polyfill-php73": "^1.8"
+                "symfony/polyfill-php73": "^1.8",
+                "symfony/service-contracts": "^1.1"
             },
             "conflict": {
                 "symfony/dependency-injection": "<3.4",
@@ -2621,7 +2604,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2019-05-09T09:33:12+00:00"
+            "time": "2019-05-27T08:16:38+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -2737,8 +2720,66 @@
             "time": "2019-02-06T07:57:58+00:00"
         },
         {
+            "name": "symfony/service-contracts",
+            "version": "v1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/service-contracts.git",
+                "reference": "191afdcb5804db960d26d8566b7e9a2843cab3a0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/191afdcb5804db960d26d8566b7e9a2843cab3a0",
+                "reference": "191afdcb5804db960d26d8566b7e9a2843cab3a0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3"
+            },
+            "suggest": {
+                "psr/container": "",
+                "symfony/service-implementation": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Contracts\\Service\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Generic abstractions related to writing services",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "abstractions",
+                "contracts",
+                "decoupling",
+                "interfaces",
+                "interoperability",
+                "standards"
+            ],
+            "time": "2019-05-28T07:50:59+00:00"
+        },
+        {
             "name": "symfony/var-dumper",
-            "version": "v4.3.0-BETA2",
+            "version": "v4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
@@ -2811,65 +2852,6 @@
                 "dump"
             ],
             "time": "2019-05-01T12:55:49+00:00"
-        },
-        {
-            "name": "symfony/yaml",
-            "version": "v4.3.0-BETA2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/yaml.git",
-                "reference": "c60ecf5ba842324433b46f58dc7afc4487dbab99"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/c60ecf5ba842324433b46f58dc7afc4487dbab99",
-                "reference": "c60ecf5ba842324433b46f58dc7afc4487dbab99",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1.3",
-                "symfony/polyfill-ctype": "~1.8"
-            },
-            "conflict": {
-                "symfony/console": "<3.4"
-            },
-            "require-dev": {
-                "symfony/console": "~3.4|~4.0"
-            },
-            "suggest": {
-                "symfony/console": "For validating YAML files using the lint command"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Yaml\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Yaml Component",
-            "homepage": "https://symfony.com",
-            "time": "2019-04-06T14:04:46+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -2965,9 +2947,7 @@
     ],
     "aliases": [],
     "minimum-stability": "alpha",
-    "stability-flags": {
-        "alecrabbit/php-reports": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
