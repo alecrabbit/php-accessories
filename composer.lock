@@ -70,16 +70,16 @@
         },
         {
             "name": "alecrabbit/php-reports",
-            "version": "0.2.1",
+            "version": "0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-reports.git",
-                "reference": "b16cd35850b9c8a2b031bbeda251483750e9d81a"
+                "reference": "67668a3106f4dd9e02194cd62322a7ed368e8aa2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-reports/zipball/b16cd35850b9c8a2b031bbeda251483750e9d81a",
-                "reference": "b16cd35850b9c8a2b031bbeda251483750e9d81a",
+                "url": "https://api.github.com/repos/alecrabbit/php-reports/zipball/67668a3106f4dd9e02194cd62322a7ed368e8aa2",
+                "reference": "67668a3106f4dd9e02194cd62322a7ed368e8aa2",
                 "shasum": ""
             },
             "require": {
@@ -112,7 +112,7 @@
                 "php",
                 "reports"
             ],
-            "time": "2019-05-27T20:30:33+00:00"
+            "time": "2019-06-03T13:42:42+00:00"
         },
         {
             "name": "alecrabbit/php-traits",
@@ -438,16 +438,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.18.0",
+            "version": "2.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "8322b7bd1805be31867c13bf3cdaab948a0dd406"
+                "reference": "c3545b39197d314205226ac3c33cb4db99aa54ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/8322b7bd1805be31867c13bf3cdaab948a0dd406",
-                "reference": "8322b7bd1805be31867c13bf3cdaab948a0dd406",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/c3545b39197d314205226ac3c33cb4db99aa54ab",
+                "reference": "c3545b39197d314205226ac3c33cb4db99aa54ab",
                 "shasum": ""
             },
             "require": {
@@ -494,7 +494,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-05-16T18:44:35+00:00"
+            "time": "2019-05-30T10:15:05+00:00"
         },
         {
             "name": "psr/container",
@@ -2651,7 +2651,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "backendtea@gmail.com"
+                    "email": "BackEndTea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
