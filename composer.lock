@@ -4,24 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e36b3e4d219bf2d9f187453fb8f3df62",
+    "content-hash": "46ccdb50caaf3ea79810da9bb79b3415",
     "packages": [
         {
             "name": "alecrabbit/php-helpers",
-            "version": "0.6.1-ALPHA.1",
+            "version": "0.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-helpers.git",
-                "reference": "952faf7d877de3abfd884065629422f9c666cd04"
+                "reference": "978129b7bb72e9f2022ce8d4595372b8f4f8f813"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/952faf7d877de3abfd884065629422f9c666cd04",
-                "reference": "952faf7d877de3abfd884065629422f9c666cd04",
+                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/978129b7bb72e9f2022ce8d4595372b8f4f8f813",
+                "reference": "978129b7bb72e9f2022ce8d4595372b8f4f8f813",
                 "shasum": ""
             },
             "require": {
-                "krowinski/bcmath-extended": "^4.2",
+                "krowinski/bcmath-extended": "^4.2 || ^5.0",
                 "nesbot/carbon": "^2.11",
                 "php": "^7.2",
                 "symfony/polyfill-php73": "^1.10"
@@ -66,7 +66,7 @@
                 "wrap",
                 "zeros"
             ],
-            "time": "2019-04-18T12:09:28+00:00"
+            "time": "2019-06-03T14:34:02+00:00"
         },
         {
             "name": "alecrabbit/php-reports",
@@ -381,25 +381,24 @@
         },
         {
             "name": "krowinski/bcmath-extended",
-            "version": "4.2.1",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/krowinski/bcmath-extended.git",
-                "reference": "d07e18ca3050b872f04bc1cf5a3b8a3b591c6309"
+                "reference": "834c41e63bc7920348ff34b05a59131620ff7c78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/krowinski/bcmath-extended/zipball/d07e18ca3050b872f04bc1cf5a3b8a3b591c6309",
-                "reference": "d07e18ca3050b872f04bc1cf5a3b8a3b591c6309",
+                "url": "https://api.github.com/repos/krowinski/bcmath-extended/zipball/834c41e63bc7920348ff34b05a59131620ff7c78",
+                "reference": "834c41e63bc7920348ff34b05a59131620ff7c78",
                 "shasum": ""
             },
             "require": {
                 "ext-bcmath": "*",
-                "php": ">=5.3"
+                "php": ">=7.1"
             },
             "require-dev": {
-                "php": ">=5.4",
-                "phpunit/phpunit": "^4.8|^5.7|^6.5"
+                "phpunit/phpunit": "^7.5"
             },
             "type": "library",
             "autoload": {
@@ -434,20 +433,20 @@
                 "round",
                 "scientific-notation"
             ],
-            "time": "2019-04-15T09:15:39+00:00"
+            "time": "2019-05-01T12:45:34+00:00"
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.18.0",
+            "version": "2.19.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "8322b7bd1805be31867c13bf3cdaab948a0dd406"
+                "reference": "5cf102d1476fdf92f1f991bd1a1a0d93c65755ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/8322b7bd1805be31867c13bf3cdaab948a0dd406",
-                "reference": "8322b7bd1805be31867c13bf3cdaab948a0dd406",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/5cf102d1476fdf92f1f991bd1a1a0d93c65755ca",
+                "reference": "5cf102d1476fdf92f1f991bd1a1a0d93c65755ca",
                 "shasum": ""
             },
             "require": {
@@ -494,7 +493,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-05-16T18:44:35+00:00"
+            "time": "2019-06-04T20:07:46+00:00"
         },
         {
             "name": "psr/container",
@@ -2697,7 +2696,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "backendtea@gmail.com"
+                    "email": "BackEndTea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
