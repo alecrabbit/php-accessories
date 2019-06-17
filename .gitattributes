@@ -2,6 +2,8 @@
 /examples          export-ignore
 /docs              export-ignore
 /tests             export-ignore
+/.travis           export-ignore
+/.chglog           export-ignore
 .editorconfig      export-ignore
 .gitattributes     export-ignore
 .gitmodules        export-ignore
@@ -14,6 +16,7 @@
 docker-compose.yml export-ignore
 docker-compose-debug.yml export-ignore
 phpcs.xml          export-ignore
+phpstan.neon       export-ignore
 psalm.xml          export-ignore
 phpunit.xml        export-ignore
 CHANGELOG.md       export-ignore
