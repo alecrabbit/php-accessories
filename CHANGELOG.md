@@ -7,6 +7,9 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+<a name="0.9.0"></a>
+## [0.9.0] - 2019-06-12
+
 <a name="0.8.2-BETA.1"></a>
 ## [0.8.2-BETA.1] - 2019-04-29
 
@@ -70,7 +73,8 @@ All notable changes to this project will be documented in this file.
 <a name="0.0.17"></a>
 ## 0.0.17 - 2018-12-14
 
-[Unreleased]: https://github.com/alecrabbit/php-accessories/compare/0.8.2-BETA.1...HEAD
+[Unreleased]: https://github.com/alecrabbit/php-accessories/compare/0.9.0...HEAD
+[0.9.0]: https://github.com/alecrabbit/php-accessories/compare/0.8.2-BETA.1...0.9.0
 [0.8.2-BETA.1]: https://github.com/alecrabbit/php-accessories/compare/0.8.1-BETA.1...0.8.2-BETA.1
 [0.8.1-BETA.1]: https://github.com/alecrabbit/php-accessories/compare/0.8.0-BETA.1...0.8.1-BETA.1
 [0.8.0-BETA.1]: https://github.com/alecrabbit/php-accessories/compare/0.7.1...0.8.0-BETA.1
