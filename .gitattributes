@@ -4,6 +4,7 @@
 /tests             export-ignore
 /.travis           export-ignore
 /.chglog           export-ignore
+/.github           export-ignore
 .editorconfig      export-ignore
 .gitattributes     export-ignore
 .gitmodules        export-ignore
