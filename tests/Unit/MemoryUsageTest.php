@@ -72,7 +72,7 @@ class MemoryUsageTest extends TestCase
     /** @test */
     public function intGetters(): void
     {
-        $report = MemoryUsage::reportStatic();
+        $report = MemoryUsage::getReport();
         $this->assertIsInt($report->getUsage());
         $this->assertIsInt($report->getPeakUsage());
         $this->assertIsInt($report->getUsageReal());
@@ -86,7 +86,7 @@ class MemoryUsageTest extends TestCase
     /** @test */
     public function stringGetters(): void
     {
-        $report = MemoryUsage::reportStatic();
+        $report = MemoryUsage::getReport();
         $this->assertIsString($report->getUsageString());
         $this->assertIsString($report->getPeakUsageString());
         $this->assertIsString($report->getUsageRealString());
@@ -122,7 +122,7 @@ class MemoryUsageTest extends TestCase
                 '%fMB',
                 '%fMB'
             ),
-            (string)MemoryUsage::reportStatic()
+            (string)MemoryUsage::getReport()
         );
     }
 
@@ -134,6 +134,6 @@ class MemoryUsageTest extends TestCase
         $this->assertEquals(format_bytes(memory_get_usage(), 'GB'), MemoryUsage::get(false, 'GB'));
         $this->assertEquals(format_bytes(memory_get_usage(true)), MemoryUsage::get(true));
         $this->assertEquals(format_bytes(memory_get_peak_usage()), MemoryUsage::getPeak());
-        $this->assertIsString((string)MemoryUsage::reportStatic());
+        $this->assertIsString((string)MemoryUsage::getReport());
     }
 }

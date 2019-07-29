@@ -44,7 +44,7 @@ class MemoryUsage extends AbstractReportable
     /**
      * @return MemoryUsageReport
      */
-    public static function reportStatic(): MemoryUsageReport
+    public static function getReport(): MemoryUsageReport
     {
         /** @var MemoryUsageReport $report */
         $report = (new static)->report();
