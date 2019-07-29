@@ -23,7 +23,7 @@ var_dump(MemoryUsage::getPeak(true)); // string(7) "34.00MB"
 //echo MemoryUsage::reportStatic() . PHP_EOL;
 // Memory: 695.45KB(33456.92KB) Real: 2048.00KB(34820.00KB)
 
-$firstReport = MemoryUsage::reportStatic();
+$firstReport = MemoryUsage::getReport();
 echo $firstReport . PHP_EOL;
 echo $firstReport->getPeakUsageRealString() . PHP_EOL;
 
@@ -45,6 +45,6 @@ echo PHP_EOL;
 echo $report . PHP_EOL;
 // Memory: 0.68MB(32.67MB) Real: 2.00MB(34.00MB)
 
-$lastReport = MemoryUsage::reportStatic()->diff($firstReport);
+$lastReport = MemoryUsage::getReport()->diff($firstReport);
 
-dump($lastReport);
+var_dump($lastReport);
