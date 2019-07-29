@@ -25,24 +25,24 @@ interface MemoryUsageReportInterface
     public function getPeakUsageReal(): int;
 
     /**
-     * @return int
+     * @return null|int
      */
-    public function getUsageDiff(): int;
+    public function getUsageDiff(): ?int;
 
     /**
-     * @return int
+     * @return null|int
      */
-    public function getPeakUsageDiff(): int;
+    public function getPeakUsageDiff(): ?int;
 
     /**
-     * @return int
+     * @return null|int
      */
-    public function getUsageRealDiff(): int;
+    public function getUsageRealDiff(): ?int;
 
     /**
-     * @return int
+     * @return null|int
      */
-    public function getPeakUsageRealDiff(): int;
+    public function getPeakUsageRealDiff(): ?int;
 
     /**
      * @param null|string $unit

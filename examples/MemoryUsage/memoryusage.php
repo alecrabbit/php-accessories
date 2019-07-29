@@ -47,4 +47,5 @@ echo $report . PHP_EOL;
 
 $lastReport = MemoryUsage::getReport()->diff($firstReport);
 
-var_dump($lastReport);
+var_dump((string)$firstReport);
+var_dump((string)$lastReport);

@@ -6,6 +6,8 @@ use AlecRabbit\Accessories\R;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
+$memoryUsageReportStart = MemoryUsage::getReport();
+echo $memoryUsageReportStart . PHP_EOL;
 
 $c = new Circular(R::range(1, 100000));
 
@@ -15,7 +17,8 @@ foreach ($c as $item) {
 }
 var_dump($a);
 
-echo MemoryUsage::getReport() . PHP_EOL;
+$memoryUsageReport = MemoryUsage::getReport()->diff($memoryUsageReportStart);
+echo $memoryUsageReport . PHP_EOL;
 
 // uses more memory
 $c = new Circular(range(1, 100000));
@@ -26,4 +29,5 @@ foreach ($c as $item) {
 }
 var_dump($a);
 
-echo MemoryUsage::getReport() . PHP_EOL;
+$memoryUsageReportFinal = MemoryUsage::getReport()->diff($memoryUsageReport);
+echo $memoryUsageReportFinal . PHP_EOL;

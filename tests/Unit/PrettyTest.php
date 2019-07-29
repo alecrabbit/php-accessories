@@ -11,7 +11,7 @@ class PrettyTest extends TestCase
 {
     /**
      * @test
-     * @dataProvider  dataProvider
+     * @dataProvider  prettyBytesDataProvider
      * @param $expected
      * @param $args
      */
@@ -20,9 +20,11 @@ class PrettyTest extends TestCase
         $this->assertEquals($expected, Pretty::bytes(...$args));
     }
 
-    public function dataProvider(): array
+    public function prettyBytesDataProvider(): array
     {
         return [
+            ['-1.0KB', [-1035, 'KB', 1]],
+            ['-1.28MB', [-1345035, 'MB', 2]],
             ['1.0KB', [1035, 'KB', 1]],
             ['1.01KB', [1035, 'KB', 2]],
             ['1.011KB', [1035, 'KB', 3]],
