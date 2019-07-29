@@ -50,4 +50,15 @@ class MemoryUsage extends AbstractReportable
         $report = (new static)->report();
         return $report;
     }
+
+    /**
+     * @param MemoryUsageReport $firstReport
+     * @return MemoryUsageReport
+     */
+    public static function diff(MemoryUsageReport $firstReport): MemoryUsageReport
+    {
+        /** @var MemoryUsageReport $report */
+        $report = (new static)->report();
+        return $report->diff($firstReport);
+    }
 }

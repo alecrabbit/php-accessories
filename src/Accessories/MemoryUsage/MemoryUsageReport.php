@@ -20,6 +20,18 @@ class MemoryUsageReport extends AbstractReport implements MemoryUsageReportInter
     /** @var int */
     protected $peakUsageReal;
 
+    /** @var int */
+    protected $usageDiff;
+
+    /** @var int */
+    protected $peakUsageDiff;
+
+    /** @var int */
+    protected $usageRealDiff;
+
+    /** @var int */
+    protected $peakUsageRealDiff;
+
     /** @var null|MemoryUsageReportFormatter */
     protected $formatter;
 
@@ -45,6 +57,10 @@ class MemoryUsageReport extends AbstractReport implements MemoryUsageReportInter
         $this->peakUsage = $peakUsage ?? memory_get_peak_usage();
         $this->usageReal = $usageReal ?? memory_get_usage(true);
         $this->peakUsageReal = $peakUsageReal ?? memory_get_peak_usage(true);
+        $this->usageDiff = $this->usage;
+        $this->peakUsageDiff = $this->peakUsage;
+        $this->usageRealDiff = $this->usageReal;
+        $this->peakUsageRealDiff = $this->peakUsageReal;
     }
 
     /**
@@ -133,5 +149,14 @@ class MemoryUsageReport extends AbstractReport implements MemoryUsageReportInter
         // @codeCoverageIgnoreStart
         return '';
         // @codeCoverageIgnoreEnd
+    }
+
+    public function diff(MemoryUsageReport $firstReport): self
+    {
+        $this->usageDiff         = $this->usage - $firstReport->usage;
+        $this->peakUsageDiff     = $this->peakUsage - $firstReport->peakUsage;
+        $this->usageRealDiff     = $this->usageReal - $firstReport->usageReal;
+        $this->peakUsageRealDiff = $this->peakUsageReal - $firstReport->peakUsageReal;
+        return $this;
     }
 }
