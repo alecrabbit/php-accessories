@@ -24,7 +24,7 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
     public function __construct(?int $options = null)
     {
         parent::__construct($options);
-        $this->options = $options ?? static::SHOW_REAL_USAGE;
+        $this->options = $options ?? static::OPTION_SHOW_REAL_USAGE;
     }
 
     /**
@@ -104,54 +104,4 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
         return
             Pretty::bytes($value, $this->refineUnits($units), $this->refineDecimals($decimals));
     }
-
-//    public function getUsageString(
-//        MemoryUsageReport $report,
-//        ?string $units = null,
-//        ?int $decimals = null
-//    ): string {
-//        return
-//            Pretty::bytes($report->getUsage(), $this->refineUnits($units), $this->refineDecimals($decimals));
-//    }
-//
-//    /**
-//     * {@inheritdoc}
-//     */
-//
-//    public function getPeakUsageString(
-//        MemoryUsageReport $report,
-//        ?string $units = null,
-//        ?int $decimals = null
-//    ): string {
-//        return
-//            Pretty::bytes($report->getPeakUsage(), $this->refineUnits($units), $this->refineDecimals($decimals));
-//    }
-//
-//    /**
-//     * {@inheritdoc}
-//     */
-//    public function getUsageRealString(
-//        MemoryUsageReport $report,
-//        ?string $units = null,
-//        ?int $decimals = null
-//    ): string {
-//        return
-//            Pretty::bytes($report->getUsageReal(), $this->refineUnits($units), $this->refineDecimals($decimals));
-//    }
-//
-//    /**
-//     * {@inheritdoc}
-//     */
-//    public function getPeakUsageRealString(
-//        MemoryUsageReport $report,
-//        ?string $units = null,
-//        ?int $decimals = null
-//    ): string {
-//        return
-//            Pretty::bytes(
-//                $report->getPeakUsageReal(),
-//                $this->refineUnits($units),
-//                $this->refineDecimals($decimals)
-//            );
-//    }
 }
