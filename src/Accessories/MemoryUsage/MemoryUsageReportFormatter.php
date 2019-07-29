@@ -85,8 +85,8 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
                 sprintf(
                     self::STRING_FORMAT,
                     Pretty::bytes($report->getUsage(), $this->units, $this->decimals),
-                    Pretty::bytes($report->getPeakUsage(), $this->units, $this->decimals),
                     Pretty::bytes($report->getUsageReal(), $this->units, $this->decimals),
+                    Pretty::bytes($report->getPeakUsage(), $this->units, $this->decimals),
                     Pretty::bytes($report->getPeakUsageReal(), $this->units, $this->decimals)
                 );
         }
@@ -94,55 +94,64 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
     }
 
     /**
-     * {@inheritdoc}
+     * @param int $value
+     * @param null|string $units
+     * @param null|int $decimals
+     * @return string
      */
-    public function getUsageString(
-        MemoryUsageReport $report,
-        ?string $units = null,
-        ?int $decimals = null
-    ): string {
+    public function getString(int $value, ?string $units = null, ?int $decimals = null): string
+    {
         return
-            Pretty::bytes($report->getUsage(), $this->refineUnits($units), $this->refineDecimals($decimals));
+            Pretty::bytes($value, $this->refineUnits($units), $this->refineDecimals($decimals));
     }
 
-    /**
-     * {@inheritdoc}
-     */
-
-    public function getPeakUsageString(
-        MemoryUsageReport $report,
-        ?string $units = null,
-        ?int $decimals = null
-    ): string {
-        return
-            Pretty::bytes($report->getPeakUsage(), $this->refineUnits($units), $this->refineDecimals($decimals));
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getUsageRealString(
-        MemoryUsageReport $report,
-        ?string $units = null,
-        ?int $decimals = null
-    ): string {
-        return
-            Pretty::bytes($report->getUsageReal(), $this->refineUnits($units), $this->refineDecimals($decimals));
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getPeakUsageRealString(
-        MemoryUsageReport $report,
-        ?string $units = null,
-        ?int $decimals = null
-    ): string {
-        return
-            Pretty::bytes(
-                $report->getPeakUsageReal(),
-                $this->refineUnits($units),
-                $this->refineDecimals($decimals)
-            );
-    }
+//    public function getUsageString(
+//        MemoryUsageReport $report,
+//        ?string $units = null,
+//        ?int $decimals = null
+//    ): string {
+//        return
+//            Pretty::bytes($report->getUsage(), $this->refineUnits($units), $this->refineDecimals($decimals));
+//    }
+//
+//    /**
+//     * {@inheritdoc}
+//     */
+//
+//    public function getPeakUsageString(
+//        MemoryUsageReport $report,
+//        ?string $units = null,
+//        ?int $decimals = null
+//    ): string {
+//        return
+//            Pretty::bytes($report->getPeakUsage(), $this->refineUnits($units), $this->refineDecimals($decimals));
+//    }
+//
+//    /**
+//     * {@inheritdoc}
+//     */
+//    public function getUsageRealString(
+//        MemoryUsageReport $report,
+//        ?string $units = null,
+//        ?int $decimals = null
+//    ): string {
+//        return
+//            Pretty::bytes($report->getUsageReal(), $this->refineUnits($units), $this->refineDecimals($decimals));
+//    }
+//
+//    /**
+//     * {@inheritdoc}
+//     */
+//    public function getPeakUsageRealString(
+//        MemoryUsageReport $report,
+//        ?string $units = null,
+//        ?int $decimals = null
+//    ): string {
+//        return
+//            Pretty::bytes(
+//                $report->getPeakUsageReal(),
+//                $this->refineUnits($units),
+//                $this->refineDecimals($decimals)
+//            );
+//    }
 }

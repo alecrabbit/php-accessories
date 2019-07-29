@@ -22,36 +22,39 @@ class MemoryUsageTest extends TestCase
         $this->assertIsInt($report->getPeakUsage());
         $this->assertIsInt($report->getUsageReal());
         $this->assertIsInt($report->getPeakUsageReal());
+        $this->assertIsInt($report->getUsageDiff());
+        $this->assertIsInt($report->getPeakUsageDiff());
+        $this->assertIsInt($report->getUsageRealDiff());
+        $this->assertIsInt($report->getPeakUsageRealDiff());
 
         $this->assertIsString($report->getUsageString());
         $this->assertIsString($report->getPeakUsageString());
         $this->assertIsString($report->getUsageRealString());
         $this->assertIsString($report->getPeakUsageRealString());
+        $this->assertIsString($report->getUsageDiffString());
+        $this->assertIsString($report->getPeakUsageDiffString());
+        $this->assertIsString($report->getUsageRealDiffString());
+        $this->assertIsString($report->getPeakUsageRealDiffString());
 
         $this->assertStringMatchesFormat('%fMB', $report->getUsageString());
         $this->assertStringMatchesFormat('%fMB', $report->getPeakUsageString());
         $this->assertStringMatchesFormat('%fMB', $report->getUsageRealString());
         $this->assertStringMatchesFormat('%fMB', $report->getPeakUsageRealString());
+        $this->assertStringMatchesFormat('%fMB', $report->getUsageDiffString());
+        $this->assertStringMatchesFormat('%fMB', $report->getPeakUsageDiffString());
+        $this->assertStringMatchesFormat('%fMB', $report->getUsageRealDiffString());
+        $this->assertStringMatchesFormat('%fMB', $report->getPeakUsageRealDiffString());
 
         $this->assertStringMatchesFormat('%fKB', $report->getUsageString('kb'));
         $this->assertStringMatchesFormat('%fKB', $report->getPeakUsageString('kb'));
         $this->assertStringMatchesFormat('%fKB', $report->getUsageRealString('kb'));
         $this->assertStringMatchesFormat('%fKB', $report->getPeakUsageRealString('kb'));
+        $this->assertStringMatchesFormat('%fKB', $report->getUsageDiffString('kb'));
+        $this->assertStringMatchesFormat('%fKB', $report->getPeakUsageDiffString('kb'));
+        $this->assertStringMatchesFormat('%fKB', $report->getUsageRealDiffString('kb'));
+        $this->assertStringMatchesFormat('%fKB', $report->getPeakUsageRealDiffString('kb'));
     }
 
-//    /** @test */
-//    public function setFormatter(): void
-//    {
-//        $formatter = new MemoryUsageReportFormatter();
-//        MemoryUsage::setFormatter($formatter);
-//        $this->assertSame($formatter, MemoryUsage::getFormatter());
-//    }
-//
-//    /** @test */
-//    public function getFormatter(): void
-//    {
-//        $this->assertInstanceOf(MemoryUsageReportFormatter::class, MemoryUsage::getFormatter());
-//    }
 
     /** @test */
     public function formatGet(): void
@@ -60,6 +63,10 @@ class MemoryUsageTest extends TestCase
         $this->assertStringMatchesFormat('%fMB', MemoryUsage::getPeak(false, 'MB'));
         $this->assertStringMatchesFormat('%fMB', MemoryUsage::get(true, 'MB'));
         $this->assertStringMatchesFormat('%fMB', MemoryUsage::getPeak(true, 'MB'));
+        $this->assertStringMatchesFormat('%fKB', MemoryUsage::get(false, 'kB'));
+        $this->assertStringMatchesFormat('%fKB', MemoryUsage::getPeak(false, 'kB'));
+        $this->assertStringMatchesFormat('%fKB', MemoryUsage::get(true, 'kB'));
+        $this->assertStringMatchesFormat('%fKB', MemoryUsage::getPeak(true, 'kB'));
     }
 
     /** @test */
@@ -70,6 +77,10 @@ class MemoryUsageTest extends TestCase
         $this->assertIsInt($report->getPeakUsage());
         $this->assertIsInt($report->getUsageReal());
         $this->assertIsInt($report->getPeakUsageReal());
+        $this->assertIsInt($report->getUsageDiff());
+        $this->assertIsInt($report->getPeakUsageDiff());
+        $this->assertIsInt($report->getUsageRealDiff());
+        $this->assertIsInt($report->getPeakUsageRealDiff());
     }
 
     /** @test */
@@ -85,6 +96,19 @@ class MemoryUsageTest extends TestCase
         $this->assertStringMatchesFormat('%fMB', $report->getPeakUsageString());
         $this->assertStringMatchesFormat('%fMB', $report->getUsageRealString());
         $this->assertStringMatchesFormat('%fMB', $report->getPeakUsageRealString());
+
+        $report2 = MemoryUsage::diff($report);
+
+        $this->assertIsString($report2->getUsageString());
+        $this->assertIsString($report2->getPeakUsageString());
+        $this->assertIsString($report2->getUsageRealString());
+        $this->assertIsString($report2->getPeakUsageRealString());
+
+        $this->assertStringMatchesFormat('%fMB', $report2->getUsageString());
+        $this->assertStringMatchesFormat('%fMB', $report2->getPeakUsageString());
+        $this->assertStringMatchesFormat('%fMB', $report2->getUsageRealString());
+        $this->assertStringMatchesFormat('%fMB', $report2->getPeakUsageRealString());
+
     }
 
     /** @test */

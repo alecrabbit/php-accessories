@@ -55,14 +55,14 @@ class MemoryUsageReportFormatterTest extends TestCase
             $formatter,
             $mu
         );
-        $this->assertEquals('Memory: 9.8KB(12.1KB) Real: 64.0KB(128.0KB)', (string)$report);
+        $this->assertEquals('Memory: 9.8KB(64.0KB) Peak: 12.1KB(128.0KB)', (string)$report);
         $formatter->setDecimals(3);
-        $this->assertEquals('Memory: 9.766KB(12.056KB) Real: 64.000KB(128.000KB)', (string)$report);
+        $this->assertEquals('Memory: 9.766KB(64.000KB) Peak: 12.056KB(128.000KB)', (string)$report);
         $formatter->setDecimals(5);
-        $this->assertEquals('Memory: 9.766KB(12.056KB) Real: 64.000KB(128.000KB)', (string)$report);
+        $this->assertEquals('Memory: 9.766KB(64.000KB) Peak: 12.056KB(128.000KB)', (string)$report);
         $formatter->setUnits('mb');
         $formatter->setDecimals(3);
-        $this->assertEquals('Memory: 0.010MB(0.012MB) Real: 0.063MB(0.125MB)', (string)$report);
+        $this->assertEquals('Memory: 0.010MB(0.063MB) Peak: 0.012MB(0.125MB)', (string)$report);
     }
 
     /** @test */

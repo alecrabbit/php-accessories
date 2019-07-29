@@ -98,15 +98,42 @@ class MemoryUsageReport extends AbstractReport implements MemoryUsageReportInter
     /**
      * {@inheritdoc}
      */
+    public function getUsageDiff(): int
+    {
+        return $this->usageDiff;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getPeakUsageDiff(): int
+    {
+        return $this->peakUsageDiff;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getUsageRealDiff(): int
+    {
+        return $this->usageRealDiff;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getPeakUsageRealDiff(): int
+    {
+        return $this->peakUsageRealDiff;
+    }
+
+
+    /**
+     * {@inheritdoc}
+     */
     public function getUsageString(?string $unit = null, ?int $decimals = null): string
     {
-        if ($this->formatter instanceof MemoryUsageReportFormatter) {
-            return
-                $this->formatter->getUsageString($this, $unit, $decimals);
-        }
-        // @codeCoverageIgnoreStart
-        return '';
-        // @codeCoverageIgnoreEnd
+        return $this->prepareString($this->usage, $unit, $decimals);
     }
 
     /**
@@ -114,13 +141,7 @@ class MemoryUsageReport extends AbstractReport implements MemoryUsageReportInter
      */
     public function getPeakUsageString(?string $unit = null, ?int $decimals = null): string
     {
-        if ($this->formatter instanceof MemoryUsageReportFormatter) {
-            return
-                $this->formatter->getPeakUsageString($this, $unit, $decimals);
-        }
-        // @codeCoverageIgnoreStart
-        return '';
-        // @codeCoverageIgnoreEnd
+        return $this->prepareString($this->peakUsage, $unit, $decimals);
     }
 
     /**
@@ -128,13 +149,7 @@ class MemoryUsageReport extends AbstractReport implements MemoryUsageReportInter
      */
     public function getUsageRealString(?string $unit = null, ?int $decimals = null): string
     {
-        if ($this->formatter instanceof MemoryUsageReportFormatter) {
-            return
-                $this->formatter->getUsageRealString($this, $unit, $decimals);
-        }
-        // @codeCoverageIgnoreStart
-        return '';
-        // @codeCoverageIgnoreEnd
+        return $this->prepareString($this->usageReal, $unit, $decimals);
     }
 
     /**
@@ -142,12 +157,55 @@ class MemoryUsageReport extends AbstractReport implements MemoryUsageReportInter
      */
     public function getPeakUsageRealString(?string $unit = null, ?int $decimals = null): string
     {
+        return $this->prepareString($this->peakUsageReal, $unit, $decimals);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getUsageDiffString(?string $unit = null, ?int $decimals = null): string
+    {
+        return $this->prepareString($this->usageDiff, $unit, $decimals);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getPeakUsageDiffString(?string $unit = null, ?int $decimals = null): string
+    {
+        return $this->prepareString($this->peakUsageDiff, $unit, $decimals);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getUsageRealDiffString(?string $unit = null, ?int $decimals = null): string
+    {
+        return $this->prepareString($this->usageRealDiff, $unit, $decimals);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getPeakUsageRealDiffString(?string $unit = null, ?int $decimals = null): string
+    {
+        return $this->prepareString($this->peakUsageRealDiff, $unit, $decimals);
+    }
+
+    /**
+     * @param int $forValue
+     * @param null|string $unit
+     * @param null|int $decimals
+     * @return string
+     */
+    protected function prepareString(int $forValue, ?string $unit = null, ?int $decimals = null): string
+    {
         if ($this->formatter instanceof MemoryUsageReportFormatter) {
             return
-                $this->formatter->getPeakUsageRealString($this, $unit, $decimals);
+                $this->formatter->getString($forValue, $unit, $decimals);
         }
         // @codeCoverageIgnoreStart
-        return '';
+        return 'WRONG FORMATTER TYPE: ' . get_class($this->formatter);
         // @codeCoverageIgnoreEnd
     }
 
