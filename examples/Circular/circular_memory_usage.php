@@ -9,7 +9,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 $memoryUsageReportStart = MemoryUsage::getReport();
 echo $memoryUsageReportStart . PHP_EOL;
 
-$c = new Circular(R::range(1, 100000));
+$c = new Circular(R::range(1, 1000000));
 
 $a = 0;
 foreach ($c as $item) {
@@ -21,13 +21,14 @@ $memoryUsageReport = MemoryUsage::getReport()->diff($memoryUsageReportStart);
 echo $memoryUsageReport . PHP_EOL;
 
 // uses more memory
-$c = new Circular(range(1, 100000));
+$c = new Circular(range(1, 1000000));
 
-$a = 0;
+$b = 0;
 foreach ($c as $item) {
-    $a += $item;
+    $b += $item;
 }
-var_dump($a);
+var_dump($b);
+var_dump($a === $b);
 
 $memoryUsageReportFinal = MemoryUsage::getReport()->diff($memoryUsageReport);
 echo $memoryUsageReportFinal . PHP_EOL;

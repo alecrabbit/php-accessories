@@ -7,6 +7,7 @@ use AlecRabbit\Accessories\Pretty;
 use AlecRabbit\Formatters\Core\AbstractFormatter;
 use AlecRabbit\Reports\Core\Formattable;
 use function AlecRabbit\Helpers\bounds;
+use function AlecRabbit\str_wrap;
 use const AlecRabbit\Helpers\Strings\Constants\BYTES_UNITS;
 
 class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsageConstants
@@ -81,6 +82,7 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
     public function format(Formattable $report): string
     {
         if ($report instanceof MemoryUsageReport) {
+            $diffStr = $this->getDiffStr($report);
             return
                 sprintf(
                     self::STRING_FORMAT,
@@ -88,9 +90,33 @@ class MemoryUsageReportFormatter extends AbstractFormatter implements MemoryUsag
                     Pretty::bytes($report->getUsageReal(), $this->units, $this->decimals),
                     Pretty::bytes($report->getPeakUsage(), $this->units, $this->decimals),
                     Pretty::bytes($report->getPeakUsageReal(), $this->units, $this->decimals)
-                );
+                ) . $diffStr;
         }
         return $this->errorMessage($report, MemoryUsageReport::class);
+    }
+
+    /**
+     * @param MemoryUsageReport $report
+     * @return string
+     */
+    protected function getDiffStr(MemoryUsageReport $report): string
+    {
+        if ((null === $usageDiff = $report->getUsageDiff()) || (0 === $usageDiff)) {
+            return '';
+        }
+        return
+            ' ' . sprintf(
+                self::DIFF_FORMAT,
+                $this->prepareBytesString($usageDiff, ' '),
+                $this->prepareBytesString($report->getUsageRealDiff(), '(', ')'),
+                $this->prepareBytesString($report->getPeakUsageDiff(), ' '),
+                $this->prepareBytesString($report->getPeakUsageRealDiff(), '(', ')')
+            );
+    }
+
+    protected function prepareBytesString(int $value, string $open = '', string $close = ''): string
+    {
+        return 0 === $value ? '' : str_wrap(Pretty::bytes($value), $open, $close);
     }
 
     /**
