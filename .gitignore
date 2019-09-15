@@ -1,9 +1,9 @@
-.idea/
-vendor/
-docker/
-.eval/
-tests/tmp/
-tests/report.html
+/.idea/
+/vendor/
+/.eval/
+/tests/tmp/
+/tests/report.html
 /.dockerignore
-/.phpunit.result.cache
+/*.cache
 /composer.lock
+/build/

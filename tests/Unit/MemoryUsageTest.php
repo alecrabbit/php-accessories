@@ -108,7 +108,6 @@ class MemoryUsageTest extends TestCase
         $this->assertStringMatchesFormat('%fMB', $report2->getPeakUsageString());
         $this->assertStringMatchesFormat('%fMB', $report2->getUsageRealString());
         $this->assertStringMatchesFormat('%fMB', $report2->getPeakUsageRealString());
-
     }
 
     /** @test */

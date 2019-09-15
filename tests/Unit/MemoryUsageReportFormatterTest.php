@@ -126,7 +126,6 @@ class MemoryUsageReportFormatterTest extends TestCase
         $formatter->setUnits('mb');
         $formatter->setDecimals(3);
         $this->assertEquals('Memory: 9.460MB(5.617MB) Peak: 9.463MB(11.233MB) Diff: 9.45MB(5.55MB) 9.45MB(11.11MB)', (string)$report4);
-
     }
 
     /** @test */
