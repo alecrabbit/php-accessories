@@ -6,6 +6,40 @@ All notable changes to this project will be documented in this file.
 <a name="unreleased"></a>
 ## [Unreleased]
 
+### Changed
+- bumped deps version
+
+
+<a name="0.12.0"></a>
+## [0.12.0] - 2019-07-29
+### Add
+- Memory usage formatter diff string output
+- test negative bytes values with `Pretty::bytes`
+
+
+<a name="0.11.0"></a>
+## [0.11.0] - 2019-07-29
+### Changed
+- `MemoryUsage::reportStatic`  renamed to `MemoryUsage::getReport`
+
+
+<a name="0.10.0"></a>
+## [0.10.0] - 2019-07-29
+### Add
+- `MemoryUsage::diff` function
+
+### Changed
+- Memory usage formatter string output
+
+### Fix
+- .gitattributes
+
+
+<a name="0.9.1"></a>
+## [0.9.1] - 2019-06-17
+### Fix
+- .gitattributes
+
 
 <a name="0.9.0"></a>
 ## [0.9.0] - 2019-06-12
@@ -73,7 +107,11 @@ All notable changes to this project will be documented in this file.
 <a name="0.0.17"></a>
 ## 0.0.17 - 2018-12-14
 
-[Unreleased]: https://github.com/alecrabbit/php-accessories/compare/0.9.0...HEAD
+[Unreleased]: https://github.com/alecrabbit/php-accessories/compare/0.12.0...HEAD
+[0.12.0]: https://github.com/alecrabbit/php-accessories/compare/0.11.0...0.12.0
+[0.11.0]: https://github.com/alecrabbit/php-accessories/compare/0.10.0...0.11.0
+[0.10.0]: https://github.com/alecrabbit/php-accessories/compare/0.9.1...0.10.0
+[0.9.1]: https://github.com/alecrabbit/php-accessories/compare/0.9.0...0.9.1
 [0.9.0]: https://github.com/alecrabbit/php-accessories/compare/0.8.2-BETA.1...0.9.0
 [0.8.2-BETA.1]: https://github.com/alecrabbit/php-accessories/compare/0.8.1-BETA.1...0.8.2-BETA.1
 [0.8.1-BETA.1]: https://github.com/alecrabbit/php-accessories/compare/0.8.0-BETA.1...0.8.1-BETA.1
