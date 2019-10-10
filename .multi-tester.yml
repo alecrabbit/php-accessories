@@ -6,3 +6,15 @@ alecrabbit/php-console-spinner:
 alecrabbit/php-simple-profiler:
   install: default
   script: default
+
+alecrabbit/php-console-colour:
+  install: default
+  script: default
+
+alecrabbit/php-counters:
+  install: default
+  script: default
+
+alecrabbit/php-timers:
+  install: default
+  script: default
