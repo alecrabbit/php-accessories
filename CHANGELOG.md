@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - bumped dependency version
 
 ### Fixed
+- tests' dataProviders data
 - underlying package issue
 
 
