@@ -4,6 +4,8 @@ namespace AlecRabbit\Tests\Accessories;
 
 use AlecRabbit\Accessories\Pretty;
 use PHPUnit\Framework\TestCase;
+use const AlecRabbit\Helpers\Constants\INT_SIZE_32BIT;
+use const AlecRabbit\Helpers\Constants\INT_SIZE_64BIT;
 use const AlecRabbit\Helpers\Constants\UNIT_MICROSECONDS;
 use const AlecRabbit\Helpers\Constants\UNIT_NANOSECONDS;
 
@@ -22,7 +24,7 @@ class PrettyTest extends TestCase
 
     public function prettyBytesDataProvider(): array
     {
-        return [
+        $arr = [
             ['-1.0KB', [-1035, 'KB', 1]],
             ['-1.28MB', [-1345035, 'MB', 2]],
             ['1.0KB', [1035, 'KB', 1]],
@@ -31,8 +33,11 @@ class PrettyTest extends TestCase
             ['1.0107KB', [1035, 'KB', 4]],
             ['1.01074KB', [1035, 'KB', 5]],
             ['1.01KB', [1035, 'KB']],
-            ['100814681.87KB', [103234234235, 'KB']],
         ];
+        if (PHP_INT_SIZE === INT_SIZE_64BIT) {
+            $arr[] = ['100814681.87KB', [103234234235, 'KB']];
+        }
+        return $arr;
     }
 
     /**
@@ -135,7 +140,7 @@ class PrettyTest extends TestCase
 
     public function dataProviderTimeUSeconds(): array
     {
-        return [
+        $arr = [
             ['1035.0μs', [1035, UNIT_MICROSECONDS, 1]],
             ['0.0ms', [0.01035, null, 1]],
             ['0.00ms', [0.01035, null, 2]],
@@ -153,11 +158,15 @@ class PrettyTest extends TestCase
             ['1.0μs', [1]],
             ['3.2ms', [3200]],
             ['32.3s', [32342342]],
-            ['89839873.732h', [323423545435252342]],
             ['35.79m', [2147483647]],
             // not tested on 32bit php builds
-            [PHP_INT_SIZE === 4 ? '35.79m' : '2562047788.015h', [PHP_INT_MAX]],
+            [PHP_INT_SIZE === INT_SIZE_32BIT ? '35.79m' : '2562047788.015h', [PHP_INT_MAX]],
         ];
+        if (PHP_INT_SIZE === INT_SIZE_64BIT) {
+            $arr[] = ['89839873.732h', [323423545435252342]];
+        }
+        return $arr;
+
     }
 
     /**
