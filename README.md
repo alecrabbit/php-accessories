@@ -2,6 +2,7 @@
 
 [![PHP Version](https://img.shields.io/packagist/php-v/alecrabbit/php-accessories.svg)](https://php.net)
 [![Build Status](https://travis-ci.org/alecrabbit/php-accessories.svg?branch=master)](https://travis-ci.org/alecrabbit/php-accessories)
+[![Appveyor Status](https://img.shields.io/appveyor/ci/alecrabbit/php-accessories.svg?label=appveyor)](https://ci.appveyor.com/project/alecrabbit/php-accessories/branch/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/alecrabbit/php-accessories/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/alecrabbit/php-accessories/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/alecrabbit/php-accessories/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/alecrabbit/php-accessories/?branch=master)
 [![Total Downloads](https://poser.pugx.org/alecrabbit/php-accessories/downloads)](https://packagist.org/packages/alecrabbit/php-accessories)
