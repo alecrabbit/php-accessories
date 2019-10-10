@@ -9,6 +9,9 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - bumped dependency version
 
+### Fixed
+- underlying package issue
+
 
 <a name="0.12.1"></a>
 ## [0.12.1] - 2019-09-15
