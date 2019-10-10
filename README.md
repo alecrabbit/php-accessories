@@ -12,6 +12,8 @@
 [![Latest Unstable Version](https://poser.pugx.org/alecrabbit/php-accessories/v/unstable)](https://packagist.org/packages/alecrabbit/php-accessories)
 
 [![License](https://poser.pugx.org/alecrabbit/php-accessories/license)](https://packagist.org/packages/alecrabbit/php-accessories)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/alecrabbit/php-accessories.svg)](http://isitmaintained.com/project/alecrabbit/php-accessories "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/alecrabbit/php-accessories.svg)](http://isitmaintained.com/project/alecrabbit/php-accessories "Percentage of issues still open")
 
 ### Installation
 ```bash
