@@ -7,6 +7,12 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ### Changed
+- bumped dependency version
+
+
+<a name="0.12.1"></a>
+## [0.12.1] - 2019-09-15
+### Changed
 - bumped deps version
 
 
@@ -107,7 +113,8 @@ All notable changes to this project will be documented in this file.
 <a name="0.0.17"></a>
 ## 0.0.17 - 2018-12-14
 
-[Unreleased]: https://github.com/alecrabbit/php-accessories/compare/0.12.0...HEAD
+[Unreleased]: https://github.com/alecrabbit/php-accessories/compare/0.12.1...HEAD
+[0.12.1]: https://github.com/alecrabbit/php-accessories/compare/0.12.0...0.12.1
 [0.12.0]: https://github.com/alecrabbit/php-accessories/compare/0.11.0...0.12.0
 [0.11.0]: https://github.com/alecrabbit/php-accessories/compare/0.10.0...0.11.0
 [0.10.0]: https://github.com/alecrabbit/php-accessories/compare/0.9.1...0.10.0
