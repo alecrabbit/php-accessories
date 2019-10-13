@@ -6,7 +6,7 @@ use AlecRabbit\Accessories\Rewindable;
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 $generatorFunction =
-    function ($start, $stop) {
+    static function ($start, $stop) {
         return G::range($start, $stop);
     };
 $r = new Rewindable($generatorFunction, 1, 3);
